@@ -1,20 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  :root {
-    --background: #ffffff;
-    --background-alt: #f9f9f9;
-    --foreground: #171717;
-
-    --card: #f3f3f3;
-    --red: #c82a22;
-  }
-}
-
-@layer base {
-  body {
-    @apply bg-background text-foreground;
-  }
-}

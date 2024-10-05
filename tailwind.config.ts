@@ -1,4 +1,5 @@
 import type {Config} from 'tailwindcss'
+import {fontFamily} from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
 
 import tailwindcssAnimate from 'tailwindcss-animate'
@@ -12,14 +13,17 @@ const config: Config = {
       // md: {max: '1024px'},
       sm: {max: '428px'},
     },
+    fontFamily: {
+      sans: ['var(--font-geist)', ...fontFamily.sans],
+    },
     colors: {
       background: {
-        DEFAULT: 'var(--background)',
-        alt: 'var(--background-alt)',
+        DEFAULT: '#ffffff',
+        alt: '#f9f9f9',
       },
-      foreground: 'var(--foreground)',
-      card: 'var(--card)',
-      red: 'var(--red)',
+      foreground: '#171717',
+      card: '#f3f3f3',
+      red: '#c82a22',
     },
     extend: {},
   },
