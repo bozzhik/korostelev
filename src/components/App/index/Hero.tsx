@@ -29,7 +29,7 @@ export default function Hero() {
       </div>
 
       <div className="flex flex-col justify-end gap-10 p-8 bg-red">
-        <HeroSlider slides={heroSliderData} />
+        <HeroSlider interval={5000} slides={Object.values(heroSliderData)} />
         <button className="py-3 text-xl font-bold border-[2px] px-14 w-fit border-background">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
       </div>
     </section>
