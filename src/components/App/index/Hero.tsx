@@ -4,6 +4,8 @@ import HeroImage from '$/hero.jpg'
 import Heading from '~/UI/Heading'
 import HeroSlider from '~~/index/HeroSlider'
 
+export const screenHeight = 'h-screen !h-svh'
+
 const heroSliderData = {
   1: {
     title: 'Руководил группой юристов',
@@ -20,9 +22,8 @@ const heroSliderData = {
 }
 
 export default function Hero() {
-  const screenHeight = 'h-screen !h-svh'
   return (
-    <section data-section="hero-index" className={`grid grid-cols-2 text-background ${screenHeight}`}>
+    <section data-section="hero-index" className={`fixed inset-0 z-10 grid grid-cols-2 text-background ${screenHeight}`}>
       <div className="relative">
         <Heading type="h1" className="absolute left-5 bottom-5" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
         <Image quality={100} className="object-cover s-full" src={HeroImage} alt="" />
