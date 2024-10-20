@@ -1,4 +1,5 @@
 import Heading from '~/UI/Heading'
+import Button from '~/UI/Button'
 
 const servicesData = {
   1: {
@@ -45,15 +46,33 @@ const servicesData = {
 
 export default function Services() {
   return (
-    <section data-section="services-index" className="relative w-full min-h-screen bg-background z-20 p-8">
-      <Heading type="h1" text="Услуги" />
-      <div className="space-y-10 text-background">
-        {Object.entries(servicesData).map(([key, {heading, description}]) => (
-          <div key={key} className="space-y-2">
-            <h1 className="text-4xl font-medium">{heading}</h1>
-            <p className="text-xl">{description}</p>
-          </div>
-        ))}
+    <section id="services" data-section="services-index" className="relative z-20 w-full min-h-screen">
+      <svg className="fill-background-alt" width="100%" height="100%" viewBox="0 0 300 15">
+        <path
+          d="M 0 0 
+             L 290 0 
+             L 303 15 
+             L 303 15 
+             L 0 15 Z"
+        />
+      </svg>
+
+      <div className="space-y-5 bg-background-alt">
+        <div className="flex items-end justify-between px-10">
+          <Heading type="h1" className="uppercase " text="Услуги" />
+          <Button to="#" variant="secondary" text="Посмотреть все" />
+        </div>
+
+        <div>
+          {Object.entries(servicesData).map(([key, {heading, description}]) => (
+            <div key={key} className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt">
+              <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
+
+              <h1 className="ml-28 text-4xl font-semibold max-w-[20ch] uppercase leading-[1.1]">{heading}</h1>
+              <p className="text-[22px] max-w-[50ch] font-light leading-[1.2]">{description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
