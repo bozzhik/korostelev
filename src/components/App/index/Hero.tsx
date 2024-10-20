@@ -2,6 +2,7 @@ import Image from 'next/image'
 import HeroImage from '$/hero.jpg'
 
 import Heading from '~/UI/Heading'
+import Button from '~/UI/Button'
 import HeroSlider from '~~/index/HeroSlider'
 
 export const screenHeight = 'h-screen !h-svh'
@@ -31,7 +32,7 @@ export default function Hero() {
 
       <div className="flex flex-col justify-end gap-10 p-8 bg-red">
         <HeroSlider interval={5000} slides={Object.values(heroSliderData)} />
-        <button className="py-3 text-xl font-bold border-[2px] px-14 w-fit border-background">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
+        <Button to="#" text="Заказать консультацию" />
       </div>
     </section>
   )
