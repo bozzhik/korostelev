@@ -1,5 +1,6 @@
 import Heading from '~/UI/Heading'
 import Button from '~/UI/Button'
+import Text from '~/UI/Text'
 
 const servicesData = {
   1: {
@@ -68,8 +69,8 @@ export default function Services() {
             <div key={key} className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt">
               <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
 
-              <h1 className="ml-28 text-4xl font-semibold max-w-[20ch] uppercase leading-[1.1]">{heading}</h1>
-              <p className="text-[22px] max-w-[50ch] font-light leading-[1.2]">{description}</p>
+              <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
+              <Text type="h5" className="max-w-[50ch]" text={description} />
             </div>
           ))}
         </div>
