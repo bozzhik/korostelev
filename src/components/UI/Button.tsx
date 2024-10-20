@@ -1,13 +1,15 @@
-import CrossIcon from '$/cross-dark.svg'
+import CrossIcon from '$/cross.svg'
+import CrossDarkIcon from '$/cross-dark.svg'
 
 import {cn} from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface Props {
+type Props = {
   text: string
   to: string
   variant?: 'primary' | 'secondary'
+  mode?: 'light' | 'dark'
   className?: string
 }
 
@@ -17,11 +19,11 @@ export const buttonVariants = {
   secondary: 'flex group gap-4 items-center',
 }
 
-export default function Button({text, to, variant = 'primary', className}: Props) {
+export default function Button({text, to, variant = 'primary', mode = 'dark', className}: Props) {
   return (
     <Link href={to} className={cn(buttonVariants.base, buttonVariants[variant], className)}>
       <span>{text}</span>
-      {variant === 'secondary' && <Image className="s-7 group-hover:rotate-[45deg] duration-200 ease-in" src={CrossIcon} alt="" />}
+      {variant === 'secondary' && <Image className="s-7 group-hover:rotate-[45deg] duration-200 ease-in" src={mode === 'light' ? CrossIcon : CrossDarkIcon} alt="" />}
     </Link>
   )
 }

@@ -1,7 +1,7 @@
 import {cn} from '@/lib/utils'
 
 type Props = {
-  type: 'h4' | 'h5'
+  type: 'h4' | 'h5' | 'h6'
   text: string
   className?: string
 }
@@ -9,6 +9,7 @@ type Props = {
 export const textClasses = {
   h4: 'text-4xl leading-[1.1] font-semibold uppercase',
   h5: 'text-[22px] font-light leading-[1.2]',
+  h6: 'text-[18px]',
 }
 
 export default function Text({type, text, className}: Props) {
