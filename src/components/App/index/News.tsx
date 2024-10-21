@@ -2,7 +2,7 @@ import ProjectOneImage from '$/projects/1.jpg'
 
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
-import Button from '~/UI/Button'
+import {ExpandButton} from '~/UI/Button'
 import Text from '~/UI/Text'
 
 const servicesData = {
@@ -33,7 +33,7 @@ export default function News() {
     <section id="news" data-section="news-index" className="relative z-20 pt-32 space-y-8 bg-background">
       <div className="flex items-end justify-between px-8">
         <Heading type="h1" className="uppercase" text="Новости" />
-        <Button to="#" mode="dark" variant="secondary" text="Посмотреть все" />
+        <ExpandButton to="#" mode="light" text="Посмотреть все" />
       </div>
 
       <div className="grid grid-cols-2">

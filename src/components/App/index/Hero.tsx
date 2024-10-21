@@ -32,7 +32,7 @@ export default function Hero() {
 
       <div className="flex flex-col justify-end gap-10 p-8 bg-red">
         <HeroSlider interval={5000} slides={Object.values(heroSliderData)} />
-        <Button to="#" text="Заказать консультацию" />
+        <Button to="#" icon={false} className="font-bold uppercase px-14 border-background" text="Заказать консультацию" />
       </div>
     </section>
   )

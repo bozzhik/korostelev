@@ -1,6 +1,7 @@
-import Image from 'next/image'
 import LogoImage from '$/logo.svg'
-import CrossIcon from '$/cross.svg'
+
+import Image from 'next/image'
+import Button from '~/UI/Button'
 
 export default function Header() {
   const headerData = {
@@ -18,10 +19,7 @@ export default function Header() {
 
       <nav className="flex items-center justify-around gap-10 px-10 bg-red">
         {Object.entries(headerData).map(([key, value]) => (
-          <a href={`#${key}`} className="group pl-14 pr-7 py-2 flex items-center justify-center gap-3 text-xl text-background bg-red border-[2px] border-background/70" key={key}>
-            {value}
-            <Image className="s-fit group-hover:rotate-[45deg] duration-200 ease-in" src={CrossIcon} alt="" />
-          </a>
+          <Button to={`#${key}`} className="flex-row-reverse py-2 pl-14 pr-7 text-background" text={value} key={key} />
         ))}
       </nav>
     </header>

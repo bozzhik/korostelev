@@ -2,7 +2,7 @@ import ProjectOneImage from '$/projects/1.jpg'
 
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
-import Button from '~/UI/Button'
+import {ExpandButton} from '~/UI/Button'
 import Text from '@/components/UI/Text'
 
 const projectsData = {
@@ -49,7 +49,7 @@ export default function Projects() {
     <section id="projects" data-section="projects-index" className="relative z-20 p-8 pt-32 space-y-8 bg-foreground">
       <div className="flex items-end justify-between text-background">
         <Heading type="h1" className="uppercase " text="Проекты" />
-        <Button to="#" mode="light" variant="secondary" text="Посмотреть все" />
+        <ExpandButton to="#" text="Посмотреть все" />
       </div>
 
       <div className="grid grid-cols-3 gap-5">

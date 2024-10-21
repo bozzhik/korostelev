@@ -1,5 +1,5 @@
 import Heading from '~/UI/Heading'
-import Button from '~/UI/Button'
+import {ExpandButton} from '~/UI/Button'
 import Text from '~/UI/Text'
 
 const servicesData = {
@@ -61,7 +61,7 @@ export default function Services() {
       <div className="space-y-5 bg-background-alt">
         <div className="flex items-end justify-between px-10">
           <Heading type="h1" className="uppercase " text="Услуги" />
-          <Button to="#" variant="secondary" text="Посмотреть все" />
+          <ExpandButton to="#" mode="light" text="Посмотреть все" />
         </div>
 
         <div>
