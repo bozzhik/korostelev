@@ -1,6 +1,7 @@
 import Hero, {screenHeight} from '~~/index/Hero'
 import Services from '~~/index/Services'
 import Projects from '~~/index/Projects'
+import News from '~~/index/News'
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
 
       <Services />
       <Projects />
+      <News />
     </main>
   )
 }

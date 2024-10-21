@@ -46,7 +46,7 @@ const projectsData = {
 
 export default function Projects() {
   return (
-    <section id="projects" data-section="projects-index" className="relative z-20 p-8 py-32 space-y-8 bg-foreground">
+    <section id="projects" data-section="projects-index" className="relative z-20 p-8 pt-32 space-y-8 bg-foreground">
       <div className="flex items-end justify-between text-background">
         <Heading type="h1" className="uppercase " text="Проекты" />
         <Button to="#" mode="light" variant="secondary" text="Посмотреть все" />
