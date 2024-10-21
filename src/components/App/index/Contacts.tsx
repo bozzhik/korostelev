@@ -1,6 +1,7 @@
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button from '~/UI/Button'
+import Input from '~/UI/Input'
 
 type Socials = {
   label: string
@@ -33,18 +34,22 @@ export default function Contacts() {
 
           <div className="flex gap-3">
             {Object.keys(socialsData).map((key) => (
-              <Button key={key} variant="tertiary" to={socialsData[key].link} text={socialsData[key].label} />
+              <Button key={key} variant="outline" to={socialsData[key].link} text={socialsData[key].label} />
             ))}
           </div>
         </div>
       </div>
 
-      <div className="space-y-2">
-        <input className="block w-full" type="text" placeholder="Ваше имя" />
-        <input className="block w-full" type="tel" placeholder="Номер телефона" />
-        <input className="block w-full" type="email" placeholder="E-mail" />
-        <textarea className="block w-full" placeholder="E-mail" rows={4} />
-      </div>
+      <form>
+        <div className="space-y-7">
+          <Input content="text" placeholder="Ваше имя" />
+          <Input content="tel" placeholder="Номер телефона" />
+          <Input content="email" placeholder="E-mail" />
+          <Input type="textarea" placeholder="Чем я могу помочь?" rows={3} />
+        </div>
+
+        <Button to="#" variant="solid" mode="dark" className="w-full" text="Отправить форму" />
+      </form>
     </section>
   )
 }
