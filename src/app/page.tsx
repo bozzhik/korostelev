@@ -7,7 +7,7 @@ import Contacts from '~~/index/Contacts'
 
 export default function HomePage() {
   return (
-    <main className="relative">
+    <main vaul-drawer-wrapper="" className="relative">
       <Hero />
       <div data-section="spacer" className={`w-full ${screenHeight}`} />
 
