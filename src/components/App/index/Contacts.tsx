@@ -1,3 +1,4 @@
+import {screenHeight} from '~/App/index/Hero'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button from '~/UI/Button'
@@ -25,8 +26,8 @@ const socialsData: {[key: string]: Socials} = {
 
 export default function Contacts() {
   return (
-    <section id="contacts" data-section="contacts-index" className="relative z-20 grid grid-cols-2 gap-20 px-8 py-24 pb-20 bg-red text-background">
-      <div className="space-y-32">
+    <section id="contacts" data-section="contacts-index" className={`relative z-20 grid grid-cols-2 gap-20 px-8 pt-36 pb-16 bg-red text-background ${screenHeight}`}>
+      <div className="flex flex-col justify-between gap-32">
         <Heading type="h1" text="СВЯЖИТЕСЬ <br /> С НАМИ" />
 
         <div className="space-y-14">
@@ -40,15 +41,16 @@ export default function Contacts() {
         </div>
       </div>
 
-      <form>
-        <div className="space-y-7">
+      <form className="flex flex-col justify-between">
+        <div className="flex flex-col h-full gap-7">
           <Input content="text" placeholder="Ваше имя" />
           <Input content="tel" placeholder="Номер телефона" />
           <Input content="email" placeholder="E-mail" />
-          <Input type="textarea" placeholder="Чем я могу помочь?" rows={3} />
+          <div className="flex flex-col justify-between h-full">
+            <Input type="textarea" className="h-full" placeholder="Чем я могу помочь?" rows={2} />
+            <Button variant="solid" mode="dark" className="w-full" text="Отправить форму" />
+          </div>
         </div>
-
-        <Button to="#" variant="solid" mode="dark" className="w-full" text="Отправить форму" />
       </form>
     </section>
   )
