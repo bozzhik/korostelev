@@ -12,7 +12,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed z-50 grid grid-cols-2">
+    <header className="fixed w-screen z-50 grid grid-cols-2">
       <div className="px-5 py-4 bg-red w-fit">
         <Image src={LogoImage} alt="" />
       </div>

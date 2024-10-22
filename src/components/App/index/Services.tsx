@@ -1,10 +1,7 @@
-'use client'
-import {useState} from 'react'
-
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {ExpandButton} from '~/UI/Button'
-import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTrigger} from '~/UI/Drawer'
+import {Modal} from '~/UI/DrawerModal'
 
 type Service = {
   heading: string
@@ -66,8 +63,6 @@ const servicesData: Record<string, Service> = {
 }
 
 export default function Services() {
-  const [activeService, setActiveService] = useState<Service | null>(null)
-
   return (
     <section id="services" data-section="services-index" className="relative z-20 w-full min-h-screen">
       <svg className="fill-background-alt" width="100%" height="100%" viewBox="0 0 300 15">
@@ -82,39 +77,20 @@ export default function Services() {
 
       <div className="space-y-5 bg-background-alt">
         <div className="flex items-end justify-between px-10">
-          <Heading type="h1" className="uppercase " text="Услуги" />
+          <Heading type="h1" className="uppercase" text="Услуги" />
           <ExpandButton to="#" mode="light" text="Посмотреть все" />
         </div>
 
         <div className="flex flex-col">
           {Object.entries(servicesData).map(([key, {heading, description, content}]) => (
-            <Drawer key={key}>
-              <DrawerTrigger onClick={() => setActiveService({heading, description, content})}>
-                <div className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt">
-                  <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
+            <Modal key={key} heading={heading} description={description} content={content}>
+              <div className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt text-left">
+                <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
 
-                  <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
-                  <Text type="h5" className="max-w-[50ch]" text={description} />
-                </div>
-              </DrawerTrigger>
-
-              {activeService && activeService.heading === heading && (
-                <DrawerContent>
-                  <DrawerClose>
-                    <button>Close</button>
-                  </DrawerClose>
-                  <DrawerHeader>
-                    <Text type="h4" text={activeService.heading} />
-
-                    <div className="space-y-2 font-extralight">
-                      {activeService.content.map((paragraph, idx) => (
-                        <Text type="h5" text={paragraph} key={idx} />
-                      ))}
-                    </div>
-                  </DrawerHeader>
-                </DrawerContent>
-              )}
-            </Drawer>
+                <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
+                <Text type="h5" className="max-w-[50ch]" text={description} />
+              </div>
+            </Modal>
           ))}
         </div>
       </div>
