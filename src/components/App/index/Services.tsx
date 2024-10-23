@@ -1,7 +1,10 @@
+import {isMobile} from '@bozzhik/is-mobile'
+
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
+import {ChevronDown} from 'lucide-react'
 
 type Service = {
   heading: string
@@ -65,32 +68,43 @@ const servicesData: Record<string, Service> = {
 export default function Services() {
   return (
     <section id="services" data-section="services-index" className="relative z-20 w-full min-h-screen">
-      <svg className="fill-background-alt" width="100%" height="100%" viewBox="0 0 300 15">
-        <path
-          d="M 0 0 
-             L 290 0 
-             L 303 15 
-             L 303 15 
-             L 0 15 Z"
-        />
+      <svg className="fill-background-alt" width="100%" height="100%" viewBox="0 0 300 30">
+        <path d={!isMobile ? 'M 0 0 L 290 0 L 303 15 L 303 15 L 0 15 Z' : 'M 0 0 L 270 0 L 303 30 L 303 30 L 0 30 Z'} />
       </svg>
 
-      <div className="space-y-5 bg-background-alt">
-        <div className="flex items-end justify-between px-10">
+      <div className="space-y-5 sm:space-y-5 bg-background-alt">
+        <div className="flex items-end justify-between px-10 sm:px-3">
           <Heading type="h1" className="uppercase" text="Услуги" />
-          <ExpandButton to="#" mode="light" text="Посмотреть все" />
+          <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
         </div>
 
-        <div className="flex flex-col">
+        {/* desktop list */}
+        <div className="sm:hidden flex flex-col">
           {Object.entries(servicesData).map(([key, {heading, description, content}]) => (
             <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
-              <div className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt text-left">
+              <div className="px-10 py-16 relative grid grid-cols-2 gap-20 items-center duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt text-left">
                 <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
 
                 <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
                 <Text type="h5" className="max-w-[50ch]" text={description} />
               </div>
             </ModalTrigger>
+          ))}
+        </div>
+
+        {/* mobile list */}
+        <div className="hidden sm:flex flex-col">
+          {Object.entries(servicesData).map(([key, {heading}]) => (
+            <div key={key} className="px-3 py-10 relative grid grid-cols-1 gap-5 items-center border-b-2 border-foreground/80 group">
+              <div className="rounded-full s-5 text-background bg-red grid place-items-center">
+                <span className="hidden sm:block text-[13px]">{key}</span>
+              </div>
+
+              <div className="grid grid-cols-5 justify-between items-end">
+                <Text type="h4" className="col-span-4" text={heading} />
+                <ChevronDown className="col-span-1 justify-self-end s-10" />
+              </div>
+            </div>
           ))}
         </div>
       </div>
