@@ -1,7 +1,7 @@
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {ExpandButton} from '~/UI/Button'
-import {Modal} from '~/UI/DrawerModal'
+import {Modal as ModalTrigger} from '~/UI/DrawerModal'
 
 type Service = {
   heading: string
@@ -83,14 +83,14 @@ export default function Services() {
 
         <div className="flex flex-col">
           {Object.entries(servicesData).map(([key, {heading, description, content}]) => (
-            <Modal key={key} heading={heading} description={description} content={content}>
+            <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
               <div className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 duration-200 border-t-2 border-foreground group hover:bg-red hover:text-background-alt text-left">
                 <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
 
                 <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
                 <Text type="h5" className="max-w-[50ch]" text={description} />
               </div>
-            </Modal>
+            </ModalTrigger>
           ))}
         </div>
       </div>

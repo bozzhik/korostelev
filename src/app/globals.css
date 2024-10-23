@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[data-vaul-drawer] {
+  transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1) !important;
+  animation-duration: 1s !important;
+}
