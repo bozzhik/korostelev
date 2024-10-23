@@ -61,7 +61,7 @@ export default function HeroSlider({slides, interval}: {slides: Slide[]; interva
   }, [])
 
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-8 sm:space-y-3">
       <div className="flex">
         {Object.values(slides).map((slide, index) => (
           <div key={index} className="flex-1 h-[3px] bg-background/50 mx-1">
@@ -78,9 +78,9 @@ export default function HeroSlider({slides, interval}: {slides: Slide[]; interva
       <Swiper className="w-full h-full" loop={true} slidesPerView={1} onSwiper={handleSwiper} onSlideChange={handleSlideChange}>
         {Object.values(slides).map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="space-y-3">
+            <div className="sm:mx-1 space-y-3 sm:space-y-1">
               <Heading type="h2" className="" text={slide.title} />
-              <p className="max-w-[50ch] text-xl font-extralight tracking-tight">{slide.text}</p>
+              <p className="max-w-[50ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight tracking-tight">{slide.text}</p>
             </div>
           </SwiperSlide>
         ))}

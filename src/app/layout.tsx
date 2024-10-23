@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="scroll-smooth" lang="ru">
-      <body className={`${geistSans.variable} font-sans antialiased text-foreground !bg-red`}>
+      <body className={`${geistSans.variable} font-sans antialiased text-foreground !bg-foreground`}>
         <Header />
         {children}
       </body>

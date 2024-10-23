@@ -24,6 +24,7 @@ const config: Config = {
       foreground: '#171717',
       card: '#f3f3f3',
       red: '#c82a22',
+      gray: '#141414',
       transparent: 'transparent',
     },
     extend: {},
