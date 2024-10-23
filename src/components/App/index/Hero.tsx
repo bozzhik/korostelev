@@ -1,5 +1,3 @@
-import {cn} from '@/lib/utils'
-
 import Image from 'next/image'
 import HeroImage from '$/hero.jpg'
 
@@ -7,7 +5,7 @@ import Heading from '~/UI/Heading'
 import Button from '~/UI/Button'
 import HeroSlider from '~~/index/HeroSlider'
 
-export const screenHeight = cn('h-screen', 'h-svh')
+export const screenHeight = 'h-screen !h-svh'
 
 const heroSliderData = {
   1: {

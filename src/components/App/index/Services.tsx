@@ -106,7 +106,7 @@ export default function Services() {
         {/* mobile list */}
         <div className="hidden sm:flex flex-col">
           {Object.entries(servicesData).map(([key, {heading, description}]) => (
-            <div key={key} className="px-3 py-10 relative grid grid-cols-1 gap-5 items-center border-b-2 border-foreground/80 group">
+            <div key={key} className="px-4 py-10 relative grid grid-cols-1 gap-5 items-center border-b-2 border-foreground/80 group">
               <div className="rounded-full s-5 text-background bg-red grid place-items-center">
                 <span className="hidden sm:block text-[13px]">{key}</span>
               </div>

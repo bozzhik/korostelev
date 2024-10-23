@@ -3,7 +3,7 @@ import ProjectOneImage from '$/projects/1.jpg'
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import {ExpandButton} from '~/UI/Button'
+import Button, {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
 
 const projectsData = {
@@ -53,16 +53,17 @@ const projectsData = {
 
 export default function Projects() {
   return (
-    <section id="projects" data-section="projects-index" className="relative z-20 p-8 pt-32 space-y-8 bg-foreground">
+    <section id="projects" data-section="projects-index" className="relative z-20 p-8 sm:p-4 pt-32 sm:pt-12 space-y-8 bg-foreground">
       <div className="flex items-end justify-between text-background">
         <Heading type="h1" className="uppercase " text="Проекты" />
-        <ExpandButton to="#" text="Посмотреть все" />
+        <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
       </div>
 
-      <div className="grid grid-cols-3 gap-5">
+      {/* desktop list */}
+      <div className="sm:hidden grid grid-cols-3 gap-5">
         {Object.entries(projectsData).map(([key, {type, heading, description, content}]) => (
           <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
-            <div key={key} className="relative flex flex-col gap-20 p-7 pt-14 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
+            <div className="relative flex flex-col gap-20 p-7 pt-14 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
               <Text type="h6" className="font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={type} />
 
               <div className="space-y-5">
@@ -74,6 +75,26 @@ export default function Projects() {
               <div className="absolute top-0 right-0 w-0 h-0 border-l-[70px] border-b-[70px] border-l-transparent border-b-transparent border-r-[70px] border-r-foreground"></div>
             </div>
           </ModalTrigger>
+        ))}
+      </div>
+
+      {/* mobile list */}
+      <div className="hidden sm:grid grid-cols-3 sm:grid-cols-1 gap-5 sm:px-1">
+        {Object.entries(projectsData).map(([key, {type, heading, description}]) => (
+          <div key={key} className="relative flex flex-col gap-16 justify-between p-4 pt-8 bg-background-alt text-foreground">
+            <div className="space-y-2.5">
+              <Text type="h6" className="font-bold uppercase text-foreground/65 " text={type} />
+
+              <div className="space-y-6">
+                <Text type="h4" className="sm:text-3xl max-w-[15ch]" text={heading} />
+                <Text type="h5" className="max-w-[25ch]" text={description} />
+              </div>
+            </div>
+
+            <Button variant="solid" className="flex-row-reverse w-full py-2 text-background bg-red" text="Посмотреть" />
+
+            <div className="absolute top-0 right-0 w-0 h-0 border-l-[45px] border-b-[45px] border-l-transparent border-b-transparent border-r-[45px] border-r-foreground"></div>
+          </div>
         ))}
       </div>
     </section>
