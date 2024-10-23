@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section data-section="hero-index" className={`fixed w-screen inset-0 z-10 grid grid-cols-2 sm:grid-cols-1 text-background ${screenHeight}`}>
       <div className="relative sm:absolute -z-10 sm:h-full sm:bg-foreground">
-        <Heading type="h1" className="sm:hidden xl:text-8xl absolute left-5 bottom-5 sm:left-3" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
+        <Heading type="h1" className="absolute sm:hidden xl:text-8xl left-5 bottom-5 sm:left-3" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
         <Image quality={100} className="object-cover s-full sm:pt-[17vh] sm:opacity-75 sm:scale-[1.35]" src={HeroImage} alt="" />
       </div>
 
@@ -34,7 +34,7 @@ export default function Hero() {
         <Heading type="h1" className="hidden sm:block sm:text-[46px]" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
 
         <HeroSlider interval={5000} slides={Object.values(heroSliderData)} />
-        <Button to="#" icon={false} className="sm:hidden font-bold uppercase px-14 border-background" text="Заказать консультацию" />
+        <Button to="#" icon={false} className="font-bold uppercase sm:hidden px-14 border-background" text="Заказать консультацию" />
       </div>
     </section>
   )
