@@ -1,3 +1,5 @@
+'use client'
+import {useState} from 'react'
 import {isMobile} from '@bozzhik/is-mobile'
 
 import Heading from '~/UI/Heading'
@@ -66,6 +68,15 @@ const servicesData: Record<string, Service> = {
 }
 
 export default function Services() {
+  const [visibleDescriptions, setVisibleDescriptions] = useState<{[key: string]: boolean}>({})
+
+  const toggleDescriptionVisibility = (key: string) => {
+    setVisibleDescriptions((prevState) => ({
+      ...prevState,
+      [key]: !prevState[key],
+    }))
+  }
+
   return (
     <section id="services" data-section="services-index" className="relative z-20 w-full min-h-screen">
       <svg className="fill-background-alt" width="100%" height="100%" viewBox="0 0 300 30">
@@ -94,15 +105,23 @@ export default function Services() {
 
         {/* mobile list */}
         <div className="hidden sm:flex flex-col">
-          {Object.entries(servicesData).map(([key, {heading}]) => (
+          {Object.entries(servicesData).map(([key, {heading, description}]) => (
             <div key={key} className="px-3 py-10 relative grid grid-cols-1 gap-5 items-center border-b-2 border-foreground/80 group">
               <div className="rounded-full s-5 text-background bg-red grid place-items-center">
                 <span className="hidden sm:block text-[13px]">{key}</span>
               </div>
 
-              <div className="grid grid-cols-5 justify-between items-end">
-                <Text type="h4" className="col-span-4" text={heading} />
-                <ChevronDown className="col-span-1 justify-self-end s-10" />
+              <div className="space-y-7">
+                <div className="grid grid-cols-5 justify-between items-end">
+                  <Text type="h4" className="col-span-4" text={heading} />
+                  <ChevronDown className="col-span-1 justify-self-end s-10" onClick={() => toggleDescriptionVisibility(key)} />
+                </div>
+
+                {visibleDescriptions[key] && (
+                  <>
+                    <Text type="h5" text={description} />
+                  </>
+                )}
               </div>
             </div>
           ))}
