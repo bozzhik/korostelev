@@ -75,7 +75,7 @@ export default function HeroSlider({slides, interval}: {slides: Slide[]; interva
         ))}
       </div>
 
-      <Swiper className="w-full h-full" loop={true} slidesPerView={1} onSwiper={handleSwiper} onSlideChange={handleSlideChange}>
+      <Swiper className="w-full" loop={true} slidesPerView={1} onSwiper={handleSwiper} onSlideChange={handleSlideChange}>
         {Object.values(slides).map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="sm:mx-1 space-y-3 sm:space-y-1">

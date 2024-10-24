@@ -63,12 +63,12 @@ export default function Projects() {
       <div className="sm:hidden grid grid-cols-3 gap-5">
         {Object.entries(projectsData).map(([key, {type, heading, description, content}]) => (
           <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
-            <div className="relative flex flex-col gap-20 p-7 pt-14 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
+            <div className="relative flex flex-col gap-20 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
               <Text type="h6" className="font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={type} />
 
               <div className="space-y-5">
                 <Text type="h4" text={heading} />
-                <Text type="h5" className="max-w-[25ch]" text={description} />
+                <Text type="h5" className="max-w-[25ch] xl:leading-[1.15]" text={description} />
               </div>
 
               <Image quality={100} className="absolute inset-0 w-full h-full -z-20" src={ProjectOneImage} alt={heading} />
