@@ -71,7 +71,7 @@ export default function Projects() {
                 <Text type="h5" className="max-w-[25ch]" text={description} />
               </div>
 
-              <Image className="absolute inset-0 w-full h-full -z-20" src={ProjectOneImage} alt={heading} />
+              <Image quality={100} className="absolute inset-0 w-full h-full -z-20" src={ProjectOneImage} alt={heading} />
               <div className="absolute top-0 right-0 w-0 h-0 border-l-[70px] border-b-[70px] border-l-transparent border-b-transparent border-r-[70px] border-r-foreground"></div>
             </div>
           </ModalTrigger>

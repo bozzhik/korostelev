@@ -24,7 +24,7 @@ export const buttonVariants = {
 export default function Button({variant = 'outline', mode = 'light', icon = true, to = '#', text, className}: Props) {
   return (
     <Link href={to} className={cn(buttonVariants.base, buttonVariants[variant], className)}>
-      {icon && <Image className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] duration-200 ease-in')} src={mode === 'light' ? CrossIcon : CrossDarkIcon} alt="" />}
+      {icon && <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in')} src={mode === 'light' ? CrossIcon : CrossDarkIcon} alt="" />}
       <span>{text}</span>
     </Link>
   )
@@ -33,7 +33,7 @@ export default function Button({variant = 'outline', mode = 'light', icon = true
 export function ExpandButton({mode = 'dark', to = '#', text, className}: Props) {
   return (
     <Link href={to} className={cn(buttonVariants.base, 'flex-row-reverse font-bold uppercase', className)}>
-      <Image className="s-7 group-hover:rotate-[45deg] duration-200 ease-in" src={mode === 'dark' ? CrossIcon : CrossDarkIcon} alt="" />
+      <Image quality={100} className="s-7 group-hover:rotate-[45deg] duration-200 ease-in" src={mode === 'dark' ? CrossIcon : CrossDarkIcon} alt="" />
       <span className="mt-1 leading-none">{text}</span>
     </Link>
   )

@@ -20,7 +20,7 @@ export function Modal({type, heading, content, children}: ModalProps) {
 
       <DrawerContent className="p-20 py-14 flex flex-col mx-auto w-[62%] text-background bg-red">
         <DrawerClose className="absolute top-6 right-8 group">
-          <Image className="s-12 group-hover:rotate-[45deg] duration-200 ease-in" src={CrossIcon} alt="" />
+          <Image quality={100} className="s-12 group-hover:rotate-[45deg] duration-200 ease-in" src={CrossIcon} alt="" />
         </DrawerClose>
 
         <DrawerHeader className="w-full space-y-10">

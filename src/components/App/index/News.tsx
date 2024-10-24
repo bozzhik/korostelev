@@ -39,22 +39,22 @@ export default function News() {
       <div className="grid grid-cols-2 sm:grid-cols-1">
         <div className="flex flex-col sm:gap-0">
           {Object.entries(servicesData).map(([key, {date, token, title}]) => (
-            <div key={key} className="relative pl-10 space-y-5 duration-200 py-7 sm:p-0 sm:pb-7 group hover:bg-red hover:text-background hover:pl-14 sm:hover:pl-0">
-              <Image className="object-cover aspect-square" src={ProjectOneImage} alt="" />
+            <div key={key} className="relative pl-10 sm:space-y-5 duration-200 py-7 sm:p-0 sm:pb-7 group hover:bg-red hover:text-background hover:pl-14 sm:hover:pl-0">
+              <Image quality={100} className="hidden sm:block object-cover aspect-square" src={ProjectOneImage} alt="" />
 
-              <div className="px-4 space-y-2">
-                <Text type="h6" className="uppercase sm:font-semibold text-background-alt/65" text={`${date} // ${token}`} />
+              <div className="sm:px-4 space-y-2">
+                <Text type="h6" className="uppercase text-foreground/65 group-hover:text-background-alt/65 sm:group-hover:text-foreground/65" text={`${date} // ${token}`} />
                 <Text type="h4" className="max-w-[35ch] font-normal" text={title} />
               </div>
 
               <div className="hidden w-full px-4 sm:block">
-                <Button variant="solid" mode="dark" className="flex-row-reverse w-full py-2 bg-background" text="Посмотреть" />
+                <Button variant="solid" mode="dark" className="flex-row-reverse w-full sm:gap-2 py-2 bg-background" text="Посмотреть" />
               </div>
             </div>
           ))}
         </div>
 
-        <Image className="object-cover w-full h-full sm:hidden" src={ProjectOneImage} alt="" />
+        <Image quality={100} className="object-cover w-full h-full sm:hidden" src={ProjectOneImage} alt="" />
       </div>
     </section>
   )
