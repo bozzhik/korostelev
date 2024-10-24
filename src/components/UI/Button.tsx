@@ -12,6 +12,7 @@ type Props = {
   to?: string
   text: string
   className?: string
+  onClick?: () => void
 }
 
 export const buttonVariants = {

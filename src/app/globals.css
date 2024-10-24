@@ -6,3 +6,7 @@
   transition: transform 0.7s cubic-bezier(0.32, 0.72, 0, 1) !important;
   animation-duration: 1s !important;
 }
+
+.menu-overlay {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}

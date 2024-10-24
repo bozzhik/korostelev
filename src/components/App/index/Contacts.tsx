@@ -1,30 +1,43 @@
 import {isMobile} from '@bozzhik/is-mobile'
 
-import {screenHeight} from '~/App/index/Hero'
+import {screenHeight} from '~~/index/Hero'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button from '~/UI/Button'
 import Input from '~/UI/Input'
 
-type Socials = {
+type Social = {
   label: string
+  prelink: string
   link: string
 }
 
-const socialsData: {[key: string]: Socials} = {
-  ws: {
-    label: 'WhatsApp',
-    link: '#',
-  },
-  tg: {
-    label: 'Telegram',
-    link: '#',
-  },
-  ml: {
-    label: 'Почта',
-    link: '#',
+type ContactsData = {
+  address: string
+  socials: Record<string, Social>
+}
+
+const contactsData: ContactsData = {
+  address: `Carolin Balas Pavisic <br /> Shanghaiallee 18 <br /> 20457 Hamburg, Germany`,
+  socials: {
+    ws: {
+      label: 'WhatsApp',
+      prelink: '+7 (909) 999-97-96',
+      link: 'https://wa.me/+79099999796',
+    },
+    tg: {
+      label: 'Telegram',
+      prelink: '@korostelev',
+      link: 'https://t.me/bozzhik',
+    },
+    ml: {
+      label: 'Почта',
+      prelink: 'hello@korostelev.ru',
+      link: 'mailto:hello@korostelev.ru',
+    },
   },
 }
+export const {address, socials} = contactsData
 
 export default function Contacts() {
   return (
@@ -36,8 +49,8 @@ export default function Contacts() {
           <Text type="h5" text={`Carolin Balas Pavisic <br /> Shanghaiallee 18 <br /> 20457 Hamburg, Germany`} />
 
           <div className="flex gap-3">
-            {Object.keys(socialsData).map((key) => (
-              <Button key={key} variant="outline" to={socialsData[key].link} text={socialsData[key].label} />
+            {Object.keys(contactsData.socials).map((key) => (
+              <Button key={key} variant="outline" to={socials[key].link} text={socials[key].label} />
             ))}
           </div>
         </div>
@@ -56,11 +69,11 @@ export default function Contacts() {
       </form>
 
       <div className="hidden sm:block space-y-14 sm:space-y-5">
-        <Text type="h5" text={`Carolin Balas Pavisic <br /> Shanghaiallee 18 <br /> 20457 Hamburg, Germany`} />
+        <Text type="h5" text={address} />
 
         <div className="flex gap-3 sm:flex-col">
-          {Object.keys(socialsData).map((key) => (
-            <Button key={key} className="sm:w-full" variant="outline" to={socialsData[key].link} text={socialsData[key].label} />
+          {Object.keys(socials).map((key) => (
+            <Button key={key} className="sm:w-full" variant="outline" to={socials[key].link} text={socials[key].label} />
           ))}
         </div>
       </div>
