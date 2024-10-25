@@ -95,7 +95,7 @@ export default function Services() {
         {/* desktop list */}
         <div className="sm:hidden flex flex-col">
           {Object.entries(servicesData).map(([key, {heading, description, content}]) => (
-            <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
+            <ModalTrigger key={key} type={'Услуга'} heading={heading} content={content}>
               <div className="group px-10 py-16 relative grid grid-cols-2 gap-20 items-center duration-200 border-t-2 border-foreground hover:bg-red hover:text-background-alt text-left">
                 <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
 
@@ -125,7 +125,7 @@ export default function Services() {
                     <Text type="h5" text={description} />
 
                     <div className="w-full">
-                      <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
+                      <ModalTrigger key={key} type={'Услуга'} heading={heading} content={content}>
                         <Button variant="solid" className="w-[90vw] flex-row-reverse text-background bg-red" text="Посмотреть" />
                       </ModalTrigger>
                     </div>

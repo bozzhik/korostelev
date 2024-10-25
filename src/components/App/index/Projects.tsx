@@ -62,7 +62,7 @@ export default function Projects() {
       {/* desktop list */}
       <div className="sm:hidden grid grid-cols-3 gap-5">
         {Object.entries(projectsData).map(([key, {type, heading, description, content}]) => (
-          <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
+          <ModalTrigger key={key} type={'Услуга'} heading={heading} content={content}>
             <div id="project-card">
               <div className="relative flex flex-col gap-20 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
                 <Text type="h6" className="font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={type} />
@@ -92,7 +92,7 @@ export default function Projects() {
               </div>
             </div>
 
-            <ModalTrigger key={key} type={type} heading={heading} description={description} content={content}>
+            <ModalTrigger key={key} type={type} heading={heading} content={content}>
               <Button variant="solid" className="w-full flex-row-reverse text-background bg-red" text="Посмотреть" />
             </ModalTrigger>
           </div>

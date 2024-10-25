@@ -8,7 +8,6 @@ import Text from '~/UI/Text'
 type ModalProps = {
   type: string
   heading: string
-  description: string
   content: string[]
   children: React.ReactNode
 }
