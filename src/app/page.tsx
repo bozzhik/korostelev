@@ -1,6 +1,7 @@
 import Hero, {screenHeight} from '~~/index/Hero'
 import Services from '~~/index/Services'
 import Projects from '~~/index/Projects'
+import Team from '~~/index/Team'
 import News from '~~/index/News'
 import Quote from '~~/index/Quote'
 import Contacts from '~~/index/Contacts'
@@ -13,6 +14,7 @@ export default function HomePage() {
 
       <Services />
       <Projects />
+      <Team />
       <News />
       <Quote />
       <Contacts />

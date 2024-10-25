@@ -53,9 +53,9 @@ const projectsData = {
 
 export default function Projects() {
   return (
-    <section id="projects" data-section="projects-index" className="relative z-20 p-8 sm:p-4 pt-32 sm:pt-12 space-y-8 bg-foreground">
+    <section id="projects" data-section="projects-index" className="relative z-20 p-8 sm:p-4 pt-32 xl:pt-20 sm:pt-12 space-y-8 bg-foreground">
       <div className="flex items-end justify-between text-background">
-        <Heading type="h1" className="uppercase " text="Проекты" />
+        <Heading type="h1" className="uppercase" text="Проекты" />
         <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
       </div>
 
