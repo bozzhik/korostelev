@@ -43,7 +43,7 @@ export default function News() {
               <Image quality={100} className="hidden sm:block object-cover aspect-square" src={ProjectOneImage} alt="" />
 
               <div className="sm:px-4 space-y-2">
-                <Text type="h6" className="uppercase text-foreground/65 group-hover:text-background-alt/65 sm:group-hover:text-foreground/65" text={`${date} // ${token}`} />
+                <Text type="h6" className="uppercase text-foreground/65 sm:text-background-alt/65 group-hover:text-background-alt/65 sm:group-hover:text-foreground/65" text={`${date} // ${token}`} />
                 <Text type="h4" className="max-w-[35ch] font-normal" text={title} />
               </div>
 

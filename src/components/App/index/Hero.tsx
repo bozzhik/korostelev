@@ -29,11 +29,11 @@ export default function Hero() {
         <Heading type="h1" className="absolute sm:hidden xl:text-8xl left-5 bottom-5 sm:left-3" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
 
         <div className="s-full bg-foreground/25">
-          <Image priority={true} quality={100} className="object-cover s-full sm:pt-[17vh] sm:opacity-75 sm:scale-[1.35]" src={HeroImage} alt="" />
+          <Image priority={true} quality={100} className="object-cover s-full sm:pt-[7vh] sm:opacity-75 sm:scale-[1.1]" src={HeroImage} alt="" />
         </div>
       </div>
 
-      <div className="[height:inherit] flex flex-col justify-end sm:justify-start gap-10 sm:gap-3 p-8 sm:p-2.5 sm:pt-[11vh] bg-red sm:bg-transparent">
+      <div className="[height:inherit] flex flex-col justify-end gap-10 sm:gap-3 p-8 sm:p-2.5 sm:pb-3 bg-red sm:bg-transparent">
         <Heading type="h1" className="hidden sm:block sm:text-[46px]" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
 
         <HeroSlider interval={5000} slides={Object.values(heroSliderData)} />

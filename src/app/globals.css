@@ -10,3 +10,25 @@
 .menu-overlay {
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 }
+
+#services {
+  clip-path: polygon(0 0, 97% 0, 100% 2.5%, 100% 100%, 0 100%);
+}
+#project-card {
+  clip-path: polygon(0 0, 88% 0, 100% 19%, 100% 100%, 0 100%);
+}
+
+@media (max-width: 1536px) {
+  #project-card {
+    clip-path: polygon(0 0, 83% 0, 100% 19%, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 428px) {
+  #services {
+    clip-path: polygon(0 0, 91% 0, 100% 1.7%, 100% 100%, 0 100%);
+  }
+  #project-card {
+    clip-path: polygon(0 0, 87% 0, 100% 11%, 100% 100%, 0 100%);
+  }
+}

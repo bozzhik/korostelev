@@ -17,7 +17,7 @@ const inputStyles = {
 export default function Input({type = 'input', placeholder, content, rows, className}: Props) {
   const Field = type
   return (
-    <div className={cn('grid w-full px-12 sm:px-7 py-8 sm:py-6 place-items-start border-[2px] border-background', className)}>
+    <div className={cn('grid w-full px-12 xl:px-7 py-8 xl:py-6 place-items-start border-[2px] border-background', className)}>
       <Field type={content} placeholder={placeholder} rows={rows} className={cn([inputStyles.base, inputStyles.view, inputStyles.hover])} />
     </div>
   )

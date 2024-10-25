@@ -11,7 +11,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Button from '~/UI/Button'
 import Text from '~/UI/Text'
-import {screenHeight} from '~~/index/Hero'
 import {address, socials} from '~~/index/Contacts'
 
 const headerData = {
@@ -94,7 +93,7 @@ export default function Header() {
         )}
       </div>
 
-      <section ref={container} className={`absolute inset-0 z-20 w-screen ${screenHeight} ${isMenuOpen ? 'block' : 'hidden'}`}>
+      <section ref={container} className={`absolute inset-0 z-20 w-screen h-screen ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
         <div className="menu-overlay px-4 pt-28 pb-20 h-full flex flex-col justify-between bg-foreground text-background">
           <div className="flex flex-col gap-5">
             {Object.entries(headerData)

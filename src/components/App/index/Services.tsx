@@ -1,6 +1,5 @@
 'use client'
 import {useState} from 'react'
-import {isMobile} from '@bozzhik/is-mobile'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
@@ -78,12 +77,8 @@ export default function Services() {
   }
 
   return (
-    <section id="services" data-section="services-index" className="relative z-20 w-full min-h-screen">
-      <svg className="fill-background-alt" width="100%" height="100%" viewBox={!isMobile ? '0 0 300 15' : '0 0 300 30'}>
-        <path d={!isMobile ? 'M 0 0 L 290 0 L 303 15 L 303 15 L 0 15 Z' : 'M 0 0 L 270 0 L 303 30 L 303 30 L 0 30 Z'} />
-      </svg>
-
-      <div className="space-y-5 sm:space-y-5 bg-background-alt">
+    <section id="services" data-section="services-index" className="relative z-20">
+      <div className="space-y-5 sm:space-y-5 bg-background-alt pt-20 sm:pt-14">
         <div className="flex items-end justify-between px-10 sm:px-3">
           <Heading type="h1" className="uppercase" text="Услуги" />
           <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />

@@ -63,16 +63,17 @@ export default function Projects() {
       <div className="sm:hidden grid grid-cols-3 gap-5">
         {Object.entries(projectsData).map(([key, {type, heading, description, content}]) => (
           <ModalTrigger key={key} type={'Услуга'} heading={heading} description={description} content={content}>
-            <div className="relative flex flex-col gap-20 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
-              <Text type="h6" className="font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={type} />
+            <div id="project-card">
+              <div className="relative flex flex-col gap-20 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
+                <Text type="h6" className="font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={type} />
 
-              <div className="space-y-5">
-                <Text type="h4" text={heading} />
-                <Text type="h5" className="max-w-[25ch] xl:leading-[1.15]" text={description} />
+                <div className="space-y-5">
+                  <Text type="h4" text={heading} />
+                  <Text type="h5" className="max-w-[25ch] xl:leading-[1.15]" text={description} />
+                </div>
+
+                <Image quality={100} className="absolute inset-0 w-full h-full -z-20" src={ProjectOneImage} alt={heading} />
               </div>
-
-              <Image quality={100} className="absolute inset-0 w-full h-full -z-20" src={ProjectOneImage} alt={heading} />
-              <div className="absolute top-0 right-0 w-0 h-0 border-l-[70px] border-b-[70px] border-l-transparent border-b-transparent border-r-[70px] border-r-foreground"></div>
             </div>
           </ModalTrigger>
         ))}
@@ -81,7 +82,7 @@ export default function Projects() {
       {/* mobile list */}
       <div className="hidden sm:grid grid-cols-3 sm:grid-cols-1 gap-5 sm:px-1">
         {Object.entries(projectsData).map(([key, {type, heading, description}]) => (
-          <div key={key} className="relative flex flex-col gap-16 justify-between p-4 pt-8 bg-background-alt text-foreground">
+          <div id="project-card" className="relative flex flex-col gap-16 justify-between p-4 pt-8 bg-background-alt text-foreground" key={key}>
             <div className="space-y-2.5">
               <Text type="h6" className="font-bold uppercase text-foreground/65 " text={type} />
 
@@ -92,8 +93,6 @@ export default function Projects() {
             </div>
 
             <Button variant="solid" className="flex-row-reverse w-full py-2 text-background bg-red" text="Посмотреть" />
-
-            <div className="absolute top-0 right-0 w-0 h-0 border-l-[45px] border-b-[45px] border-l-transparent border-b-transparent border-r-[45px] border-r-foreground"></div>
           </div>
         ))}
       </div>

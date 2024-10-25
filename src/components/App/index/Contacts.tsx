@@ -41,7 +41,7 @@ export const {address, socials} = contactsData
 
 export default function Contacts() {
   return (
-    <section id="contacts" data-section="contacts-index" className={`relative z-20 grid grid-cols-2 sm:grid-cols-1 gap-20 sm:gap-12 px-8 sm:p-4 pt-36 sm:pt-12 pb-16 bg-red text-background sm:!h-auto ${screenHeight}`}>
+    <section id="contacts" data-section="contacts-index" className={`relative z-20 grid grid-cols-2 sm:grid-cols-1 gap-20 sm:gap-12 px-8 xl:px-6 sm:p-4 pt-36 xl:pt-28 sm:pt-12 pb-16 bg-red text-background sm:!h-auto ${screenHeight}`}>
       <div className="flex flex-col justify-between gap-32">
         <Heading type="h1" text="СВЯЖИТЕСЬ <br class='sm:hidden' /> С НАМИ" />
 
