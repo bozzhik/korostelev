@@ -81,7 +81,7 @@ export default function Projects() {
 
       {/* mobile list */}
       <div className="hidden sm:grid grid-cols-3 sm:grid-cols-1 gap-5 sm:px-1">
-        {Object.entries(projectsData).map(([key, {type, heading, description}]) => (
+        {Object.entries(projectsData).map(([key, {type, heading, description, content}]) => (
           <div id="project-card" className="relative flex flex-col gap-16 justify-between p-4 pt-8 bg-background-alt text-foreground" key={key}>
             <div className="space-y-2.5">
               <Text type="h6" className="font-bold uppercase text-foreground/65 " text={type} />
@@ -92,7 +92,9 @@ export default function Projects() {
               </div>
             </div>
 
-            <Button variant="solid" className="flex-row-reverse w-full py-2 text-background bg-red" text="Посмотреть" />
+            <ModalTrigger key={key} type={type} heading={heading} description={description} content={content}>
+              <Button variant="solid" className="w-full flex-row-reverse text-background bg-red" text="Посмотреть" />
+            </ModalTrigger>
           </div>
         ))}
       </div>

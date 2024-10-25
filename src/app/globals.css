@@ -15,11 +15,11 @@
 
 /* Scrollbar of DrawerContent */
 #drawer-scrollbar::-webkit-scrollbar {
-  @apply w-1.5;
+  @apply w-[5px];
 }
 
 #drawer-scrollbar::-webkit-scrollbar-track {
-  @apply bg-[#c9332b] rounded-[30px];
+  @apply bg-transparent;
 }
 
 #drawer-scrollbar::-webkit-scrollbar-thumb {
