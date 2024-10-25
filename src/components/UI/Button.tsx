@@ -21,7 +21,7 @@ export const buttonVariants = {
   solid: 'text-foreground bg-background tracking-tight',
 }
 
-export default function Button({variant = 'outline', mode = 'light', icon = true, to = '#', text, className}: Props) {
+export default function Button({variant = 'outline', mode = 'light', icon = true, to = '', text, className}: Props) {
   return (
     <Link href={to} className={cn(buttonVariants.base, buttonVariants[variant], className)}>
       {icon && <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in')} src={mode === 'light' ? CrossIcon : CrossDarkIcon} alt="" />}

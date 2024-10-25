@@ -2,15 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Drawer speed */
 [data-vaul-drawer] {
   transition: transform 0.7s cubic-bezier(0.32, 0.72, 0, 1) !important;
   animation-duration: 1s !important;
 }
 
+/* Mobile menu */
 .menu-overlay {
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 }
 
+/* Scrollbar of DrawerContent */
+#drawer-scrollbar::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+#drawer-scrollbar::-webkit-scrollbar-track {
+  @apply bg-[#c9332b] rounded-[30px];
+}
+
+#drawer-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-[#d18682] rounded-[30px];
+}
+
+/* Cut-corner blocks */
 #services {
   clip-path: polygon(0 0, 97% 0, 100% 2.5%, 100% 100%, 0 100%);
 }

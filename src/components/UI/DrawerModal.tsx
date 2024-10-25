@@ -29,7 +29,7 @@ export function Modal({type, heading, content, children}: ModalProps) {
             <Heading className="max-w-[30ch] text-[46px]" type="h2" text={heading} />
           </div>
 
-          <div className="space-y-6 font-extralight">
+          <div id="drawer-scrollbar" className="space-y-6 max-h-[55vh] font-extralight overflow-x-hidden">
             {content.map((paragraph, idx) => (
               <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={paragraph} key={idx} /> // array
             ))}
