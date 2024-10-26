@@ -2,8 +2,10 @@ import Image from 'next/image'
 import HeroImage from '$/hero.jpg'
 
 import Heading from '~/UI/Heading'
-import Button from '~/UI/Button'
 import HeroSlider from '~~/index/HeroSlider'
+import {cn} from '@/lib/utils'
+import Link from 'next/link'
+import {buttonVariants} from '@/components/UI/Button'
 
 export const screenHeight = 'h-screen !h-svh'
 
@@ -37,7 +39,12 @@ export default function Hero() {
         <Heading type="h1" className="hidden sm:block sm:text-[46px]" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
 
         <HeroSlider interval={5000} slides={Object.values(heroSliderData)} />
-        <Button to="#" icon={false} className="font-bold uppercase sm:hidden px-14 border-background" text="Заказать консультацию" />
+        <Link href="">
+          <button className={cn(buttonVariants.base, 'sm:hidden px-16 py-3 uppercase font-semibold', 'group/button relative overflow-hidden text-background bg-red border-2 border-background hover:border-red hover:text-red active:scale-95 transition-all duration-150')}>
+            <span className="absolute bottom-0 left-0 z-0 h-0 w-full bg-gradient-to-t from-background to-background transition-all duration-500 group-hover/button:h-full" />
+            <span className="relative z-10 transition-all duration-500 group-hover/button:text-red">Заказать консультацию</span>
+          </button>
+        </Link>
       </div>
     </section>
   )
