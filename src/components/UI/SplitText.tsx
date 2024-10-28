@@ -10,10 +10,12 @@ type Props = {
   opacity?: number
   y?: number
   stagger?: number
+  split?: 'chars' | 'words'
+  rerun?: boolean
   className?: string
 }
 
-export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagger = 0.1, className}: Props) => {
+export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagger = 0.1, split = 'chars', rerun = true, className}: Props) => {
   const targetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -23,13 +25,21 @@ export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagge
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const split = new GSAPSplitText(targetRef.current, {type: 'words,chars'})
-            gsap.from(split.chars, {
+            const splitInstance = new GSAPSplitText(targetRef.current, {type: 'words,chars'})
+            gsap.from(splitInstance[split], {
               duration,
               opacity,
               y,
               stagger,
+              onComplete: () => {
+                if (rerun) {
+                  observer.observe(entry.target)
+                }
+              },
             })
+            if (!rerun) {
+              observer.unobserve(entry.target)
+            }
           }
         })
       },
@@ -46,7 +56,7 @@ export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagge
         observer.unobserve(currentTarget)
       }
     }
-  }, [duration, opacity, y, stagger])
+  }, [duration, opacity, y, stagger, split, rerun])
 
   return (
     <div ref={targetRef} className={`overflow-hidden ${className}`}>

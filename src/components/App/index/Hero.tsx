@@ -7,7 +7,6 @@ import HeroImage from '$/hero.jpg'
 import Link from 'next/link'
 import Heading from '~/UI/Heading'
 import HeroSlider from '~~/index/HeroSlider'
-import {SplitText} from '~/UI/SplitText'
 
 export const screenHeight = 'h-screen !h-svh'
 
@@ -30,9 +29,7 @@ export default function Hero() {
   return (
     <section data-section="hero-index" className={`fixed w-screen inset-0 z-10 grid grid-cols-2 sm:grid-cols-1 text-background [min-height:inherit] ${screenHeight}`}>
       <div className="relative sm:absolute -z-10 [height:inherit] sm:h-full sm:bg-foreground">
-        <SplitText>
-          <Heading type="h1" className="absolute sm:hidden xl:text-8xl left-5 bottom-5 sm:left-3" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
-        </SplitText>
+        <Heading type="h1" className="absolute sm:hidden xl:text-8xl left-5 bottom-5 sm:left-3" text="МАКСИМ <br /> КОРОСТЕЛЁВ" />
 
         <div className="s-full bg-foreground/25">
           <Image priority={true} quality={100} className="object-cover s-full sm:pt-[7vh] sm:opacity-75 sm:scale-[1.1]" src={HeroImage} alt="" />
