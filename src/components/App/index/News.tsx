@@ -5,6 +5,7 @@ import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button, {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
+import {SplitText} from '~/UI/SplitText'
 
 const servicesData = {
   1: {
@@ -37,8 +38,12 @@ export default function News() {
   return (
     <section id="news" data-section="news-index" className="relative z-20 pt-32 xl:pt-24 sm:pt-12 space-y-8 sm:space-y-6 bg-background sm:bg-red sm:text-background">
       <div className="flex items-end justify-between px-8 sm:px-4">
-        <Heading type="h1" className="uppercase" text="Новости" />
-        <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
+        <SplitText>
+          <Heading type="h1" className="uppercase" text="Новости" />
+        </SplitText>
+        <SplitText duration={0.25}>
+          <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
+        </SplitText>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-1">

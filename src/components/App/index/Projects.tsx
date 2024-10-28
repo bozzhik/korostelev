@@ -5,6 +5,7 @@ import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button, {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
+import {SplitText} from '~/UI/SplitText'
 
 const projectsData = {
   1: {
@@ -55,8 +56,12 @@ export default function Projects() {
   return (
     <section id="projects" data-section="projects-index" className="relative z-20 p-8 sm:p-4 pt-32 xl:pt-20 sm:pt-12 space-y-8 bg-foreground">
       <div className="flex items-end justify-between text-background">
-        <Heading type="h1" className="uppercase" text="Проекты" />
-        <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
+        <SplitText>
+          <Heading type="h1" className="uppercase" text="Проекты" />
+        </SplitText>
+        <SplitText duration={0.25}>
+          <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
+        </SplitText>
       </div>
 
       {/* desktop list */}

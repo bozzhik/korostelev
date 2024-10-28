@@ -7,6 +7,7 @@ import Text from '~/UI/Text'
 import Button from '~/UI/Button'
 import {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
+import {SplitText} from '~/UI/SplitText'
 import {ChevronDown} from 'lucide-react'
 
 type Service = {
@@ -88,8 +89,12 @@ export default function Services() {
     <section id="services" data-section="services-index" className="relative z-20">
       <div className="space-y-5 sm:space-y-5 bg-background-alt pt-20 sm:pt-14">
         <div className="flex items-end justify-between px-10 sm:px-3">
-          <Heading type="h1" className="uppercase" text="Услуги" />
-          <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
+          <SplitText>
+            <Heading type="h1" className="uppercase" text="Услуги" />
+          </SplitText>
+          <SplitText duration={0.25}>
+            <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
+          </SplitText>
         </div>
 
         {/* desktop list */}

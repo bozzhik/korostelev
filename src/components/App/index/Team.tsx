@@ -5,6 +5,7 @@ import TeamThreeImage from '$/team/3.jpg'
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
+import {SplitText} from '~/UI/SplitText'
 
 const teamData = {
   1: {
@@ -30,7 +31,9 @@ const teamData = {
 export default function Team() {
   return (
     <section id="team" data-section="team-index" className="relative z-20 p-8 sm:p-4 pt-32 xl:pt-20 sm:pt-12 space-y-8 bg-foreground">
-      <Heading type="h1" className="text-background uppercase" text="Команда" />
+      <SplitText>
+        <Heading type="h1" className="text-background uppercase" text="Команда" />
+      </SplitText>
 
       <div className="grid grid-cols-3 sm:grid-cols-1 gap-5">
         {Object.entries(teamData).map(([key, {position, name, area, image}]) => (
