@@ -41,7 +41,7 @@ export default function News() {
         <SplitText>
           <Heading type="h1" className="uppercase" text="Новости" />
         </SplitText>
-        <SplitText duration={0.25}>
+        <SplitText>
           <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
         </SplitText>
       </div>

@@ -92,7 +92,7 @@ export default function Services() {
           <SplitText>
             <Heading type="h1" className="uppercase" text="Услуги" />
           </SplitText>
-          <SplitText duration={0.25}>
+          <SplitText>
             <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
           </SplitText>
         </div>
@@ -104,7 +104,7 @@ export default function Services() {
               <div className="group px-10 py-16 relative grid grid-cols-2 gap-20 items-center duration-200 border-t-2 border-foreground hover:bg-red hover:text-background-alt text-left">
                 <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
 
-                <SplitText duration={0.25} split="words" rerun={false}>
+                <SplitText duration={0.5}>
                   <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
                 </SplitText>
                 <Text type="h5" className="max-w-[50ch]" text={description} />

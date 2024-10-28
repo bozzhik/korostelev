@@ -10,12 +10,12 @@ type Props = {
   opacity?: number
   y?: number
   stagger?: number
-  split?: 'chars' | 'words'
+  split?: 'chars' | 'words' | 'lines'
   rerun?: boolean
   className?: string
 }
 
-export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagger = 0.1, split = 'chars', rerun = true, className}: Props) => {
+export const SplitText = ({children, duration = 0.8, opacity = 0, y = 500, stagger = 0.1, split = 'lines', rerun = false, className}: Props) => {
   const targetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagge
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const splitInstance = new GSAPSplitText(targetRef.current, {type: 'words,chars'})
+            const splitInstance = new GSAPSplitText(targetRef.current, {type: 'words,chars,lines'})
             gsap.from(splitInstance[split], {
               duration,
               opacity,
@@ -43,7 +43,7 @@ export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagge
           }
         })
       },
-      {threshold: 0.1},
+      {threshold: 0},
     )
 
     const currentTarget = targetRef.current

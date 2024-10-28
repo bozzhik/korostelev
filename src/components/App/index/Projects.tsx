@@ -59,7 +59,7 @@ export default function Projects() {
         <SplitText>
           <Heading type="h1" className="uppercase" text="Проекты" />
         </SplitText>
-        <SplitText duration={0.25}>
+        <SplitText>
           <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
         </SplitText>
       </div>
@@ -69,7 +69,7 @@ export default function Projects() {
         {Object.entries(projectsData).map(([key, {type, heading, description, content}]) => (
           <ModalTrigger key={key} type={'Услуга'} heading={heading} content={content}>
             <div id="project-card">
-              <div className="relative flex flex-col gap-20 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt text-left">
+              <div className="relative flex flex-col gap-20 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 duration-200 hover:text-background-alt text-left">
                 <Text type="h6" className="font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={type} />
 
                 <div className="space-y-5">
