@@ -87,7 +87,7 @@ export default function Services() {
 
   return (
     <section id="services" data-section="services-index" className="relative z-20">
-      <div className="space-y-5 sm:space-y-5 bg-background-alt pt-20 sm:pt-14">
+      <div className="pt-20 space-y-5 sm:space-y-5 bg-background-alt sm:pt-14">
         <div className="flex items-end justify-between px-10 sm:px-3">
           <SplitText>
             <Heading type="h1" className="uppercase" text="Услуги" />
@@ -98,11 +98,15 @@ export default function Services() {
         </div>
 
         {/* desktop list */}
-        <div className="sm:hidden flex flex-col">
+        <div className="flex flex-col sm:hidden">
           {Object.entries(servicesData).map(([key, {heading, description, content}]) => (
             <ModalTrigger key={key} type={'Услуга'} heading={heading} content={content}>
-              <div className="group px-10 py-16 relative grid grid-cols-2 gap-20 items-center duration-200 border-t-2 border-foreground hover:bg-red hover:text-background-alt text-left">
-                <div className="absolute duration-200 rounded-full inset-9 s-7 bg-foreground group-hover:bg-background-alt"></div>
+              <hr className="h-[0.1rem] bg-foreground" key={key} />
+
+              <div className="relative grid items-center grid-cols-2 gap-20 px-10 py-16 text-left duration-200 group hover:bg-red hover:text-background-alt">
+                <SplitText duration={1} y={0} className="absolute inset-9">
+                  <div className="duration-200 rounded-full s-7 bg-foreground group-hover:bg-background-alt"></div>
+                </SplitText>
 
                 <SplitText duration={0.5}>
                   <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
@@ -114,21 +118,25 @@ export default function Services() {
         </div>
 
         {/* mobile list */}
-        <div className="hidden sm:flex flex-col">
+        <div className="flex-col hidden sm:flex">
           {Object.entries(servicesData).map(([key, {heading, description, content}]) => (
-            <div key={key} className="px-4 py-10 relative grid grid-cols-1 gap-5 items-center border-b-2 border-foreground/80 group">
-              <div className="rounded-full s-5 text-background bg-red grid place-items-center">
-                <span className="hidden sm:block text-[13px]">{key}</span>
-              </div>
+            <div key={key} className="relative grid items-center grid-cols-1 gap-5 px-4 py-10 group">
+              <SplitText duration={1} y={0}>
+                <div className="grid rounded-full s-5 text-background bg-red place-items-center">
+                  <span className="hidden sm:block text-[13px]">{key}</span>
+                </div>
+              </SplitText>
 
               <div className="space-y-7">
-                <div className="grid grid-cols-5 justify-between items-end" onClick={() => toggleDescriptionVisibility(key)}>
-                  <Text type="h4" className="col-span-4" text={heading} />
-                  <ChevronDown className="col-span-1 justify-self-end s-10" />
-                </div>
+                <SplitText duration={0.5}>
+                  <div className="grid items-end justify-between grid-cols-5" onClick={() => toggleDescriptionVisibility(key)}>
+                    <Text type="h4" className="col-span-4" text={heading} />
+                    <ChevronDown className={`col-span-1 justify-self-end dur s-10 ${visibleDescriptions[key] ? 'rotate-[180deg]' : ''}`} />
+                  </div>
+                </SplitText>
 
                 {visibleDescriptions[key] && (
-                  <>
+                  <div className={`space-y-5 ${visibleDescriptions[key] && 'SERVICES_SHOW'}`}>
                     <Text type="h5" text={description} />
 
                     <div className="w-full">
@@ -136,7 +144,7 @@ export default function Services() {
                         <Button variant="solid" className="w-[90vw] flex-row-reverse text-background bg-red" text="Посмотреть" />
                       </ModalTrigger>
                     </div>
-                  </>
+                  </div>
                 )}
               </div>
             </div>

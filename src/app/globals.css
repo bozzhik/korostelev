@@ -48,3 +48,17 @@
     clip-path: polygon(0 0, 87% 0, 100% 11%, 100% 100%, 0 100%);
   }
 }
+
+/* FadeIn animation */
+.SERVICES_SHOW {
+  animation: fadeIn 0.25s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

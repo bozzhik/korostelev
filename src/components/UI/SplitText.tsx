@@ -15,7 +15,7 @@ type Props = {
   className?: string
 }
 
-export const SplitText = ({children, duration = 0.8, opacity = 0, y = 500, stagger = 0.1, split = 'lines', rerun = false, className}: Props) => {
+export const SplitText = ({children, duration = 0.5, opacity = 0, y = 50, stagger = 0.1, split = 'lines', rerun = false, className}: Props) => {
   const targetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export const SplitText = ({children, duration = 0.8, opacity = 0, y = 500, stagg
   }, [duration, opacity, y, stagger, split, rerun])
 
   return (
-    <div ref={targetRef} className={`overflow-hidden ${className}`}>
+    <div ref={targetRef} className={className}>
       {children}
     </div>
   )

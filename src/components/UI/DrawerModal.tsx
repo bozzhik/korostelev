@@ -17,7 +17,7 @@ export function Modal({type, heading, content, children}: ModalProps) {
     <Drawer>
       <DrawerTrigger>{children}</DrawerTrigger>
 
-      <DrawerContent className="p-20 py-14 xl:p-10 sm:p-5 flex flex-col mx-auto w-[62%] xl:w-[80%] sm:w-[90%] text-background bg-red">
+      <DrawerContent className="p-20 py-14 xl:p-10 sm:p-5 flex flex-col mx-auto w-[62%] xl:w-[80%] sm:w-[93%] text-background bg-red">
         <DrawerClose className="absolute top-6 right-8 sm:top-3.5 sm:right-4 group">
           <Image quality={100} className="s-12 xl:s-9 sm:s-6 group-hover:rotate-45 sm:rotate-45 duration-200 ease-in" src={CrossIcon} alt="" />
         </DrawerClose>
