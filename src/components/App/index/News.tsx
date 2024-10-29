@@ -96,7 +96,7 @@ export default function News() {
         <div className="flex flex-col justify-between">
           {Object.entries(servicesData).map(([key, {date, token, heading, content, image, source}]) => (
             <ModalTrigger key={key} tag={token} heading={heading} content={content} image={image} source={source}>
-              <div onMouseEnter={() => handleNewsHover({date, token, heading, content, image, source})} key={key} className="relative h-full pl-10 text-left duration-200 cursor-pointer py-7 group hover:bg-red hover:text-background hover:pl-14">
+              <div onMouseEnter={() => handleNewsHover({date, token, heading, content, image, source})} className="relative h-full pl-10 text-left duration-200 cursor-pointer py-7 group hover:bg-red hover:text-background hover:pl-14">
                 <div className="space-y-2 sm:px-4">
                   <Text type="h6" className="max-w-[70ch] uppercase line-clamp-1 text-foreground/65 group-hover:text-background-alt/65" text={`${date} // ${token}`} />
                   <Text type="h4" className="line-clamp-2 max-w-[35ch] font-normal" text={heading} />
