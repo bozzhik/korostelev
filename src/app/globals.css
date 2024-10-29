@@ -4,7 +4,7 @@
 
 /* Drawer speed */
 [data-vaul-drawer] {
-  transition: transform 0.7s cubic-bezier(0.32, 0.72, 0, 1) !important;
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 0.2) !important;
   animation-duration: 1s !important;
 }
 

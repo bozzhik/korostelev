@@ -77,7 +77,7 @@ export default function Header() {
         <Image quality={100} src={LogoImage} className="sm:w-[110px] object-contain" alt="" />
       </div>
 
-      <nav className="flex items-center justify-around gap-10 px-10 h-full sm:hidden xl:justify-center xl:gap-5 xl:pl-7 bg-red">
+      <nav className="flex items-center justify-around h-full gap-10 px-10 sm:hidden xl:justify-center xl:gap-5 xl:pl-7 bg-red">
         {Object.entries(headerData).map(([key, value]) => (
           <Button to={`#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-14 pr-7 xl:pl-8 xl:pr-5 xl:gap-2 text-background xl:text-base" text={value} key={key} />
         ))}
@@ -94,23 +94,25 @@ export default function Header() {
       </div>
 
       <section ref={container} className={`absolute inset-0 z-20 w-screen h-screen ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-        <div className="menu-overlay px-4 pt-28 pb-20 h-full flex flex-col justify-between bg-foreground text-background">
+        <div className="flex flex-col justify-between h-full px-4 pb-20 menu-overlay pt-28 bg-foreground text-background">
           <div className="flex flex-col gap-5">
             {Object.entries(headerData)
               .slice(0, 3)
               .map(([key, value]) => (
-                <Link href={`#${key}`} className="menu-item text-3xl font-light uppercase w-fit" onClick={toggleMenu} key={key}>
+                <Link href={`#${key}`} className="text-3xl font-light uppercase menu-item w-fit" onClick={toggleMenu} key={key}>
                   {value}
                 </Link>
               ))}
           </div>
 
-          <div className="menu-item space-y-3">
+          <div className="space-y-3 menu-item">
             <span className="font-extralight">Address</span>
-            <Text type="h5" className="text-base font-medium leading-[1.3]" text={address} />
+            <Link href={address.link}>
+              <Text type="h5" className="text-base font-medium leading-[1.3]" text={address.label} />
+            </Link>
           </div>
 
-          <div className="menu-item flex gap-3 sm:flex-col">
+          <div className="flex gap-3 menu-item sm:flex-col">
             <span className="font-extralight">Contacts</span>
 
             <div className="flex flex-col gap-1">
