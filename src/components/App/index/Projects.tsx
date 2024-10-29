@@ -175,7 +175,7 @@ export default function Projects() {
                 <Text type="h6" className="line-clamp-1 max-w-[40ch] font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={'//' + tag} />
 
                 <div className="space-y-5">
-                  <Text type="h4" className="line-clamp-2" text={heading} />
+                  <Text type="h4" className="line-clamp-2 leading-[1.15]" text={heading} />
                   <Text type="h5" className="max-w-[35ch] line-clamp-4 xl:leading-[1.15]" text={description} />
                 </div>
 

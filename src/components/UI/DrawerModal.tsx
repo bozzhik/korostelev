@@ -3,6 +3,7 @@ import CrossIcon from '$/cross.svg'
 import Image, {StaticImageData} from 'next/image'
 import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTrigger} from '~/UI/Drawer'
 import Heading from '~/UI/Heading'
+import Button from '~/UI/Button'
 import Text from '~/UI/Text'
 
 type ProjectContent = {
@@ -19,9 +20,10 @@ type ModalProps = {
   content: Content
   children: React.ReactNode
   image?: StaticImageData
+  source?: string
 }
 
-export function Modal({tag, heading, content, children}: ModalProps) {
+export function Modal({tag, heading, content, children, image, source}: ModalProps) {
   return (
     <Drawer>
       <DrawerTrigger>{children}</DrawerTrigger>
@@ -31,33 +33,36 @@ export function Modal({tag, heading, content, children}: ModalProps) {
           <Image quality={100} className="duration-200 ease-in s-12 xl:s-9 sm:s-6 group-hover:rotate-45 sm:rotate-45" src={CrossIcon} alt="" />
         </DrawerClose>
 
-        <DrawerHeader className="w-full space-y-10 sm:space-y-5">
-          <div className="space-y-3">
-            <Text type="h6" className="sm:max-w-[15ch] font-semibold uppercase text-background-alt/65" text={tag} />
+        <DrawerHeader className="w-full space-y-10 sm:space-y-5 max-h-[90vh]">
+          <div className="space-y-3 max-w-[60%] sm:max-w-none">
+            <Text type="h6" className="sm:max-w-[25ch] font-semibold uppercase text-background-alt/65" text={tag} />
             <Heading className="max-w-[30ch] text-[46px]" type="h2" text={heading} />
-            {/* {image && <Image quality={100} className="-z-20 w-[35%] object-cover absolute top-0 right-0 !m-0" src={image} alt="" />} */}
+
+            <div className="w-[35%] sm:hidden !m-0 absolute top-0 right-0 -z-20 flex flex-col">{image && <Image quality={100} className="object-cover" src={image} alt="" />}</div>
           </div>
 
           <div>
-            <div id="drawer-scrollbar" className="space-y-6 max-h-[55vh] sm:max-h-[55vh] font-extralight overflow-x-hidden">
+            <div id="drawer-scrollbar" className="space-y-6 pr-4 sm:pr-2 max-h-[55vh] font-extralight overflow-x-hidden">
               {Array.isArray(content) ? (
                 content.map((paragraph, idx) => <Text type="h5" className="pr-4 sm:pr-2 font-extralight xl:text-lg xl:leading-[1.2]" text={paragraph} key={idx} />)
               ) : (
-                <div className="pr-4 space-y-6 sm:pr-2">
+                <div className="space-y-6 ">
                   <div className="space-y-2">
-                    <Text type="h5" className="underline sm:font-medium " text="Задача" />
+                    <Text type="h5" className="underline sm:font-medium" text="Задача" />
                     <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.task} />
                   </div>
                   <div className="space-y-2">
-                    <Text type="h5" className="underline sm:font-medium " text="Результат" />
-                    <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.result} />
+                    <Text type="h5" className="underline sm:font-medium" text="Описание" />
+                    <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.description} />
                   </div>
                   <div className="space-y-2">
-                    <Text type="h5" className="underline sm:font-medium " text="Описание" />
-                    <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.description} />
+                    <Text type="h5" className="underline sm:font-medium" text="Результат" />
+                    <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.result} />
                   </div>
                 </div>
               )}
+
+              {source && <Button to={source} className="flex-row-reverse py-2.5 sm:px-0 sm:text-base w-full" text="Перейти в источник" />}
             </div>
           </div>
         </DrawerHeader>
