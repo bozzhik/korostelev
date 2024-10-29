@@ -5,7 +5,7 @@ import {useState} from 'react'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button from '~/UI/Button'
-import {ExpandButton} from '~/UI/Button'
+// import {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
 import {SplitText} from '~/UI/SplitText'
 import {ChevronDown} from 'lucide-react'
@@ -119,9 +119,9 @@ export default function Services() {
           <SplitText>
             <Heading type="h1" className="uppercase" text="Услуги" />
           </SplitText>
-          <SplitText>
+          {/* <SplitText>
             <ExpandButton to="#" className="sm:hidden" mode="light" text="Посмотреть все" />
-          </SplitText>
+          </SplitText> */}
         </div>
 
         {/* desktop list */}

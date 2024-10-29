@@ -74,12 +74,12 @@ export default function Header() {
   return (
     <header className="fixed z-50 grid items-center w-screen grid-cols-2 sm:bg-gray sm:p-3">
       <div className="z-[99] p-4 sm:p-1.5 bg-red w-fit">
-        <Image quality={100} src={LogoImage} className="sm:w-[110px] object-contain" alt="" />
+        <Image quality={100} src={LogoImage} className="xl:w-[170px] sm:w-[110px] object-contain" alt="" />
       </div>
 
-      <nav className="flex items-center justify-around h-full gap-10 px-10 sm:hidden xl:justify-center xl:gap-5 xl:pl-7 bg-red">
+      <nav className="flex items-center justify-around h-full gap-10 xl:gap-5 px-10 sm:hidden bg-red">
         {Object.entries(headerData).map(([key, value]) => (
-          <Button to={`#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-14 pr-7 xl:pl-8 xl:pr-5 xl:gap-2 text-background xl:text-base" text={value} key={key} />
+          <Button to={`#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-14 pr-7 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value} key={key} />
         ))}
       </nav>
 

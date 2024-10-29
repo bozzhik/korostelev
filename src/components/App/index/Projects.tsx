@@ -3,7 +3,7 @@ import ProjectOneImage from '$/projects/1.jpg'
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import Button, {ExpandButton} from '~/UI/Button'
+import Button from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
 import {SplitText} from '~/UI/SplitText'
 
@@ -161,9 +161,9 @@ export default function Projects() {
         <SplitText>
           <Heading type="h1" className="uppercase" text="Проекты" />
         </SplitText>
-        <SplitText>
+        {/* <SplitText>
           <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
-        </SplitText>
+        </SplitText> */}
       </div>
 
       {/* desktop list */}

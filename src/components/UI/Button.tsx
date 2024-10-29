@@ -10,6 +10,7 @@ type Props = {
   mode?: 'light' | 'dark'
   icon?: boolean
   to?: string
+  target?: 'blank' | 'self'
   text: string
   className?: string
   onClick?: () => void
@@ -21,12 +22,12 @@ export const buttonVariants = {
   solid: 'text-foreground bg-background tracking-tight',
 }
 
-export default function Button({variant = 'outline', mode = 'light', icon = true, to, text, className, onClick}: Props) {
+export default function Button({variant = 'outline', mode = 'light', icon = true, to, target = 'self', text, className, onClick}: Props) {
   const buttonClasses = cn(buttonVariants.base, buttonVariants[variant], className)
 
   if (to) {
     return (
-      <Link href={to} className={buttonClasses} onClick={onClick}>
+      <Link href={to} target={target} className={buttonClasses} onClick={onClick}>
         {icon && <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in')} src={mode === 'light' ? CrossIcon : CrossDarkIcon} alt="" />}
         <span>{text}</span>
       </Link>
