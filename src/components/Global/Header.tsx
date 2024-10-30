@@ -1,5 +1,7 @@
 'use client'
 
+import {address, socials} from '~~/index/Contacts'
+
 import {usePathname} from 'next/navigation'
 import {useState, useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
@@ -12,12 +14,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Button from '~/UI/Button'
 import Text from '~/UI/Text'
-import {address, socials} from '~~/index/Contacts'
 
 const headerData = {
   services: 'Услуги',
   projects: 'Проекты',
-  news: 'Новости',
+  team: 'Команда',
   contacts: 'Контакты',
 }
 

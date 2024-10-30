@@ -36,7 +36,7 @@ const contactsData: ContactsData = {
       link: 'https://t.me/maxim_attorney',
     },
     ml: {
-      label: 'Почта',
+      label: 'Электронная почта',
       prelink: 'maxim.korostelev@korostelev.legal',
       link: 'mailto:maxim.korostelev@korostelev.legal',
     },
@@ -79,7 +79,7 @@ export default function Contacts() {
 
       <div className="hidden sm:block space-y-14 sm:space-y-5">
         <Link href={contactsData.address.link}>
-          <Text type="h5" text={contactsData.address.label} />
+          <Text type="h5" className="!leading-[1.3]" text={contactsData.address.label} />
         </Link>
 
         <div className="flex gap-3 sm:flex-col">

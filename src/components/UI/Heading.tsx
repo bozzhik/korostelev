@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const headingClasses = {
-  h1: 'text-[145px] xl:text-8xl sm:text-3xl sm:font-normal leading-[1.1] font-extralight',
+  h1: 'text-[145px] xl:text-8xl sm:text-4xl sm:font-normal leading-[1.1] font-extralight',
   h2: 'text-6xl xl:text-[42px] sm:text-xl font-medium uppercase !leading-[1.2]',
 }
 

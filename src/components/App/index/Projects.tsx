@@ -194,6 +194,7 @@ export default function Projects({where}: {where: 'index' | 'projects'}) {
         {isIndex && (
           <SplitText>
             <ExpandButton to="/projects" className="sm:hidden" text="Посмотреть все" />
+            <Button to="/projects" variant="solid" mode="light" className="hidden sm:flex px-2 py-1 flex-row-reverse gap-2.5 text-background bg-foreground" text="БОЛЬШЕ" />
           </SplitText>
         )}
       </div>
@@ -201,7 +202,7 @@ export default function Projects({where}: {where: 'index' | 'projects'}) {
       {/* desktop list */}
       <div className="grid grid-cols-3 gap-5 sm:hidden">
         {filteredProjects.map(([key, {tag, heading, description, content, image}]) => (
-          <ModalTrigger key={key} tag={tag} heading={heading} content={content} image={image}>
+          <ModalTrigger key={key} type="project" tag={tag} heading={heading} content={content} image={image}>
             <div id="project-card">
               <div className="relative flex flex-col gap-20 text-left duration-200 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt">
                 <Text type="h6" className="line-clamp-1 max-w-[40ch] font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={'//' + tag} />

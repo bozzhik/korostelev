@@ -31,6 +31,8 @@ type ModalProps = {
 
 export function Modal({type, tag, heading, content, children, image, source}: ModalProps) {
   const isTeam = type === 'team'
+  const isProject = type === 'project'
+
   return (
     <Drawer>
       <DrawerTrigger>{children}</DrawerTrigger>
@@ -40,7 +42,7 @@ export function Modal({type, tag, heading, content, children, image, source}: Mo
           <Image quality={100} className="duration-200 ease-in s-12 xl:s-9 sm:s-6 group-hover:rotate-45 sm:rotate-45" src={CrossIcon} alt="" />
         </DrawerClose>
 
-        <DrawerHeader className={`${isTeam ? 'space-y-36 max-h-[80vh] sm:max-h-[90vh]' : 'space-y-10 max-h-[90vh]'} w-full sm:space-y-5 `}>
+        <DrawerHeader className={`${isTeam || isProject ? 'space-y-36 max-h-[80vh] sm:max-h-[90vh]' : 'space-y-10 max-h-[90vh]'} ${isProject && 'xl:space-y-16'} w-full sm:space-y-5`}>
           <div className="space-y-3 max-w-[60%] sm:max-w-none">
             <Text type="h6" className="sm:max-w-[25ch] font-semibold uppercase text-background-alt/65" text={tag} />
             <Heading className={`${isTeam ? 'text-[65px]' : 'text-[46px]'} max-w-[30ch]`} type="h2" text={heading} />
@@ -49,7 +51,7 @@ export function Modal({type, tag, heading, content, children, image, source}: Mo
           </div>
 
           <div>
-            <div id="drawer-scrollbar" className={`${isTeam ? 'max-h-[45vh]' : 'max-h-[55vh]'} sm:max-h-[60vh] space-y-6 pr-4 sm:pr-2 font-extralight overflow-x-hidden`}>
+            <div id="drawer-scrollbar" className={`${isTeam || isProject ? 'max-h-[45vh]' : 'max-h-[55vh]'} sm:max-h-[60vh] space-y-6 pr-4 sm:pr-2 font-extralight overflow-x-hidden`}>
               {Array.isArray(content) ? (
                 content.map((paragraph, idx) => <Text type="h5" className="pr-4 sm:pr-2 font-extralight xl:text-lg xl:leading-[1.2]" text={paragraph} key={idx} />)
               ) : (
