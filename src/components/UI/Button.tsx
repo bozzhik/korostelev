@@ -19,7 +19,7 @@ type Props = {
 export const buttonVariants = {
   base: 'group py-2.5 w-fit flex items-center justify-center gap-4 text-[21px] xl:text-lg',
   outline: 'px-8 pt-3 sm:py-2 sm:uppercase border-[2px] border-background/70',
-  solid: 'text-foreground bg-background tracking-tight',
+  solid: 'text-foreground bg-background',
 }
 
 export default function Button({variant = 'outline', mode = 'light', icon = true, to, target = 'self', text, className, onClick}: Props) {

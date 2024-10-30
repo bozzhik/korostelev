@@ -80,7 +80,7 @@ export default function HeroSlider({slides, interval}: {slides: Slide[]; interva
           <SwiperSlide key={index}>
             <div className="sm:mx-1 space-y-3 sm:space-y-1">
               <Heading type="h2" className="" text={slide.title} />
-              <p className="max-w-[50ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight tracking-tight">{slide.text}</p>
+              <p className="max-w-[60ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight">{slide.text}</p>
             </div>
           </SwiperSlide>
         ))}

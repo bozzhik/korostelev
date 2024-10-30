@@ -13,8 +13,8 @@ export default function Quote() {
   return (
     <section id="quote" data-section="quote-index" className="relative z-20 flex flex-col items-end gap-10 p-20 pt-32 sm:gap-14 sm:pt-20 sm:px-4">
       <div className="grid grid-cols-2 gap-20 sm:gap-7 sm:grid-cols-1">
-        <Text type="h5" className="leading-normal xl:leading-[1.3] sm:leading-[1.2] sm:tracking-[-0.015em]" text={quoteData[1]} />
-        <Text type="h5" className="leading-normal xl:leading-[1.3] sm:leading-[1.2] sm:tracking-[-0.015em]" text={quoteData[2]} />
+        <Text type="h5" className="leading-normal xl:leading-[1.3] sm:leading-[1.2] tracking-[-0.015em]" text={quoteData[1]} />
+        <Text type="h5" className="leading-normal xl:leading-[1.3] sm:leading-[1.2] tracking-[-0.015em]" text={quoteData[2]} />
       </div>
 
       <div className="flex items-end gap-10 sm:justify-between sm:w-full pr-14 sm:pr-0">
