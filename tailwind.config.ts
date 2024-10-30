@@ -11,7 +11,7 @@ const config: Config = {
       xl: {max: '1780px'},
       lg: {max: '1280px'},
       // md: {max: '1024px'},
-      sm: {max: '428px'},
+      sm: {max: '500px'},
     },
     fontFamily: {
       sans: ['var(--font-geist)', ...fontFamily.sans],

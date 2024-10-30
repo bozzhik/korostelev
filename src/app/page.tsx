@@ -13,7 +13,7 @@ export default function HomePage() {
       <div data-section="spacer" className={`w-full ${screenHeight}`} />
 
       <Services />
-      <Projects />
+      <Projects where="index" />
       <Team />
       <News />
       <Quote />

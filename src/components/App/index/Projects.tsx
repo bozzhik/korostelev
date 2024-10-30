@@ -1,17 +1,33 @@
 import ProjectOneImage from '$/projects/1.jpg'
 
+import {cn} from '@/lib/utils'
+import {SplitText} from '~/UI/SplitText'
+
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import Button from '~/UI/Button'
+import Button, {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
-import {SplitText} from '~/UI/SplitText'
 
-const projectsData = {
+export const projectsData = {
   1: {
-    tag: 'Венчурные инвестиции, стартапы, ESG',
+    best: true,
     heading: 'Проект по созданию логистических коридоров для электротраков',
+    tag: 'Венчурные инвестиции, стартапы, ESG',
     description: 'Юристы Korostelev & Partners комплексно сопровождают проект по созданию логистических коридоров для электротраков в России',
+    client: 'Dynamic Transport Systems',
+    content: {
+      task: 'Клиентом поставлена задача по комплексной юридической поддержке проекта по созданию логистических коридоров для электротраков в целях формирования экологически чистой логистики в России. Комплексная юридическая поддержка должна включать в себя решение любых юридических задач, возникающих в ходе реализации проекта ',
+      result: 'Закрыты несколько раундов привлечений инвестиций, заключены договоры с поставщиками, проект продолжает своё развитие.',
+      description: 'Команда Korostelev & Partners занималась вопросами корпоративного права и управления, юридической поддержкой при заключении договоров поставки с иностранными поставщиками и вопросами таможенного права, связанными с этим, due diligence земельных участков и юридической поддержкой при приобретении участков для целей проекта, формированием законодательных инициатив в области электротранспорта, а также сформировала юридическую модель привлечения инвестиций и сопровождала несколько инвестиционных раундов.',
+    },
+    image: ProjectOneImage,
+  },
+  2: {
+    best: true,
+    heading: 'Приобретение шинного завода Bridgestone',
+    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
+    description: 'Комплексное юридическое сопровождение сделки M&A по приобретению шинного завода и получения государственных одобрений на сделку',
     client: 'S8 Capital',
     content: {
       task: 'Была поставлена задача провести переговоры по сделке с продавцом и согласовать с ним юридически обязывающую документацию по сделке, согласовать сделку с Правительственной комиссией по контролю за осуществлением иностранных инвестиций и ФАС, организовать закрытие сделки (передачу акций и долей) у нотариуса и регистратора одновременно (в периметр сделки входили ООО и АО).',
@@ -20,21 +36,23 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  2: {
-    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
+  3: {
+    best: true,
     heading: 'Приобретение одного из предприятий Bosch в России',
+    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
     description: 'Комплексное юридическое сопровождение сделки M&A по приобретению одного из российских активов Bosch и получения государственных одобрений на сделку',
     client: 'S8 Capital',
     content: {
       task: 'Была поставлена задача провести переговоры по сделке с продавцом и согласовать с ним юридически обязывающую документацию по сделке, согласовать сделку с Правительственной комиссией по контролю за осуществлением иностранных инвестиций и ФАС, организовать закрытие сделки у нотариуса',
       result: 'Сделка закрыта, актив перешел в собственность S8 Capital',
-      description: 'В рамках проекта была подготовлена и согласована в ходе переговоров со штаб-квартирой Bosch в Германии юридически обязывающая документация по приобретению холдингом S8 Capital одного из активов Bosch в России, подготовлены пакеты документов в Правительственную комиссию по контролю за осуществлением иностранных инвестиций и ФАС для согласования сделки, обеспечена проверка выполнения отлагательных условий для закрытия сделки, проведено закрытие сделки и обеспечена последующая интеграция активов в холдинг S8 Capital. ',
+      description: 'В рамках проекта была подготовлена и согласована в ходе переговоров со штаб-квартирой Bosch в Германии юридически обязывающая документация по приобретению холдингом S8 Capital одного из активов Bosch в России, подготовлены пакеты документов в Правительственную комиссию по контролю за осуществлением иностранных инвестиций и ФАС для согласования сделки, обеспечена проверка выполнения отлагательных условий для закрытия сделки, проведено закрытие сделки и обеспечена последующая интеграция активов в холдинг S8 Capital.',
     },
     image: ProjectOneImage,
   },
-  3: {
-    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
+  4: {
+    best: true,
     heading: 'Приобретение бизнеса KONE в России',
+    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
     description: 'Комплексное юридическое сопровождение сделки M&A по приобретению сервисно-монтажного бизнеса KONE (финский производитель лифтов, кранов, эскалаторов, траволаторов и пассажирских подъемников) и получения государственных одобрений на сделку',
     client: 'S8 Capital',
     content: {
@@ -44,9 +62,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  4: {
-    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
+  5: {
+    best: true,
     heading: 'Приобретение завода по производству полимеров Huntsman',
+    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
     description: 'Комплексное юридическое сопровождение сделки M&A по приобретению российского завода по производству полимеров американской химический компании Huntsman и получения государственных одобрений на сделку',
     client: 'S8 Capital',
     content: {
@@ -56,9 +75,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  5: {
-    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
+  6: {
+    best: true,
     heading: 'Приобретение завода по производству крепежных изделий французской компании A.Raymond',
+    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
     description: 'Комплексное юридическое сопровождение сделки M&A по приобретению поставщика АО "АвтоВАЗ" - российского завода по производству крепежных изделий французской компании A.Raymond и получения государственных одобрений на сделку',
     client: 'S8 Capital',
     content: {
@@ -68,9 +88,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  6: {
-    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
+  7: {
+    best: false,
     heading: 'Приобретение иностранного завода по производству радиаторов отопления',
+    tag: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции',
     description: 'Комплексное юридическое сопровождение сделки M&A по приобретению завода по производству радиаторов отопления у иностранного собственника и получения государственных одобрений на сделку',
     client: 'Конфиденциально',
     content: {
@@ -80,9 +101,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  7: {
-    tag: 'M&A, Правительственная комиссия, ФАС, недвижимость и строительство, санкции и контрсанкции',
+  8: {
+    best: false,
     heading: 'Приобретение здания и земельного участка в Москве у немецкой компании',
+    tag: 'M&A, Правительственная комиссия, ФАС, недвижимость и строительство, санкции и контрсанкции',
     description: 'Комплексное юридическое сопровождение сделки M&A по приобретению комплекса недвижимого имущества, состоящего из земельного участка в Москве и здания на нем, у немецкой технологической компании в формате share deal и получения государственных одобрений на сделку',
     client: 'Конфиденциально',
     content: {
@@ -92,9 +114,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  8: {
-    tag: 'M&A, FMCG',
+  9: {
+    best: false,
     heading: 'Приобретение региональных дилеров лотерейных билетов',
+    tag: 'M&A, FMCG',
     description: 'Комплексное юридическое сопровождение ряда сделок M&A по приобретению ряда компаний-региональных распространителей лотерейных билетов в целях консолидации рынка',
     client: 'Столото',
     content: {
@@ -104,9 +127,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  9: {
-    tag: 'Инвестиционные фонды, венчурные инвестиции',
+  10: {
+    best: false,
     heading: 'Создание венчурного фонда под управлением одной из крупнейших ИТ-корпораций',
+    tag: 'Инвестиционные фонды, венчурные инвестиции',
     description: 'Сопровождение сделки по созданию соинвестиционного венчурного фонда под управлением одной из крупнейших российских ИТ-корпораций в форме договора инвестиционного товарищества',
     client: 'Конфиденциально',
     content: {
@@ -116,9 +140,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  10: {
-    tag: 'Инвестиционные фонды, венчурные инвестиции',
+  11: {
+    best: false,
     heading: 'Создание венчурного фонда в сфере медицины и фармацевтики',
+    tag: 'Инвестиционные фонды, венчурные инвестиции',
     description: 'Сопровождение сделки по созданию венчурного фонда в сфере медицины и фармацевтики в форме договора инвестиционного товарищества под управлением частной управляющей компании',
     client: 'Конфиденциально',
     content: {
@@ -128,9 +153,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  11: {
-    tag: 'Инвестиционные фонды, венчурные инвестиции',
+  12: {
+    best: false,
     heading: 'Создание венчурного фонда в сфере нефтегазовых технологий',
+    tag: 'Инвестиционные фонды, венчурные инвестиции',
     description: 'Сопровождение сделки по созданию венчурного фонда для инвестиций в нефтегазовые технологии в форме договора инвестиционного товарищества с инвесторами из нефтегазового, финансового и государственного сектора',
     client: 'Конфиденциально',
     content: {
@@ -140,9 +166,10 @@ const projectsData = {
     },
     image: ProjectOneImage,
   },
-  12: {
-    tag: 'Инвестиционные фонды, венчурные инвестиции, санкции и контрсанкции',
+  13: {
+    best: false,
     heading: 'Реструктуризация венчурного фонда',
+    tag: 'Инвестиционные фонды, венчурные инвестиции, санкции и контрсанкции',
     description: 'Сопровождение сделки по реструктуризации венчурного фонда с диверсифицированным инвестиционным портфелем с разделением портфеля на российскую и международную часть в связи с санкционными рисками, передача части портфеля в дружественный иностранный инвестиционный фонд',
     client: 'Конфиденциально',
     content: {
@@ -154,21 +181,26 @@ const projectsData = {
   },
 }
 
-export default function Projects() {
+export default function Projects({where}: {where: 'index' | 'projects'}) {
+  const isIndex = where === 'index'
+  const filteredProjects = Object.entries(projectsData).filter(([, project]) => (isIndex ? project.best : true))
+
   return (
-    <section id="projects" data-section="projects-index" className="relative z-20 p-8 pt-32 space-y-8 sm:p-4 xl:pt-20 sm:pt-12 bg-foreground">
+    <section id="projects" data-section="projects-index" className={cn('relative z-20 p-8 pt-32 space-y-8 sm:p-4 bg-foreground', isIndex ? 'space-y-8 xl:pt-20 sm:pt-12 ' : 'space-y-5 sm:pt-24')}>
       <div className="flex items-end justify-between text-background">
         <SplitText>
-          <Heading type="h1" className="uppercase" text="Проекты" />
+          <Heading type="h1" className="uppercase" text={isIndex ? 'Проекты' : 'Все проекты'} />
         </SplitText>
-        {/* <SplitText>
-          <ExpandButton to="#" className="sm:hidden" text="Посмотреть все" />
-        </SplitText> */}
+        {isIndex && (
+          <SplitText>
+            <ExpandButton to="/projects" className="sm:hidden" text="Посмотреть все" />
+          </SplitText>
+        )}
       </div>
 
       {/* desktop list */}
       <div className="grid grid-cols-3 gap-5 sm:hidden">
-        {Object.entries(projectsData).map(([key, {tag, heading, description, content, image}]) => (
+        {filteredProjects.map(([key, {tag, heading, description, content, image}]) => (
           <ModalTrigger key={key} tag={tag} heading={heading} content={content} image={image}>
             <div id="project-card">
               <div className="relative flex flex-col gap-20 text-left duration-200 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt">
@@ -188,14 +220,14 @@ export default function Projects() {
 
       {/* mobile list */}
       <div className="hidden grid-cols-3 gap-5 sm:grid sm:grid-cols-1 sm:px-1">
-        {Object.entries(projectsData).map(([key, {tag, heading, description, content, image}]) => (
-          <div id="project-card" className="relative flex flex-col justify-between gap-16 p-4 pt-8 bg-background-alt text-foreground" key={key}>
+        {filteredProjects.map(([key, {tag, heading, description, content, image}]) => (
+          <div id="project-card" className="relative flex flex-col justify-between gap-10 p-4 pt-6 bg-background-alt text-foreground" key={key}>
             <div className="space-y-2.5">
-              <Text type="h6" className="font-bold uppercase text-foreground/65" text={'//' + tag} />
+              <Text type="h6" className="pr-4 font-bold uppercase text-foreground/65" text={tag} />
 
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <Text type="h4" className="sm:text-3xl max-w-[15ch]" text={heading} />
-                <Text type="h5" className="max-w-[25ch]" text={description} />
+                <Text type="h5" className="" text={description} />
               </div>
             </div>
 
