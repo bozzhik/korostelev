@@ -18,7 +18,7 @@ export default function Quote() {
       </div>
 
       <div className="flex items-end gap-10 sm:justify-between sm:w-full pr-14 sm:pr-6">
-        <Text type="h5" className="leading-normal sm:leading-[1.35] sm:mb-12" text={`<span class='underline'>Максим Коростелев</span> <br /> Управляющий партнер`} />
+        <Text type="h5" className="leading-normal sm:leading-[1.35] sm:mb-12" text={`<span class='underline'>Максим Коростелёв</span> <br /> Управляющий партнёр`} />
         <Image quality={100} className="object-contain w-28 sm:w-20 sm:mr-2" src={SignatureImage} alt="" />
       </div>
 
