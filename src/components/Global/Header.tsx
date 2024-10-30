@@ -110,14 +110,14 @@ export default function Header() {
           </div>
 
           <div className="space-y-3 menu-item">
-            <span className="font-extralight">Address</span>
+            <span className="font-extralight">Адрес</span>
             <Link href={address.link}>
               <Text type="h5" className="text-base font-medium leading-[1.3]" text={address.label} />
             </Link>
           </div>
 
           <div className="flex gap-3 menu-item sm:flex-col">
-            <span className="font-extralight">Contacts</span>
+            <span className="font-extralight">Контакты</span>
 
             <div className="flex flex-col gap-1">
               {['ws', 'ml', 'tg'].map((key) => (

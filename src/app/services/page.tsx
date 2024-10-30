@@ -1,10 +1,10 @@
-import Projects from '~~/index/Projects'
+import Services from '~~/index/Services'
 import Contacts from '~~/index/Contacts'
 
-export default function ProjectsPage() {
+export default function ServicesPage() {
   return (
     <main className="relative">
-      <Projects where="projects" />
+      <Services where="services" />
       <Contacts />
     </main>
   )

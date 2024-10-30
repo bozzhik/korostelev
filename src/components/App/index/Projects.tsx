@@ -186,7 +186,7 @@ export default function Projects({where}: {where: 'index' | 'projects'}) {
   const filteredProjects = Object.entries(projectsData).filter(([, project]) => (isIndex ? project.best : true))
 
   return (
-    <section id="projects" data-section="projects-index" className={cn('relative z-20 p-8 pt-32 space-y-8 sm:p-4 bg-foreground', isIndex ? 'space-y-8 xl:pt-20 sm:pt-12 ' : 'space-y-5 sm:pt-24')}>
+    <section id="projects" data-section="projects-index" className={cn('relative z-20 p-8 pt-32 space-y-8 sm:p-4 bg-foreground', isIndex ? 'space-y-8 xl:pt-20 sm:pt-12' : 'sm:space-y-5 xl:pt-28 sm:pt-24')}>
       <div className="flex items-end justify-between text-background">
         <SplitText>
           <Heading type="h1" className="uppercase" text={isIndex ? 'Проекты' : 'Все проекты'} />
