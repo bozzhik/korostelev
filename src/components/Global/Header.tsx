@@ -90,10 +90,10 @@ export default function Header() {
       <div className="hidden sm:block z-[99] pr-2 justify-self-end text-xl uppercase text-background" onClick={toggleMenu}>
         {isMenuOpen ? (
           <div className="flex items-center gap-2">
-            Close <X />
+            Закрыть <X />
           </div>
         ) : (
-          'Menu'
+          'Меню'
         )}
       </div>
 
@@ -109,14 +109,15 @@ export default function Header() {
               ))}
           </div>
 
-          <div className="space-y-3 menu-item">
+          <div className="flex flex-col gap-3 menu-item">
             <span className="font-extralight">Адрес</span>
+
             <Link href={address.link}>
-              <Text type="h5" className="text-base font-medium leading-[1.3]" text={address.label} />
+              <Text type="h5" className="text-base font-medium !leading-[1.4]" text={address.label} />
             </Link>
           </div>
 
-          <div className="flex gap-3 menu-item sm:flex-col">
+          <div className="flex flex-col gap-3 menu-item">
             <span className="font-extralight">Контакты</span>
 
             <div className="flex flex-col gap-1">
