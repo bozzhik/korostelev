@@ -1,10 +1,12 @@
 'use client'
 import {useState} from 'react'
 
-import NewsOneImage from '$/news/1.jpg'
-import NewsTwoImage from '$/news/2.jpg'
-import NewsThreeImage from '$/news/3.jpg'
-import NewsFourImage from '$/news/4.jpg'
+import NewsOneImage from '$/news/181024.jpg'
+import NewsTwoImage from '$/news/250624.jpg'
+import NewsThreeImage from '$/news/250424.jpg'
+import NewsFourImage from '$/news/240124.jpg'
+// import NewsFiveImage from '$/news/241023.jpg'
+// import NewsSixImage from '$/news/201223.jpg'
 
 import Image, {StaticImageData} from 'next/image'
 import Heading from '~/UI/Heading'
@@ -64,7 +66,6 @@ const servicesData: Record<string, NewsItem> = {
   //   image: NewsThreeImage,
   //   source: 'https://www.vedomosti.ru/business/news/2023/10/24/1002134-s8-capital-kupil-biznes-finskogo-proizvoditelya-liftov-kone',
   // },
-
   // '20.12.23': {
   //   date: '20 декабря 2023 г.',
   //   token: 'M&A, Правительственная комиссия, ФАС, промышленность, санкции и контрсанкции / Коммерсант',
@@ -108,7 +109,7 @@ export default function News() {
           ))}
         </div>
 
-        <Image quality={100} className="object-cover w-full h-full" src={selectedNews.image} alt="" key={selectedNews.image.src} />
+        <Image quality={100} priority={true} className="object-cover w-full h-full" src={selectedNews.image} alt="" key={selectedNews.image.src} />
       </div>
 
       {/* mobile view */}
