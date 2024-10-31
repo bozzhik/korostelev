@@ -12,6 +12,7 @@
   "dependencies": {
     "@bozzhik/is-mobile": "^0.1.1",
     "@gsap/react": "^2.1.1",
+    "@react-email/components": "^0.0.25",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
@@ -19,6 +20,9 @@
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18",
+    "react-email": "^3.0.1",
+    "react-hook-form": "^7.53.1",
+    "resend": "4.0.1-alpha.0",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",

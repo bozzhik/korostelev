@@ -35,7 +35,7 @@ export default function Button({variant = 'outline', mode = 'light', icon = true
   }
 
   return (
-    <div className={buttonClasses} onClick={onClick}>
+    <div className={`cursor-pointer ${buttonClasses}`} onClick={onClick}>
       {icon && <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in')} src={mode === 'light' ? CrossIcon : CrossDarkIcon} alt="" />}
       <span>{text}</span>
     </div>
