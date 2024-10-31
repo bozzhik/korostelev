@@ -104,7 +104,7 @@ export default function Header() {
             {Object.entries(headerData)
               .slice(0, 3)
               .map(([key, value]) => (
-                <Link href={`#${key}`} className="text-3xl font-light uppercase menu-item w-fit" onClick={toggleMenu} key={key}>
+                <Link href={`/#${key}`} className="text-3xl font-light uppercase menu-item w-fit" onClick={toggleMenu} key={key}>
                   {value}
                 </Link>
               ))}
