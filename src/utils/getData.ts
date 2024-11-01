@@ -5,7 +5,7 @@ export type TContentBlock = {
   style?: string
   _key: string
   markDefs?: unknown[]
-  children: Array<{_key: string; _type: string; text: string}>
+  children?: unknown[]
   _type: string
 }
 

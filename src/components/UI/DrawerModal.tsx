@@ -1,32 +1,24 @@
 import CrossIcon from '$/cross.svg'
-
 import Image, {StaticImageData} from 'next/image'
+
+import {TContentBlock} from '@/utils/getData'
 import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTrigger} from '~/UI/Drawer'
 import Heading from '~/UI/Heading'
 import Button from '~/UI/Button'
 import Text from '~/UI/Text'
-
-type ProjectContent = {
-  task?: string
-  result?: string
-  description?: string | string[]
-}
-
-type TeamContent = {
-  description: string | string[]
-  achievements?: Record<number, string>
-}
-
-type Content = string[] | ProjectContent | TeamContent
+import PortableBlock from '~/UI/PortableBlock'
 
 type ModalProps = {
   type?: 'news' | 'project' | 'services' | 'team'
   tag: string
   heading: string
-  content: Content
-  children: React.ReactNode
+
+  content: TContentBlock[]
+  achievements?: TContentBlock[]
+
   image?: StaticImageData
   source?: string
+  children: React.ReactNode
 }
 
 export function Modal({type, tag, heading, content, children, image, source}: ModalProps) {
@@ -52,39 +44,7 @@ export function Modal({type, tag, heading, content, children, image, source}: Mo
 
           <div>
             <div id="drawer-scrollbar" className={`${isTeam || isProject ? 'max-h-[45vh]' : 'max-h-[55vh]'} sm:max-h-[60vh] space-y-6 pr-4 sm:pr-2 font-extralight overflow-x-hidden`}>
-              {Array.isArray(content) ? (
-                content.map((paragraph, idx) => <Text type="h5" className="pr-4 sm:pr-2 font-extralight xl:text-lg xl:leading-[1.2]" text={paragraph} key={idx} />)
-              ) : (
-                <div className="space-y-6">
-                  {'task' in content && content.task && (
-                    <div className="space-y-2">
-                      <Text type="h5" className="underline sm:font-medium" text="Задача" />
-                      <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.task} />
-                    </div>
-                  )}
-                  {'description' in content && content.description && (
-                    <div className="space-y-2">
-                      <Text type="h5" className="underline sm:font-medium" text="Описание" />
-                      {Array.isArray(content.description) ? content.description.map((desc, idx) => <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={desc} key={idx} />) : <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.description} />}
-                    </div>
-                  )}
-                  {'result' in content && content.result && (
-                    <div className="space-y-2">
-                      <Text type="h5" className="underline sm:font-medium" text="Результат" />
-                      <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={content.result} />
-                    </div>
-                  )}
-                  {'achievements' in content && content.achievements && (
-                    <div className="space-y-2">
-                      <Text type="h5" className="underline sm:font-medium" text="Достижения" />
-
-                      {Object.values(content.achievements).map((achievement, idx) => (
-                        <Text type="h5" className="font-extralight xl:text-lg xl:leading-[1.2]" text={achievement} key={idx} />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
+              <PortableBlock value={content} />
 
               {source && <Button to={source} target="blank" className="flex-row-reverse py-2.5 sm:px-0 sm:text-base w-full" text="Перейти в источник" />}
             </div>
