@@ -12,6 +12,12 @@ export const service: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
+      name: 'id',
+      title: 'ID',
+      type: 'number',
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
       name: 'description',
       title: 'Короткое описание',
       type: 'string',
@@ -34,13 +40,14 @@ export const service: SchemaTypeDefinition = {
   ],
   preview: {
     select: {
+      id: 'id',
       title: 'heading',
       best: 'is_best',
     },
     prepare(selection) {
-      const {title, best} = selection
+      const {id, title, best} = selection
       return {
-        title: title,
+        title: `${id}. ${title}`,
         subtitle: `${best ? '★' : ''}`,
       }
     },

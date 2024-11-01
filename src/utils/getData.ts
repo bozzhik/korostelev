@@ -10,6 +10,7 @@ export type TContentBlock = {
 }
 
 export type TService = {
+  id: number
   heading: string
   description: string
   content: TContentBlock[]
@@ -18,7 +19,8 @@ export type TService = {
 
 export async function getServices(): Promise<TService[]> {
   const data = await client.fetch<TService[]>(
-    ` *[_type == "service" ] | order(_createdAt asc) {
+    ` *[_type == "service" ] {
+          id,
           heading,
           description,
           content,

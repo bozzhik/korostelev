@@ -12,6 +12,12 @@ export const project: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
+      name: 'id',
+      title: 'ID',
+      type: 'number',
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
       name: 'tag',
       title: 'Тэг',
       description: 'Индустрия',
@@ -57,14 +63,15 @@ export const project: SchemaTypeDefinition = {
   ],
   preview: {
     select: {
+      id: 'id',
       title: 'heading',
       image: 'image',
       best: 'is_best',
     },
     prepare(selection) {
-      const {title, image, date, best} = selection
+      const {id, title, image, best} = selection
       return {
-        title: title,
+        title: `${id}. ${title}`,
         media: image,
         subtitle: `${best ? '★' : ''}`,
       }

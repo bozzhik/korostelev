@@ -24,6 +24,12 @@ const PortableBlock: React.FC<Props> = ({value, className}) => {
               )
             },
           },
+          list: {
+            bullet: ({children}) => <ul className="list-inside">{children}</ul>,
+          },
+          listItem: {
+            bullet: ({children}) => <li className="list-disc">{children}</li>,
+          },
         }}
       />
     </div>

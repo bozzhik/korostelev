@@ -16,7 +16,10 @@ export default async function Services({where}: {where: 'index' | 'services'}) {
   }
 
   const isIndex = where === 'index'
-  const filteredServices = Object.entries(servicesData).filter(([, service]) => (isIndex ? service.is_best : true))
+
+  const filteredServices = Object.entries(servicesData)
+    .filter(([, service]) => (isIndex ? service.is_best : true))
+    .sort(([, a], [, b]) => (a.id ?? 0) - (b.id ?? 0))
 
   return (
     <section id={isIndex ? 'services' : ''} data-section="services-index" className="relative z-20">
