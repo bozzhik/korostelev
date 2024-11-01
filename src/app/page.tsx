@@ -12,6 +12,7 @@ export default function HomePage() {
       <Hero />
       <div data-section="spacer" className={`w-full ${screenHeight}`} />
 
+      {/* @ts-expect-error Server Component */}
       <Services where="index" />
       <Projects where="index" />
       <Team />
