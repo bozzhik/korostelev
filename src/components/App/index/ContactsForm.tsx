@@ -58,7 +58,7 @@ export default function ContactsForm() {
     }
   }
 
-  const boxInputClasses = 'grid w-full px-12 xl:px-7 py-8 xl:py-6 place-items-start border-[2px] border-background'
+  const boxInputClasses = 'grid w-full px-12 xl:px-7 sm:px-5 py-8 xl:py-6 place-items-start border-[2px] border-background'
   const inputClasses = cn('block w-full text-[21px] sm:text-lg text-background placeholder:text-background', 'bg-transparent border-b-[2px] border-background/50', '!outline-none duration-200 hover:border-background focus-visible:border-background')
 
   return (
@@ -74,12 +74,12 @@ export default function ContactsForm() {
           <input type="email" className={inputClasses} placeholder="Электронная почта" {...register('email', {required: true})} />
         </div>
         <div className="flex flex-col justify-between h-full">
-          <div className={`h-full ${boxInputClasses}`}>
+          <div className={`h-full sm:space-y-3.5 ${boxInputClasses}`}>
             <textarea className={inputClasses} placeholder="Чем я могу помочь?" {...register('message')} rows={3} />
 
-            <div className="flex items-center self-end space-x-2">
-              <input id="link-checkbox" type="checkbox" className="w-4 h-4 border-transparent rounded accent-background" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
-              <label htmlFor="link-checkbox" className="text-sm font-medium">
+            <div className="flex items-center self-end gap-2">
+              <input id="link-checkbox" type="checkbox" className="border-transparent rounded s-4 sm:s-3 accent-background" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
+              <label htmlFor="link-checkbox" className="text-sm font-medium sm:text-xs">
                 Я согласен с{' '}
                 <Link href="/privacy_policy" className="underline text-background/60 hover:no-underline">
                   политикой обработки данных
