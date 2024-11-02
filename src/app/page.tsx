@@ -9,6 +9,7 @@ import Contacts from '~~/index/Contacts'
 export default function HomePage() {
   return (
     <main className="relative">
+      {/* @ts-expect-error Server Component */}
       <Hero />
       <div data-section="spacer" className={`w-full ${screenHeight}`} />
 
