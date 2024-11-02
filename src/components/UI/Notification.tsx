@@ -30,10 +30,10 @@ export default function Notification() {
   if (!show) return null
 
   return (
-    <section id="notification" className="pb-7 w-full fixed bottom-0 left-0 grid place-items-center z-[99]">
-      <div ref={notificationRef} className="flex justify-between items-center w-[45%] px-3 bg-background-alt [box-shadow:0_11px_25px_-5px_#00000060]">
-        <p className="text-[15px] leading-tight font-medium py-3">Мы используем файлы cookie для организации работы сайта и повышения качества нашей работы. Продолжая использование сайта, вы соглашаетесь с приемом и передачей файлов cookie.</p>
-        <X className="duration-200 cursor-pointer s-12 hover:text-red" size={20} onClick={() => setShow(false)} />
+    <section id="notification" className="pb-5 sm:p-3 w-full fixed bottom-0 left-0 grid place-items-center z-[99]">
+      <div ref={notificationRef} className="w-[45%] xl:w-[60%] sm:w-full px-3 sm:p-2.5 flex sm:flex-col sm:gap-2.5 justify-between items-center bg-background-alt [box-shadow:0_11px_25px_-5px_#00000060]">
+        <p className="text-[15px] sm:text-sm !leading-tight font-medium py-3 sm:py-0">Мы используем файлы cookie для организации работы сайта и повышения качества нашей работы. Продолжая использование сайта, вы соглашаетесь с приемом и передачей файлов cookie.</p>
+        <X className="duration-200 cursor-pointer s-12 sm:w-full sm:h-6 sm:py-1 sm:self-end hover:text-red sm:bg-foreground sm:text-background" size={20} onClick={() => setShow(false)} />
       </div>
     </section>
   )
