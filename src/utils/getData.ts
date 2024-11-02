@@ -28,6 +28,16 @@ export type TProject = {
   is_best?: boolean
 }
 
+export type TMember = {
+  name: string
+  surname: string
+  position: string
+  specialization: string
+  description: TContentBlock[]
+  achievements: TContentBlock[]
+  image: never
+}
+
 export async function getServices(): Promise<TService[]> {
   const data = await client.fetch<TService[]>(
     ` *[_type == "service" ] {
@@ -58,6 +68,27 @@ export async function getProjects(): Promise<TProject[]> {
           content,
           image,
           is_best,
+      }`,
+    {},
+    {
+      next: {
+        revalidate: revalidateTime,
+      },
+    },
+  )
+  return data
+}
+
+export async function getMembers(): Promise<TMember[]> {
+  const data = await client.fetch<TMember[]>(
+    ` *[_type == "member" ] {
+          name,
+          surname,
+          position,
+          specialization,
+          description,
+          achievements,
+          image,
       }`,
     {},
     {
