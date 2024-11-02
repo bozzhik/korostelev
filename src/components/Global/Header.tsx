@@ -77,7 +77,7 @@ export default function Header() {
   }, [isMenuOpen])
 
   return (
-    <header className={`fixed z-50 grid items-center w-screen grid-cols-2 sm:p-3 sm:bg-gray ${!isRootPath ? 'bg-red' : ''}`}>
+    <header className={`fixed z-50 grid items-center w-screen grid-cols-2 sm:p-3 sm:bg-foreground ${!isRootPath ? 'bg-red' : ''}`}>
       <Link href="/" className="z-[99] p-4 sm:p-1.5 bg-red w-fit">
         <Image quality={100} src={LogoImage} className="xl:w-[170px] sm:w-[110px] object-contain" alt="" />
       </Link>
