@@ -48,6 +48,12 @@ export type TNews = {
   is_best?: boolean
 }
 
+export type TSlide = {
+  heading: string
+  description: string
+  id: number
+}
+
 export async function getServices(): Promise<TService[]> {
   const data = await client.fetch<TService[]>(
     ` *[_type == "service" ] {
@@ -120,6 +126,23 @@ export async function getNews(): Promise<TNews[]> {
           image,
           source,
           is_best,
+      }`,
+    {},
+    {
+      next: {
+        revalidate: revalidateTime,
+      },
+    },
+  )
+  return data
+}
+
+export async function getSlides(): Promise<TSlide[]> {
+  const data = await client.fetch<TSlide[]>(
+    ` *[_type == "slide" ] {
+          heading,
+          description,
+          id,
       }`,
     {},
     {

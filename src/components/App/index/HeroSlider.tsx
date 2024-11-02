@@ -5,14 +5,10 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import {Swiper as SwiperType} from 'swiper'
 import 'swiper/css'
 
+import {TSlide} from '@/utils/getData'
 import Heading from '~/UI/Heading'
 
-type Slide = {
-  title: string
-  text: string
-}
-
-export default function HeroSlider({slides, interval}: {slides: Slide[]; interval: number}) {
+export default function HeroSlider({slides, interval}: {slides: TSlide[]; interval: number}) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [progress, setProgress] = useState(0)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -63,7 +59,7 @@ export default function HeroSlider({slides, interval}: {slides: Slide[]; interva
   return (
     <div className="w-full space-y-8 sm:space-y-3">
       <div className="flex">
-        {Object.values(slides).map((slide, index) => (
+        {slides.map((slide, index) => (
           <div key={index} className="flex-1 h-[3px] bg-background/50 mx-1">
             <div
               className="h-full bg-background transition-all duration-100 ease-linear"
@@ -76,11 +72,11 @@ export default function HeroSlider({slides, interval}: {slides: Slide[]; interva
       </div>
 
       <Swiper className="w-full" loop={true} slidesPerView={1} onSwiper={handleSwiper} onSlideChange={handleSlideChange}>
-        {Object.values(slides).map((slide, index) => (
+        {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="sm:mx-1 space-y-3 sm:space-y-1">
-              <Heading type="h2" className="" text={slide.title} />
-              <p className="max-w-[60ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight">{slide.text}</p>
+              <Heading type="h2" className="" text={slide.heading} />
+              <p className="max-w-[60ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight">{slide.description}</p>
             </div>
           </SwiperSlide>
         ))}
