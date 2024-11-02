@@ -97,7 +97,7 @@ export async function getProjects(): Promise<TProject[]> {
 
 export async function getMembers(): Promise<TMember[]> {
   const data = await client.fetch<TMember[]>(
-    ` *[_type == "member" ] {
+    ` *[_type == "member" ] | order(_createdAt asc) {
           name,
           surname,
           position,
