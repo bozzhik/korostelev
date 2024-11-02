@@ -9,12 +9,16 @@ import Contacts from '~~/index/Contacts'
 export default function HomePage() {
   return (
     <main className="relative">
+      {/* @ts-expect-error Server Component */}
       <Hero />
       <div data-section="spacer" className={`w-full ${screenHeight}`} />
 
+      {/* @ts-expect-error Server Component */}
       <Services where="index" />
+      {/* @ts-expect-error Server Component */}
       <Projects where="index" />
       <Team />
+      {/* @ts-expect-error Server Component */}
       <News />
       <Quote />
       <Contacts />
