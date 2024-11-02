@@ -21,7 +21,7 @@ export const news: SchemaTypeDefinition = {
     {
       name: 'date',
       title: 'Дата',
-      description: 'Пример: 31 октября 2024 г.',
+      description: 'В формате дд.мм.гг',
       type: 'string',
       validation: (rule: Rule) => rule.required(),
     },
@@ -42,7 +42,7 @@ export const news: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
-      name: 'link',
+      name: 'source',
       title: 'Ссылка на источник',
       type: 'string',
       validation: (rule: Rule) => rule.required(),

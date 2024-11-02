@@ -14,8 +14,10 @@ export default function HomePage() {
 
       {/* @ts-expect-error Server Component */}
       <Services where="index" />
+      {/* @ts-expect-error Server Component */}
       <Projects where="index" />
       <Team />
+      {/* @ts-expect-error Server Component */}
       <News />
       <Quote />
       <Contacts />

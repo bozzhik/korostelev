@@ -12,6 +12,10 @@ import {urlForImage} from '@/lib/sanity'
 export default async function Projects({where}: {where: 'index' | 'projects'}) {
   const projectsData: TProject[] = await getProjects()
 
+  if (!projectsData) {
+    return console.log('Error fetching projects data')
+  }
+
   const isIndex = where === 'index'
 
   const filteredProjects = Object.entries(projectsData)

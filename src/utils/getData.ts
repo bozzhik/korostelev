@@ -38,6 +38,16 @@ export type TMember = {
   image: never
 }
 
+export type TNews = {
+  heading: string
+  tag: string
+  date: string
+  content: TContentBlock[]
+  image: never
+  source: string
+  is_best?: boolean
+}
+
 export async function getServices(): Promise<TService[]> {
   const data = await client.fetch<TService[]>(
     ` *[_type == "service" ] {
@@ -89,6 +99,27 @@ export async function getMembers(): Promise<TMember[]> {
           description,
           achievements,
           image,
+      }`,
+    {},
+    {
+      next: {
+        revalidate: revalidateTime,
+      },
+    },
+  )
+  return data
+}
+
+export async function getNews(): Promise<TNews[]> {
+  const data = await client.fetch<TNews[]>(
+    ` *[_type == "news" ] {
+          heading,
+          tag,
+          date,
+          content,
+          image,
+          source,
+          is_best,
       }`,
     {},
     {
