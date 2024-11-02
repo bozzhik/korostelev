@@ -1,9 +1,10 @@
 'use client'
 
+import {cn} from '@/lib/utils'
 import {useState} from 'react'
 import {useForm} from 'react-hook-form'
-import {cn} from '@/lib/utils'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import CrossDarkIcon from '$/cross-dark.svg'
 import {buttonVariants} from '~/UI/Button'
@@ -19,9 +20,12 @@ export default function ContactsForm() {
   const {register, handleSubmit, reset} = useForm<TFormFields>() // Добавьте reset сюда
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [buttonText, setButtonText] = useState('Отправить форму')
+  const [isChecked, setIsChecked] = useState(false)
 
   const onSubmit = async (data: TFormFields) => {
     setIsSubmitting(true)
+    setIsChecked(true)
+
     try {
       const response = await fetch('/api/email', {
         method: 'POST',
@@ -47,6 +51,7 @@ export default function ContactsForm() {
       console.error('Error:', error)
     } finally {
       setIsSubmitting(false)
+      setIsChecked(false)
       setTimeout(() => {
         setButtonText('Отправить форму')
       }, 1500)
@@ -71,7 +76,19 @@ export default function ContactsForm() {
         <div className="flex flex-col justify-between h-full">
           <div className={`h-full ${boxInputClasses}`}>
             <textarea className={inputClasses} placeholder="Чем я могу помочь?" {...register('message')} rows={3} />
+
+            <div className="flex items-center self-end space-x-2">
+              <input id="link-checkbox" type="checkbox" className="w-4 h-4 border-transparent rounded accent-background" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
+              <label htmlFor="link-checkbox" className="text-sm font-medium">
+                Я согласен с{' '}
+                <Link href="/privacy_policy" className="underline text-background/60 hover:no-underline">
+                  политикой обработки данных
+                </Link>
+                .
+              </label>
+            </div>
           </div>
+
           <button type="submit" disabled={isSubmitting} className={cn([buttonVariants.base, buttonVariants.solid], 'w-full', isSubmitting ? 'text-foreground/50' : '')}>
             <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in')} src={CrossDarkIcon} alt="" />
             {buttonText}

@@ -3,6 +3,7 @@ import {fontFamily} from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
 
 import tailwindcssAnimate from 'tailwindcss-animate'
+import tailwincssTypography from '@tailwindcss/typography'
 
 const config: Config = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -34,6 +35,7 @@ const config: Config = {
       api.matchUtilities({s: (value) => ({width: value, height: value})}, {values: api.theme('width')})
     }),
     tailwindcssAnimate,
+    tailwincssTypography,
   ],
 }
 
