@@ -1,5 +1,5 @@
 import CrossIcon from '$/cross.svg'
-import Image, {StaticImageData} from 'next/image'
+import Image from 'next/image'
 
 import {TContentBlock} from '@/utils/getData'
 import {Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTrigger} from '~/UI/Drawer'
@@ -16,7 +16,7 @@ type ModalProps = {
   content: TContentBlock[]
   achievements?: TContentBlock[]
 
-  image?: StaticImageData
+  image?: string
   source?: string
   children: React.ReactNode
 }
@@ -39,7 +39,9 @@ export function Modal({type, tag, heading, content, children, image, source}: Mo
             <Text type="h6" className="sm:max-w-[25ch] font-semibold uppercase text-background-alt/65" text={tag} />
             <Heading className={`${isTeam ? 'text-[65px]' : 'text-[46px]'} max-w-[30ch]`} type="h2" text={heading} />
 
-            <div className={`${isTeam ? 'w-[30%] xl:w-[35%]' : 'w-[35%]'} sm:hidden !m-0 absolute top-0 right-0 -z-20 flex flex-col`}>{image && <Image quality={100} className="object-cover" src={image} alt="" />}</div>
+            <div className={`${isTeam ? 'w-[30%] xl:w-[35%]' : 'w-[35%]'} sm:hidden !m-0 absolute top-0 right-0 -z-20 flex flex-col`}>
+              {image && <Image quality={100} className="object-cover max-h-[27vh]" width={500} height={500} src={image} alt="" />} {/* main image */}
+            </div>
           </div>
 
           <div>
