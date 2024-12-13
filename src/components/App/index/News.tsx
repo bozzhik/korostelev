@@ -1,17 +1,17 @@
 import {getNews, TNews} from '@/utils/getData'
+import {SplitText} from '~/UI/SplitText'
 
 import Heading from '~/UI/Heading'
-import {SplitText} from '~/UI/SplitText'
+import Button, {ExpandButton} from '~/UI/Button'
 import NewsBody from '~~/index/NewsBody'
 
-export default async function News({where = 'index'}: {where: 'index' | 'projects'}) {
+export default async function News({where = 'index'}: {where: 'index' | 'news'}) {
   const newsData: TNews[] = await getNews()
+  const isIndex = where === 'index'
 
   if (!newsData) {
     return console.log('Error fetching news data')
   }
-
-  const isIndex = where === 'index'
 
   const sortedNews = newsData
     .filter((news) => (isIndex ? news.is_best : true))
@@ -22,11 +22,18 @@ export default async function News({where = 'index'}: {where: 'index' | 'project
     })
 
   return (
-    <section id="news" data-section="news-index" className="relative z-20 pt-32 space-y-8 xl:pt-24 sm:pt-12 sm:space-y-6 bg-background sm:bg-red sm:text-background">
+    <section id={isIndex ? 'news' : ''} data-section="news-index" className="relative z-20 pt-32 space-y-8 xl:pt-24 sm:pt-12 sm:space-y-6 bg-background sm:bg-red sm:text-background">
       <div className="flex items-end justify-between px-8 sm:px-4">
         <SplitText>
-          <Heading type="h1" className="uppercase" text="Новости" />
+          <Heading type="h1" className="uppercase" text={isIndex ? 'Новости' : 'Все новости'} />
         </SplitText>
+
+        {isIndex && (
+          <SplitText>
+            <ExpandButton to="/news" mode="light" className="sm:hidden" text="Посмотреть все" />
+            <Button to="/news" variant="solid" mode="dark" className="hidden sm:flex px-2 py-1 flex-row-reverse gap-2.5" text="БОЛЬШЕ" />
+          </SplitText>
+        )}
       </div>
 
       <NewsBody newsData={sortedNews} />
