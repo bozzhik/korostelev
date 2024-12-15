@@ -36,7 +36,7 @@ export default async function News({where = 'index'}: {where: 'index' | 'news'})
         )}
       </div>
 
-      <NewsBody newsData={sortedNews} />
+      <NewsBody isIndex={isIndex} newsData={sortedNews} />
     </section>
   )
 }
