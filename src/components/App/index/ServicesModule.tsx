@@ -42,7 +42,7 @@ export default function ServicesModule({data}: {data: [string, TService][]}) {
 
           <ModalTrigger tag={'Услуга'} heading={heading} content={content}>
             <div
-              className={cn('duration-200 relative grid items-center w-screen grid-cols-2 gap-20 px-10 py-16 text-left group', hoveredIndex === index ? 'text-background-alt' : 'text-foreground')}
+              className={cn('duration-200 relative grid items-center w-screen grid-cols-2 gap-20 px-10 py-16 text-left', hoveredIndex === index ? 'text-background-alt' : 'text-foreground')}
               style={{
                 transition: hoveredIndex === index ? 'color 0.15s ease' : 'color 0.15s ease 0.2s',
               }}
