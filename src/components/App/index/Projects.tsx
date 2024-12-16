@@ -1,16 +1,17 @@
-import {cn} from '@/lib/utils'
-import {getProjects, TProject} from '@/utils/getData'
+import {getProjects} from '@/utils/getData'
 
-import Image from 'next/image'
+import {cn} from '@/lib/utils'
+import {urlForImage} from '@/lib/sanity'
+
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button, {ExpandButton} from '~/UI/Button'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
 import {SplitText} from '~/UI/SplitText'
-import {urlForImage} from '@/lib/sanity'
+import ProjectsModule from '~~/index/ProjectsModule'
 
 export default async function Projects({where}: {where: 'index' | 'projects'}) {
-  const projectsData: TProject[] = await getProjects()
+  const projectsData = await getProjects()
 
   if (!projectsData) {
     return console.log('Error fetching projects data')
@@ -36,28 +37,10 @@ export default async function Projects({where}: {where: 'index' | 'projects'}) {
         )}
       </div>
 
-      {/* desktop list */}
-      <div className="grid grid-cols-3 gap-5 sm:hidden">
-        {filteredProjects.map(([key, {tag, heading, description, content, image}]) => (
-          <ModalTrigger key={key} type="project" tag={tag} heading={heading} content={content} image={urlForImage(image)}>
-            <div id="project-card">
-              <div className="relative flex flex-col gap-20 text-left duration-200 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt/90 text-foreground group hover:bg-red/80 hover:text-background-alt">
-                <Text type="h6" className="line-clamp-1 max-w-[40ch] font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={'//' + tag} />
-
-                <div className="space-y-5">
-                  <Text type="h4" className="line-clamp-2 leading-[1.15] tracking-tight" text={heading} />
-                  <Text type="h5" className="max-w-[35ch] line-clamp-4 xl:leading-[1.15]" text={description} />
-                </div>
-
-                <Image quality={100} fill={true} className="absolute inset-0 object-cover w-full h-full duration-200 opacity-50 -z-20 group-hover:opacity-100" src={urlForImage(image)} alt={heading} />
-              </div>
-            </div>
-          </ModalTrigger>
-        ))}
-      </div>
+      <ProjectsModule data={filteredProjects} />
 
       {/* mobile list */}
-      <div className="hidden grid-cols-3 gap-5 sm:grid sm:grid-cols-1 sm:px-1">
+      <div data-section="mobile-projects" className="hidden grid-cols-3 gap-5 sm:grid sm:grid-cols-1 sm:px-1">
         {filteredProjects.map(([key, {tag, heading, description, content, image}]) => (
           <div id="project-card" className="relative flex flex-col justify-between gap-10 p-4 pt-6 bg-background-alt text-foreground" key={key}>
             <div className="space-y-2.5">
