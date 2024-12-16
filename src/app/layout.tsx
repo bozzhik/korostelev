@@ -38,8 +38,9 @@ export const metadata: Metadata = {
 }
 
 import Notification from '~/UI/Notification'
+import Loader from '~/Global/Loader'
 import Header from '~/Global/Header'
-import YandexMetrika from '@/components/Global/Analytics'
+import YandexMetrika from '~/Global/Analytics'
 
 export default function RootLayout({
   children,
@@ -49,6 +50,7 @@ export default function RootLayout({
   return (
     <html className="scroll-smooth" lang="ru">
       <body className={`${Geist.variable} font-sans antialiased text-foreground !bg-foreground`}>
+        <Loader />
         <Notification />
         <Header />
         {children}
