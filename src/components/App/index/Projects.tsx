@@ -41,7 +41,7 @@ export default async function Projects({where}: {where: 'index' | 'projects'}) {
         {filteredProjects.map(([key, {tag, heading, description, content, image}]) => (
           <ModalTrigger key={key} type="project" tag={tag} heading={heading} content={content} image={urlForImage(image)}>
             <div id="project-card">
-              <div className="relative flex flex-col gap-20 text-left duration-200 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt text-foreground group hover:bg-red/80 hover:text-background-alt">
+              <div className="relative flex flex-col gap-20 text-left duration-200 xl:gap-10 p-7 pt-14 xl:pt-10 bg-background-alt/90 text-foreground group hover:bg-red/80 hover:text-background-alt">
                 <Text type="h6" className="line-clamp-1 max-w-[40ch] font-bold uppercase text-foreground/65 group-hover:text-background-alt/65" text={'//' + tag} />
 
                 <div className="space-y-5">
@@ -49,7 +49,7 @@ export default async function Projects({where}: {where: 'index' | 'projects'}) {
                   <Text type="h5" className="max-w-[35ch] line-clamp-4 xl:leading-[1.15]" text={description} />
                 </div>
 
-                <Image quality={100} fill={true} className="absolute inset-0 w-full h-full -z-20" src={urlForImage(image)} alt={heading} />
+                <Image quality={100} fill={true} className="absolute inset-0 object-cover w-full h-full duration-200 opacity-50 -z-20 group-hover:opacity-100" src={urlForImage(image)} alt={heading} />
               </div>
             </div>
           </ModalTrigger>
