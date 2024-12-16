@@ -27,7 +27,7 @@ export default function TeamModule({data}: {data: TMember[]}) {
             {hoveredIndex === index && (
               <motion.span
                 className="absolute inset-0 block w-full h-full bg-red sm:hidden"
-                layoutId="hoverBackground"
+                layoutId="team-hover-animation"
                 initial={{opacity: 0}}
                 animate={{
                   opacity: 1,

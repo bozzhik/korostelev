@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="scroll-smooth" lang="ru">
-      <body className={`${Geist.variable} font-sans antialiased text-foreground !bg-foreground`}>
+      <body className={`${Geist.variable} font-sans antialiased text-foreground !bg-foreground overflow-x-hidden`}>
         {process.env.NODE_ENV === 'production' && <Loader />}
         <Notification />
         <Header />

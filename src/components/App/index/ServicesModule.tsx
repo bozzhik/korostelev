@@ -26,7 +26,7 @@ export default function ServicesModule({data}: {data: [string, TService][]}) {
             {hoveredIndex === index && (
               <motion.span
                 className="absolute inset-0 block w-full h-full bg-red"
-                layoutId="hoverBackground"
+                layoutId="services-hover-animation"
                 initial={{opacity: 0}}
                 animate={{
                   opacity: 1,

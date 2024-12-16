@@ -38,7 +38,7 @@ function DesktopNewsBody({news, isIndex}: {news: TNews[]; isIndex?: boolean}) {
               {(hoveredIndex === index || selectedNews?.heading === heading) && (
                 <motion.span
                   className="absolute inset-0 block w-full h-full bg-red"
-                  layoutId="hoverBackground"
+                  layoutId="news-hover-animation"
                   initial={{opacity: selectedNews?.heading === heading ? 1 : 0}} // Ensure first news is shown
                   animate={{opacity: 1, transition: {duration: 0.15}}}
                   exit={{opacity: 0, transition: {duration: 0.15, delay: 0.2}}}
