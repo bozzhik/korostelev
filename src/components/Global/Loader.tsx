@@ -2,7 +2,6 @@
 
 import {useEffect, useRef, useState} from 'react'
 import {gsap} from 'gsap'
-
 import Text from '~/UI/Text'
 
 export default function Loader() {
@@ -10,6 +9,19 @@ export default function Loader() {
   const maskRef = useRef<SVGRectElement | null>(null)
   const loaderRef = useRef<HTMLElement | null>(null)
   const [percent, setPercent] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if (isLoading) {
+      document.documentElement.classList.add('no-scroll')
+    } else {
+      document.documentElement.classList.remove('no-scroll')
+    }
+
+    return () => {
+      document.documentElement.classList.remove('no-scroll')
+    }
+  }, [isLoading])
 
   useEffect(() => {
     const duration = 1
@@ -26,6 +38,7 @@ export default function Loader() {
           duration: 0.5,
           ease: 'power2.inOut',
           delay: 0.5,
+          onComplete: () => setIsLoading(false),
         })
       },
     })
