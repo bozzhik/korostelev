@@ -1,14 +1,16 @@
 'use client'
 
+import type {Locale} from '@/i18n/routing'
+import type {TSlide} from '@/utils/getData'
+
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Swiper as SwiperType} from 'swiper'
 import 'swiper/css'
 
-import {TSlide} from '@/utils/getData'
 import Heading from '~/UI/Heading'
 
-export default function HeroSlider({slides, interval}: {slides: TSlide[]; interval: number}) {
+export default function HeroSlider({slides, interval, locale}: {slides: TSlide[]; interval: number; locale: Locale}) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [progress, setProgress] = useState(0)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -75,8 +77,8 @@ export default function HeroSlider({slides, interval}: {slides: TSlide[]; interv
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="sm:mx-1 space-y-3 sm:space-y-1">
-              <Heading type="h2" className="" text={slide.heading} />
-              <p className="max-w-[60ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight">{slide.description}</p>
+              <Heading type="h2" className="" text={slide[locale].heading} />
+              <p className="max-w-[60ch] text-xl sm:text-base sm:leading-tight sm:max-w-none font-extralight">{slide[locale].description}</p>
             </div>
           </SwiperSlide>
         ))}

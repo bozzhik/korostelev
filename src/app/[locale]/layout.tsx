@@ -45,6 +45,12 @@ import Notification from '~/UI/Notification'
 import Header from '~/Global/Header'
 import YandexMetrika from '~/Global/Analytics'
 
+export type LocaleParams = {
+  params: {
+    locale: Locale
+  }
+}
+
 type Props = {
   children: React.ReactNode
   params: {
