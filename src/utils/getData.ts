@@ -49,8 +49,8 @@ export type TNews = {
 }
 
 export type TSlide = {
-  heading: string
-  description: string
+  ru: {heading: string; description: string}
+  en: {heading: string; description: string}
   id: number
 }
 
@@ -139,11 +139,18 @@ export async function getNews(): Promise<TNews[]> {
 
 export async function getSlides(): Promise<TSlide[]> {
   const data = await client.fetch<TSlide[]>(
-    ` *[_type == "slide" ] {
-          heading,
-          description,
-          id,
-      }`,
+    ` *[_type == "slide"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value
+          },
+          id
+      }
+    `,
     {},
     {
       next: {
