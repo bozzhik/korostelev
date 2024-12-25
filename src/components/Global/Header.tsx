@@ -2,7 +2,6 @@
 
 import {address, socials} from '~~/index/Contacts'
 
-import {usePathname} from 'next/navigation'
 import {useState, useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
 import {useGSAP} from '@gsap/react'
@@ -19,13 +18,11 @@ const headerData = {
   services: 'Услуги',
   projects: 'Проекты',
   team: 'Команда',
+  news: 'Новости',
   contacts: 'Контакты',
 }
 
 export default function Header() {
-  const pathname = usePathname()
-  const isRootPath = pathname === '/'
-
   const container = useRef<HTMLElement | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -77,14 +74,14 @@ export default function Header() {
   }, [isMenuOpen])
 
   return (
-    <header className={`fixed z-50 grid items-center w-screen grid-cols-2 sm:p-3 sm:bg-foreground ${!isRootPath ? 'bg-red' : ''}`}>
-      <Link href="/" className="z-[99] p-4 sm:p-1.5 bg-red w-fit">
+    <header className="fixed z-50 flex items-center justify-between w-screen sm:p-3 sm:bg-foreground bg-red">
+      <Link href="/" className="z-[99] px-4 py-3 sm:p-1.5 bg-red w-fit">
         <Image quality={100} src={LogoImage} className="xl:w-[170px] sm:w-[110px] object-contain" alt="" />
       </Link>
 
-      <nav className="flex items-center justify-around h-full gap-10 px-10 xl:gap-5 sm:hidden bg-red">
+      <nav className="flex items-center justify-around h-full gap-5 pr-8 xl:gap-4 sm:hidden bg-red">
         {Object.entries(headerData).map(([key, value]) => (
-          <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-14 pr-7 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value} key={key} />
+          <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-11 pr-5 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value} key={key} />
         ))}
       </nav>
 
