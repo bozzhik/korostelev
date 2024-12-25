@@ -49,7 +49,7 @@ export function Modal({type, tag, heading, content, achievements, image, source,
               <PortableBlock value={content} />
               {achievements && <PortableBlock value={achievements} />}
 
-              {source && <Button to={source} target="blank" className="flex-row-reverse py-2.5 sm:px-0 sm:text-base w-full" text="Перейти в источник" />}
+              {source && <Button to={source} target="_blank" className="flex-row-reverse py-2.5 sm:px-0 sm:text-base w-full" text="Перейти в источник" />}
             </div>
           </div>
         </DrawerHeader>

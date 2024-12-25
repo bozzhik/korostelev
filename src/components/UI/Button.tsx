@@ -10,7 +10,7 @@ type Props = {
   mode?: 'light' | 'dark'
   icon?: boolean
   to?: string
-  target?: 'blank' | 'self'
+  target?: '_blank' | '_self'
   text: string
   className?: string
   onClick?: () => void
@@ -22,7 +22,7 @@ export const buttonVariants = {
   solid: 'text-foreground bg-background',
 }
 
-export default function Button({variant = 'outline', mode = 'light', icon = true, to, target = 'self', text, className, onClick}: Props) {
+export default function Button({variant = 'outline', mode = 'light', icon = true, to, target = '_self', text, className, onClick}: Props) {
   const buttonClasses = cn(buttonVariants.base, buttonVariants[variant], className)
 
   if (to) {
