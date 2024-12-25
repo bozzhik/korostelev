@@ -1,6 +1,6 @@
 import {screenHeight} from '~~/index/Hero'
 
-import Link from 'next/link'
+import {Link} from '@/i18n/routing'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import Button from '~/UI/Button'

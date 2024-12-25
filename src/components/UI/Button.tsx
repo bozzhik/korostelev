@@ -3,7 +3,7 @@ import CrossDarkIcon from '$/cross-dark.svg'
 
 import {cn} from '@/lib/utils'
 import Image from 'next/image'
-import Link from 'next/link'
+import {Link} from '@/i18n/routing'
 
 type Props = {
   variant?: 'outline' | 'solid'

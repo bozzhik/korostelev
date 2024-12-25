@@ -37,25 +37,39 @@ export const metadata: Metadata = {
   description: 'Основатель юридической фирмы Korostelev & Partners',
 }
 
-import Notification from '~/UI/Notification'
+import {Locale, routing} from '@/i18n/routing'
+import {notFound} from 'next/navigation'
+
 import Loader from '~/Global/Loader'
+import Notification from '~/UI/Notification'
 import Header from '~/Global/Header'
 import YandexMetrika from '~/Global/Analytics'
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode
-}>) {
+  params: {
+    locale: Locale
+  }
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}))
+}
+
+export default async function RootLayout({children, params: {locale}}: Readonly<Props>) {
+  if (!routing.locales.includes(locale)) {
+    notFound()
+  }
+
   return (
-    <html className="scroll-smooth" lang="ru">
+    <html className="scroll-smooth" lang={locale}>
       <body className={`${Geist.variable} font-sans antialiased text-foreground !bg-foreground overflow-x-hidden`}>
         {process.env.NODE_ENV === 'production' && <Loader />}
         <Notification />
+
         <Header />
         {children}
       </body>
-
       {process.env.NODE_ENV === 'production' && <YandexMetrika />}
     </html>
   )

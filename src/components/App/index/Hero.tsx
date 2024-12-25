@@ -4,7 +4,7 @@ import {buttonVariants} from '~/UI/Button'
 import Image from 'next/image'
 import HeroImage from '$/hero.jpg'
 
-import Link from 'next/link'
+import {Link} from '@/i18n/routing'
 import Heading from '~/UI/Heading'
 import HeroSlider from '~~/index/HeroSlider'
 import {getSlides, TSlide} from '@/utils/getData'

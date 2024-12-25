@@ -10,7 +10,7 @@ import LogoImage from '$/logo.svg'
 import {X} from 'lucide-react'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import {Link} from '@/i18n/routing'
 import Button from '~/UI/Button'
 import Text from '~/UI/Text'
 
