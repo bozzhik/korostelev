@@ -44,7 +44,7 @@ export default function TeamModule({data}: {data: TMember[]}) {
           <ModalTrigger key={key} type="team" tag={position} heading={`${name} ${surname}`} content={description} achievements={achievements} image={urlForImage(image)}>
             <div className={cn('flex flex-col justify-between text-left duration-200 bg-background')}>
               <div className="w-full">
-                <Image quality={100} width={1000} height={1000} className="relative z-30 object-cover s-full" src={urlForImage(image)} alt={`${name} - ${position}`} />
+                <Image quality={100} width={1000} height={1000} className="saturate-0 relative z-30 object-cover s-full" src={urlForImage(image)} alt={`${name} - ${position}`} />
               </div>
 
               <div
