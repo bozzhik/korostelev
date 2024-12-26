@@ -12,5 +12,9 @@
   },
   "Button": {
     "expand": "View all"
+  },
+  "Quote": {
+    "text": ["After many years of working in major law firms and investment funds, I realized one thing: impeccable work quality, the ability to listen, and a focus on results are the qualities that lead to trust and partnership.", "For us, every client is not just a case, but a real story in which we are ready to participate and assist. Let’s make this journey together. I am confident that with joint efforts, we can tackle any challenges and achieve outstanding results!"],
+    "author": "<span class='font-medium'>Maxim Korostelev</span>, <br /> Managing Partner"
   }
 }
