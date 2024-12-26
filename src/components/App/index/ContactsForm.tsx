@@ -78,7 +78,7 @@ export default function ContactsForm({labels}: {labels: LabelsData}) {
               <input id="link-checkbox" type="checkbox" className="border-transparent rounded s-4 sm:s-3 accent-background" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
               <label htmlFor="link-checkbox" className="text-sm font-medium sm:text-xs">
                 {labels.policy[0]}{' '}
-                <Link href="/privacy_policy" className="underline text-background/60 hover:no-underline">
+                <Link href="/privacy-policy" className="underline text-background/60 hover:no-underline">
                   {labels.policy[1]}
                 </Link>
               </label>
