@@ -1,5 +1,7 @@
 'use client'
 
+import type {LabelsData} from '~~/index/Contacts'
+
 import {cn} from '@/lib/utils'
 import {useState} from 'react'
 import {useForm} from 'react-hook-form'
@@ -16,10 +18,10 @@ export type TFormFields = {
   message: string
 }
 
-export default function ContactsForm() {
-  const {register, handleSubmit, reset} = useForm<TFormFields>() // Добавьте reset сюда
+export default function ContactsForm({labels}: {labels: LabelsData}) {
+  const {register, handleSubmit, reset} = useForm<TFormFields>()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [buttonText, setButtonText] = useState('Отправить форму')
+  const [buttonText, setButtonText] = useState(labels.button[0])
   const [isChecked, setIsChecked] = useState(false)
 
   const onSubmit = async (data: TFormFields) => {
@@ -32,12 +34,7 @@ export default function ContactsForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: data.name,
-          phone: data.phone,
-          email: data.email,
-          message: data.message,
-        }),
+        body: JSON.stringify(data),
       })
 
       if (!response.ok) {
@@ -45,7 +42,7 @@ export default function ContactsForm() {
       }
 
       await response.json()
-      setButtonText('Форма отправлена')
+      setButtonText(labels.button[1])
       reset()
     } catch (error) {
       console.error('Error:', error)
@@ -53,7 +50,7 @@ export default function ContactsForm() {
       setIsSubmitting(false)
       setIsChecked(false)
       setTimeout(() => {
-        setButtonText('Отправить форму')
+        setButtonText(labels.button[0])
       }, 1500)
     }
   }
@@ -65,32 +62,31 @@ export default function ContactsForm() {
     <form className="flex flex-col justify-between" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col h-full gap-7 sm:gap-5">
         <div className={boxInputClasses}>
-          <input type="text" className={inputClasses} placeholder="Ваше имя" {...register('name', {required: true})} />
+          <input type="text" className={inputClasses} placeholder={labels.name} {...register('name', {required: true})} />
         </div>
         <div className={boxInputClasses}>
-          <input type="tel" className={inputClasses} placeholder="Номер телефона" {...register('phone', {required: true})} />
+          <input type="tel" className={inputClasses} placeholder={labels.tel} {...register('phone', {required: true})} />
         </div>
         <div className={boxInputClasses}>
-          <input type="email" className={inputClasses} placeholder="Электронная почта" {...register('email', {required: true})} />
+          <input type="email" className={inputClasses} placeholder={labels.email} {...register('email', {required: true})} />
         </div>
         <div className="flex flex-col justify-between h-full">
           <div className={`h-full sm:space-y-3.5 ${boxInputClasses}`}>
-            <textarea className={inputClasses} placeholder="Чем я могу помочь?" {...register('message')} rows={3} />
+            <textarea className={inputClasses} placeholder={labels.message} {...register('message')} rows={3} />
 
             <div className="flex items-center self-end gap-2">
               <input id="link-checkbox" type="checkbox" className="border-transparent rounded s-4 sm:s-3 accent-background" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
               <label htmlFor="link-checkbox" className="text-sm font-medium sm:text-xs">
-                Я согласен с{' '}
+                {labels.policy[0]}{' '}
                 <Link href="/privacy_policy" className="underline text-background/60 hover:no-underline">
-                  политикой обработки данных
+                  {labels.policy[1]}
                 </Link>
-                .
               </label>
             </div>
           </div>
 
-          <button type="submit" disabled={isSubmitting} className={cn([buttonVariants.base, buttonVariants.solid], 'w-full', isSubmitting ? 'text-foreground/50' : '')}>
-            <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in')} src={CrossDarkIcon} alt="" />
+          <button type="submit" disabled={isSubmitting} className={cn([buttonVariants.base, buttonVariants.solid], 'w-full uppercase font-medium', isSubmitting && 'text-foreground/60')}>
+            <Image quality={100} className={cn('s-4 xl:s-3 group-hover:rotate-[45deg] sm:group-hover:rotate-0 duration-200 ease-in', isSubmitting && 'opacity-60')} src={CrossDarkIcon} alt="" />
             {buttonText}
           </button>
         </div>
