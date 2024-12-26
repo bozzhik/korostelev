@@ -42,7 +42,7 @@ import {notFound} from 'next/navigation'
 
 import Loader from '~/Global/Loader'
 import Notification from '~/UI/Notification'
-import Header from '~/Global/Header'
+import Header from '~/Global/Header/Header'
 import YandexMetrika from '~/Global/Analytics'
 
 export type LocaleParams = {
