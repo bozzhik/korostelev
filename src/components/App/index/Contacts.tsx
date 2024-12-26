@@ -1,4 +1,5 @@
 import {screenHeight} from '~~/index/Hero'
+import {contactsData} from '@/utils/contactsData'
 
 import {useTranslations} from 'next-intl'
 import {Link} from '@/i18n/routing'
@@ -8,11 +9,6 @@ import Text from '~/UI/Text'
 import Button from '~/UI/Button'
 import {SplitText} from '~/UI/SplitText'
 import ContactsForm from '~~/index/ContactsForm'
-
-type ContactsData = {
-  address: Record<string, string>
-  socials: Record<string, {label: string; prelink: string; link: string}>
-}
 
 export type LabelsData = {
   name: string
@@ -38,29 +34,6 @@ export default function Contacts() {
     button: [tForm('button.0'), tForm('button.1')],
   }
 
-  const contactsData: ContactsData = {
-    address: {
-      label: t.raw('address'),
-      link: 'https://yandex.ru/maps/-/CDh5QYPB',
-    },
-    socials: {
-      ws: {
-        label: 'WhatsApp',
-        prelink: '+7 (962) 935-44-38',
-        link: 'https://wa.me/+79629354438',
-      },
-      tg: {
-        label: 'Telegram',
-        prelink: '@maxim_attorney',
-        link: 'https://t.me/maxim_attorney',
-      },
-      ml: {
-        label: t('mail'),
-        prelink: 'maxim.korostelev@korostelev.legal',
-        link: 'mailto:maxim.korostelev@korostelev.legal',
-      },
-    },
-  }
   const {address, socials} = contactsData
 
   return (
@@ -76,12 +49,12 @@ export default function Contacts() {
 
         <div className="sm:hidden space-y-14">
           <Link className="group" href={address.link}>
-            <Text type="h5" text={address.label} />
+            <Text type="h5" className="!leading-[1.3]" text={t.raw('address')} />
           </Link>
 
           <div className="flex gap-3">
             {Object.keys(socials).map((key) => (
-              <Button key={key} variant="outline" to={socials[key].link} text={socials[key].label} />
+              <Button key={key} variant="outline" to={socials[key].link} text={key === 'ml' ? t('mail') : socials[key].label} />
             ))}
           </div>
         </div>
@@ -90,13 +63,13 @@ export default function Contacts() {
       <ContactsForm labels={labelsData} />
 
       <div className="hidden sm:block space-y-14 sm:space-y-5">
-        <Link href={contactsData.address.link}>
-          <Text type="h5" className="!leading-[1.3]" text={contactsData.address.label} />
+        <Link href={address.link}>
+          <Text type="h5" className="!leading-[1.3]" text={t.raw('address')} />
         </Link>
 
         <div className="flex gap-3 sm:flex-col">
           {Object.keys(socials).map((key) => (
-            <Button key={key} className="sm:w-full" variant="outline" to={socials[key].link} text={socials[key].label} />
+            <Button key={key} className="sm:w-full" variant="outline" to={socials[key].link} text={key === 'ml' ? t('mail') : socials[key].label} />
           ))}
         </div>
       </div>

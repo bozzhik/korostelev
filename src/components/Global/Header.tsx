@@ -1,13 +1,13 @@
 'use client'
 
-import {address, socials} from '~~/index/Contacts'
+import LogoImage from '$/logo.svg'
+import {X} from 'lucide-react'
+
+import {contactsData} from '@/utils/contactsData'
 
 import {useState, useEffect, useRef} from 'react'
 import {gsap} from 'gsap'
 import {useGSAP} from '@gsap/react'
-
-import LogoImage from '$/logo.svg'
-import {X} from 'lucide-react'
 
 import Image from 'next/image'
 import {Link, Locale} from '@/i18n/routing'
@@ -111,8 +111,8 @@ export default function Header({locale}: {locale: Locale}) {
           <div className="flex flex-col gap-3 menu-item">
             <span className="font-extralight">Адрес</span>
 
-            <Link href={address.link}>
-              <Text type="h5" className="text-base font-medium !leading-[1.4]" text={address.label} />
+            <Link href={contactsData.address.link}>
+              <Text type="h5" className="text-base font-medium !leading-[1.4]" text={contactsData.address.label} />
             </Link>
           </div>
 
@@ -121,8 +121,8 @@ export default function Header({locale}: {locale: Locale}) {
 
             <div className="flex flex-col gap-1">
               {['ws', 'ml', 'tg'].map((key) => (
-                <Link className="text-base font-medium w-fit" href={socials[key].link} key={key}>
-                  {socials[key].prelink}
+                <Link className="text-base font-medium w-fit" href={contactsData.socials[key].link} key={key}>
+                  {contactsData.socials[key].prelink}
                 </Link>
               ))}
             </div>
