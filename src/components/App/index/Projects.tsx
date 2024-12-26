@@ -3,6 +3,7 @@ import {getProjects, TProject} from '@/utils/getData'
 
 import {cn} from '@/lib/utils'
 import {urlForImage} from '@/lib/sanity'
+import {getTranslations} from 'next-intl/server'
 
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
@@ -13,6 +14,7 @@ import {SplitText} from '~/UI/SplitText'
 
 export default async function Projects({where, locale}: {where: 'index' | 'projects'; locale: Locale}) {
   const projectsData: TProject[] = await getProjects()
+  const t = await getTranslations('Blocks')
 
   if (!projectsData) {
     console.error('Error fetching projects data')
@@ -27,11 +29,11 @@ export default async function Projects({where, locale}: {where: 'index' | 'proje
     <section id={isIndex ? 'projects' : ''} data-section="projects-index" className={cn('relative z-20 p-8 pt-32 space-y-8 sm:p-4 bg-foreground', isIndex ? 'space-y-8 xl:pt-20 sm:pt-12' : 'sm:space-y-5 xl:pt-28 sm:pt-24')}>
       <div className="flex items-end justify-between text-background">
         <SplitText>
-          <Heading type="h1" className="uppercase" text={isIndex ? 'Проекты' : 'Все проекты'} />
+          <Heading type="h1" className="uppercase" text={isIndex ? t('projects.0') : t('projects.1')} />
         </SplitText>
         {isIndex && (
           <SplitText>
-            <ExpandButton to="/projects" className="sm:hidden" text="Посмотреть все" />
+            <ExpandButton to="/projects" className="sm:hidden" />
             <Button to="/projects" variant="solid" mode="light" className="hidden sm:flex px-2 py-1 flex-row-reverse gap-2.5 text-background bg-foreground" text="БОЛЬШЕ" />
           </SplitText>
         )}

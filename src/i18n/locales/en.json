@@ -1,5 +1,16 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "Hero": {
+    "heading": "Maxim Korostelev",
+    "button": "Request a consultation"
+  },
+  "Blocks": {
+    "services": ["Services", "All services"],
+    "projects": ["Projects", "All projects"],
+    "team": "Team",
+    "news": ["News", "All news"],
+    "Contacts": ["Contact", "us"]
+  },
+  "Button": {
+    "expand": "View all"
   }
 }
