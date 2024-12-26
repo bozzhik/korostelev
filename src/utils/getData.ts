@@ -17,12 +17,9 @@ export type TService = {
 }
 
 export type TProject = {
-  heading: string
+  ru: {heading: string; tag: string; description: string; client: string; content: TContentBlock[]}
+  en: {heading: string; tag: string; description: string; client: string; content: TContentBlock[]}
   id: number
-  tag: string
-  description: string
-  client: string
-  content: TContentBlock[]
   image: never
   is_best?: boolean
 }
@@ -82,16 +79,26 @@ export async function getServices(): Promise<TService[]> {
 
 export async function getProjects(): Promise<TProject[]> {
   const data = await client.fetch<TProject[]>(
-    ` *[_type == "project" ] {
-          heading,
+    ` *[_type == "project"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "tag": tag[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value,
+            "client": client[_key == "ru"][0].value,
+            "content": content[_key == "ru"][0].value,
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "tag": tag[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value,
+            "client": client[_key == "en"][0].value,
+            "content": content[_key == "en"][0].value,
+          },
           id,
-          tag,
-          description,
-          client,
-          content,
           image,
           is_best,
-      }`,
+      }
+    `,
     {},
     {
       next: {

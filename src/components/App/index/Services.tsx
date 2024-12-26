@@ -1,13 +1,12 @@
 import type {Locale} from '@/i18n/routing'
 import {getServices} from '@/utils/getData'
-
 import {cn} from '@/lib/utils'
-import {SplitText} from '~/UI/SplitText'
 
 import Heading from '~/UI/Heading'
 import Button, {ExpandButton} from '~/UI/Button'
 import MobileService from '~/UI/MobileService'
 import ServicesModule from '~~/index/ServicesModule'
+import {SplitText} from '~/UI/SplitText'
 
 export default async function Services({where, locale}: {where: 'index' | 'services'; locale: Locale}) {
   const servicesData = await getServices()
