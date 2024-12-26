@@ -15,8 +15,7 @@ export default function HomePage({params: {locale}}: LocaleParams) {
       <Hero locale={locale} />
       <div data-section="spacer" className={`w-full ${screenHeight}`} />
 
-      {/* @ts-expect-error Server Component */}
-      <Services where="index" />
+      <Services where="index" locale={locale} />
       {/* @ts-expect-error Server Component */}
       <Projects where="index" />
       <Team />

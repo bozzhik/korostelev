@@ -29,6 +29,11 @@ export default defineConfig({
           type: 'text',
           rows: 6,
         }),
+        defineField({
+          name: 'extraBlock',
+          type: 'array',
+          of: [{type: 'block'}],
+        }),
       ],
     }),
   ],

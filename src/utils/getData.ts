@@ -10,10 +10,9 @@ export type TContentBlock = {
 }
 
 export type TService = {
-  heading: string
+  ru: {heading: string; description: string; content: TContentBlock[]}
+  en: {heading: string; description: string; content: TContentBlock[]}
   id: number
-  description: string
-  content: TContentBlock[]
   is_best?: boolean
 }
 
@@ -56,13 +55,21 @@ export type TSlide = {
 
 export async function getServices(): Promise<TService[]> {
   const data = await client.fetch<TService[]>(
-    ` *[_type == "service" ] {
-          heading,
+    ` *[_type == "service"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value,
+            "content": content[_key == "ru"][0].value 
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value,
+            "content": content[_key == "en"][0].value 
+          },
           id,
-          description,
-          content,
           is_best,
-      }`,
+      }
+    `,
     {},
     {
       next: {

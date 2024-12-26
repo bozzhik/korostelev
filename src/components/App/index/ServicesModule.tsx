@@ -1,6 +1,7 @@
 'use client'
 
-import {TService} from '@/utils/getData'
+import type {TService} from '@/utils/getData'
+import type {Locale} from '@/i18n/routing'
 import {cn} from '@/lib/utils'
 
 import {useState} from 'react'
@@ -10,14 +11,14 @@ import Text from '~/UI/Text'
 import {Modal as ModalTrigger} from '~/UI/DrawerModal'
 import {SplitText} from '~/UI/SplitText'
 
-export default function ServicesModule({data}: {data: [string, TService][]}) {
+export default function ServicesModule({data, locale}: {data: TService[]; locale: Locale}) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
     <section data-section="desktop-services" className={cn('flex flex-col sm:hidden', 'border-t-2 divide-y-2 divide-foreground border-foreground')}>
-      {data.map(([key, {heading, description, content}], index) => (
+      {data.map(({id, [locale]: localizedData}, index) => (
         <div
-          key={key} // unique key
+          key={id} // Unique key
           className="relative"
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -40,7 +41,7 @@ export default function ServicesModule({data}: {data: [string, TService][]}) {
             )}
           </AnimatePresence>
 
-          <ModalTrigger tag={'Услуга'} heading={heading} content={content}>
+          <ModalTrigger tag="Услуга" heading={localizedData.heading} content={localizedData.content}>
             <div
               className={cn('duration-200 relative grid items-center w-screen grid-cols-2 gap-20 px-10 py-16 text-left', hoveredIndex === index ? 'text-background-alt' : 'text-foreground')}
               style={{
@@ -57,10 +58,10 @@ export default function ServicesModule({data}: {data: [string, TService][]}) {
               </SplitText>
 
               <SplitText duration={0.5}>
-                <Text type="h4" className="ml-28 max-w-[20ch]" text={heading} />
+                <Text type="h4" className="ml-28 max-w-[20ch]" text={localizedData.heading} />
               </SplitText>
 
-              <Text type="h5" className="max-w-[50ch]" text={description} />
+              <Text type="h5" className="max-w-[50ch]" text={localizedData.description} />
             </div>
           </ModalTrigger>
         </div>

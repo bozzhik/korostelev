@@ -1,24 +1,25 @@
+import type {Locale} from '@/i18n/routing'
 import {getServices} from '@/utils/getData'
+
 import {cn} from '@/lib/utils'
+import {SplitText} from '~/UI/SplitText'
 
 import Heading from '~/UI/Heading'
 import Button, {ExpandButton} from '~/UI/Button'
-import {SplitText} from '~/UI/SplitText'
 import MobileService from '~/UI/MobileService'
 import ServicesModule from '~~/index/ServicesModule'
 
-export default async function Services({where}: {where: 'index' | 'services'}) {
+export default async function Services({where, locale}: {where: 'index' | 'services'; locale: Locale}) {
   const servicesData = await getServices()
 
   if (!servicesData) {
-    return console.log('Error fetching services data')
+    console.error('Error fetching services data')
+    return null
   }
 
   const isIndex = where === 'index'
 
-  const filteredServices = Object.entries(servicesData)
-    .filter(([, service]) => (isIndex ? service.is_best : true))
-    .sort(([, a], [, b]) => (a.id ?? 0) - (b.id ?? 0))
+  const filteredServices = servicesData.filter((service) => (isIndex ? service.is_best : true)).sort((a, b) => (a.id ?? 0) - (b.id ?? 0))
 
   return (
     <section id={isIndex ? 'services' : ''} data-section="services-index" className="relative z-20">
@@ -37,12 +38,12 @@ export default async function Services({where}: {where: 'index' | 'services'}) {
         </div>
 
         {/* Desktop List */}
-        <ServicesModule data={filteredServices} />
+        <ServicesModule data={filteredServices} locale={locale} />
 
         {/* Mobile List */}
         <section data-section="mobile-services" className="flex-col hidden sm:flex">
-          {filteredServices.map(([key, {heading, description, content}], index) => (
-            <MobileService index={index} heading={heading} description={description} content={content} key={key} />
+          {filteredServices.map(({id, [locale]: serviceLocale}, index) => (
+            <MobileService key={id} index={index} heading={serviceLocale.heading} description={serviceLocale.description} content={serviceLocale.content} />
           ))}
         </section>
       </div>
