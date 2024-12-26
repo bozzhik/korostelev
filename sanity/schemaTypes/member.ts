@@ -1,48 +1,47 @@
-import {Rule, SchemaTypeDefinition} from 'sanity'
+import {defineField, Rule, SchemaTypeDefinition} from 'sanity'
+import {getLocaleVersion} from './index'
 
 export const member: SchemaTypeDefinition = {
   name: 'member',
   title: 'Команда',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'name',
       title: 'Имя',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'surname',
       title: 'Фамилия',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'position',
       title: 'Должность',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'specialization',
       title: 'Специализация',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'description',
       title: 'Описание',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'internationalizedArrayExtraBlock',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'achievements',
       title: 'Достижения',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'internationalizedArrayExtraBlock',
       validation: (rule: Rule) => rule.required(),
-    },
+    }),
     {
       name: 'image',
       title: 'Изображение',
@@ -63,8 +62,8 @@ export const member: SchemaTypeDefinition = {
     prepare(selection) {
       const {name, surname, position, image} = selection
       return {
-        title: `${name} ${surname}`,
-        subtitle: position,
+        title: `${getLocaleVersion(name)} ${getLocaleVersion(surname)}`,
+        subtitle: getLocaleVersion(position),
         media: image,
       }
     },

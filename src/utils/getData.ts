@@ -25,12 +25,8 @@ export type TProject = {
 }
 
 export type TMember = {
-  name: string
-  surname: string
-  position: string
-  specialization: string
-  description: TContentBlock[]
-  achievements: TContentBlock[]
+  ru: {name: string; surname: string; position: string; specialization: string; description: TContentBlock[]; achievements: TContentBlock[]}
+  en: {name: string; surname: string; position: string; specialization: string; description: TContentBlock[]; achievements: TContentBlock[]}
   image: never
 }
 
@@ -111,15 +107,26 @@ export async function getProjects(): Promise<TProject[]> {
 
 export async function getMembers(): Promise<TMember[]> {
   const data = await client.fetch<TMember[]>(
-    ` *[_type == "member" ] | order(_createdAt asc) {
-          name,
-          surname,
-          position,
-          specialization,
-          description,
-          achievements,
+    ` *[_type == "member"] | order(_createdAt asc) {
+          "ru": {
+            "name": name[_key == "ru"][0].value,
+            "surname": surname[_key == "ru"][0].value,
+            "position": position[_key == "ru"][0].value,
+            "specialization": specialization[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value,
+            "achievements": achievements[_key == "ru"][0].value 
+          },
+          "en": {
+            "name": name[_key == "en"][0].value,
+            "surname": surname[_key == "en"][0].value,
+            "position": position[_key == "en"][0].value,
+            "specialization": specialization[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value,
+            "achievements": achievements[_key == "en"][0].value 
+          },
           image,
-      }`,
+      }
+    `,
     {},
     {
       next: {

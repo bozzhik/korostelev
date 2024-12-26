@@ -1,4 +1,5 @@
 import {defineField, Rule, SchemaTypeDefinition} from 'sanity'
+import {getLocaleVersion} from './index'
 
 export const slide: SchemaTypeDefinition = {
   name: 'slide',
@@ -31,11 +32,6 @@ export const slide: SchemaTypeDefinition = {
     },
     prepare(selection) {
       const {title, description, id} = selection
-
-      const getLocaleVersion = (field: unknown, locale = 'ru') =>
-        Array.isArray(field)
-          ? field.find((item) => item._key === locale)?.value || field[0]?.value
-          : field
 
       return {
         title: getLocaleVersion(title),
