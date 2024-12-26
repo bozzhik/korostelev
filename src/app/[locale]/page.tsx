@@ -19,7 +19,7 @@ export default function HomePage({params: {locale}}: LocaleParams) {
       <Projects where="index" locale={locale} />
       <Team locale={locale} />
       {/* @ts-expect-error Server Component */}
-      <News />
+      <News locale={locale} />
       <Quote />
       <Contacts />
     </main>

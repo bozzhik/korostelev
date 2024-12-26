@@ -1,23 +1,24 @@
-import {Rule, SchemaTypeDefinition} from 'sanity'
+import {defineField, Rule, SchemaTypeDefinition} from 'sanity'
+import {getLocaleVersion} from './index'
 
 export const news: SchemaTypeDefinition = {
   name: 'news',
   title: 'Новости',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'heading',
       title: 'Заголовок',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'tag',
-      title: 'Тэг',
+      title: 'Тег',
       description: 'Индустрия',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
+    }),
     {
       name: 'date',
       title: 'Дата',
@@ -25,13 +26,12 @@ export const news: SchemaTypeDefinition = {
       type: 'string',
       validation: (rule: Rule) => rule.required(),
     },
-    {
+    defineField({
       name: 'content',
       title: 'Контент',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'internationalizedArrayExtraBlock',
       validation: (rule: Rule) => rule.required(),
-    },
+    }),
     {
       name: 'image',
       title: 'Изображение',
@@ -65,7 +65,7 @@ export const news: SchemaTypeDefinition = {
     prepare(selection) {
       const {title, image, date, best} = selection
       return {
-        title: title,
+        title: getLocaleVersion(title),
         media: image,
         subtitle: `${best ? '★' : ''} ${date}`,
       }

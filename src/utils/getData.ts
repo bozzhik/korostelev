@@ -31,10 +31,9 @@ export type TMember = {
 }
 
 export type TNews = {
-  heading: string
-  tag: string
+  ru: {heading: string; tag: string; content: TContentBlock[]}
+  en: {heading: string; tag: string; content: TContentBlock[]}
   date: string
-  content: TContentBlock[]
   image: never
   source: string
   is_best?: boolean
@@ -139,15 +138,23 @@ export async function getMembers(): Promise<TMember[]> {
 
 export async function getNews(): Promise<TNews[]> {
   const data = await client.fetch<TNews[]>(
-    ` *[_type == "news" ] {
-          heading,
-          tag,
+    ` *[_type == "news"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "tag": tag[_key == "ru"][0].value,
+            "content": content[_key == "ru"][0].value,
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "tag": tag[_key == "en"][0].value,
+            "content": content[_key == "en"][0].value,
+          },
           date,
-          content,
           image,
           source,
-          is_best,
-      }`,
+          is_best
+      }
+    `,
     {},
     {
       next: {

@@ -5,12 +5,15 @@ import Heading from '~/UI/Heading'
 import Button, {ExpandButton} from '~/UI/Button'
 import NewsBody from '~~/index/NewsBody'
 
-export default async function News({where = 'index'}: {where: 'index' | 'news'}) {
+import type {Locale} from '@/i18n/routing'
+
+export default async function News({where = 'index', locale}: {where: 'index' | 'news'; locale: Locale}) {
   const newsData: TNews[] = await getNews()
   const isIndex = where === 'index'
 
   if (!newsData) {
-    return console.log('Error fetching news data')
+    console.error('Error fetching news data')
+    return null
   }
 
   const sortedNews = newsData
@@ -36,7 +39,7 @@ export default async function News({where = 'index'}: {where: 'index' | 'news'})
         )}
       </div>
 
-      <NewsBody isIndex={isIndex} newsData={sortedNews} />
+      <NewsBody isIndex={isIndex} newsData={sortedNews} locale={locale} />
     </section>
   )
 }

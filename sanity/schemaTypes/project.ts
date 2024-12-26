@@ -20,7 +20,7 @@ export const project: SchemaTypeDefinition = {
     },
     defineField({
       name: 'tag',
-      title: 'Тэг',
+      title: 'Тег',
       description: 'Индустрия',
       type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
