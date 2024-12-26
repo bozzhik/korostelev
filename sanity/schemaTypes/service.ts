@@ -1,36 +1,35 @@
-import {Rule, SchemaTypeDefinition} from 'sanity'
+import {defineField, Rule, SchemaTypeDefinition} from 'sanity'
+import {getLocaleVersion} from './index'
 
 export const service: SchemaTypeDefinition = {
   name: 'service',
   title: 'Услуги',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'heading',
       title: 'Название',
-      type: 'string',
+      type: 'internationalizedArrayString',
       validation: (rule: Rule) => rule.required(),
-    },
+    }),
     {
       name: 'id',
       title: 'ID',
       type: 'number',
       validation: (rule: Rule) => rule.required(),
     },
-    {
+    defineField({
       name: 'description',
       title: 'Короткое описание',
-      type: 'string',
+      type: 'internationalizedArrayExtraText',
       validation: (rule: Rule) => rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'content',
-      title: 'Контент',
-      description: 'Полное описание',
-      type: 'array',
-      of: [{type: 'block'}],
+      title: 'Полное описание',
+      type: 'internationalizedArrayExtraBlock',
       validation: (rule: Rule) => rule.required(),
-    },
+    }),
     {
       name: 'is_best',
       title: 'Лучшая услуга',
@@ -42,13 +41,15 @@ export const service: SchemaTypeDefinition = {
     select: {
       id: 'id',
       title: 'heading',
+      description: 'description',
       best: 'is_best',
     },
     prepare(selection) {
-      const {id, title, best} = selection
+      const {id, title, description, best} = selection
+
       return {
-        title: `${id}. ${title}`,
-        subtitle: `${best ? '★' : ''}`,
+        title: `${id}. ${getLocaleVersion(title)}`,
+        subtitle: `${best ? '★' : ''} ${getLocaleVersion(description)}`,
       }
     },
   },

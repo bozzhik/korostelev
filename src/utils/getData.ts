@@ -10,59 +10,58 @@ export type TContentBlock = {
 }
 
 export type TService = {
-  heading: string
+  ru: {heading: string; description: string; content: TContentBlock[]}
+  en: {heading: string; description: string; content: TContentBlock[]}
   id: number
-  description: string
-  content: TContentBlock[]
   is_best?: boolean
 }
 
 export type TProject = {
-  heading: string
+  ru: {heading: string; tag: string; description: string; client: string; content: TContentBlock[]}
+  en: {heading: string; tag: string; description: string; client: string; content: TContentBlock[]}
   id: number
-  tag: string
-  description: string
-  client: string
-  content: TContentBlock[]
   image: never
   is_best?: boolean
 }
 
 export type TMember = {
-  name: string
-  surname: string
-  position: string
-  specialization: string
-  description: TContentBlock[]
-  achievements: TContentBlock[]
+  ru: {name: string; surname: string; position: string; specialization: string; description: TContentBlock[]; achievements: TContentBlock[]}
+  en: {name: string; surname: string; position: string; specialization: string; description: TContentBlock[]; achievements: TContentBlock[]}
   image: never
 }
 
 export type TNews = {
-  heading: string
-  tag: string
+  ru: {heading: string; tag: string; content: TContentBlock[]}
+  en: {heading: string; tag: string; content: TContentBlock[]}
   date: string
-  content: TContentBlock[]
   image: never
   source: string
   is_best?: boolean
 }
 
 export type TSlide = {
-  heading: string
-  description: string
+  ru: {heading: string; description: string}
+  en: {heading: string; description: string}
   id: number
 }
 
 export async function getServices(): Promise<TService[]> {
   const data = await client.fetch<TService[]>(
-    ` *[_type == "service" ] {
-          heading,
+    ` *[_type == "service"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value,
+            "content": content[_key == "ru"][0].value 
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value,
+            "content": content[_key == "en"][0].value 
+          },
           id,
-          description,
-          content,
           is_best,
-      }`,
+      }
+    `,
     {},
     {
       next: {
@@ -75,16 +74,26 @@ export async function getServices(): Promise<TService[]> {
 
 export async function getProjects(): Promise<TProject[]> {
   const data = await client.fetch<TProject[]>(
-    ` *[_type == "project" ] {
-          heading,
+    ` *[_type == "project"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "tag": tag[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value,
+            "client": client[_key == "ru"][0].value,
+            "content": content[_key == "ru"][0].value,
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "tag": tag[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value,
+            "client": client[_key == "en"][0].value,
+            "content": content[_key == "en"][0].value,
+          },
           id,
-          tag,
-          description,
-          client,
-          content,
           image,
           is_best,
-      }`,
+      }
+    `,
     {},
     {
       next: {
@@ -97,15 +106,26 @@ export async function getProjects(): Promise<TProject[]> {
 
 export async function getMembers(): Promise<TMember[]> {
   const data = await client.fetch<TMember[]>(
-    ` *[_type == "member" ] | order(_createdAt asc) {
-          name,
-          surname,
-          position,
-          specialization,
-          description,
-          achievements,
+    ` *[_type == "member"] | order(_createdAt asc) {
+          "ru": {
+            "name": name[_key == "ru"][0].value,
+            "surname": surname[_key == "ru"][0].value,
+            "position": position[_key == "ru"][0].value,
+            "specialization": specialization[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value,
+            "achievements": achievements[_key == "ru"][0].value 
+          },
+          "en": {
+            "name": name[_key == "en"][0].value,
+            "surname": surname[_key == "en"][0].value,
+            "position": position[_key == "en"][0].value,
+            "specialization": specialization[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value,
+            "achievements": achievements[_key == "en"][0].value 
+          },
           image,
-      }`,
+      }
+    `,
     {},
     {
       next: {
@@ -118,15 +138,23 @@ export async function getMembers(): Promise<TMember[]> {
 
 export async function getNews(): Promise<TNews[]> {
   const data = await client.fetch<TNews[]>(
-    ` *[_type == "news" ] {
-          heading,
-          tag,
+    ` *[_type == "news"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "tag": tag[_key == "ru"][0].value,
+            "content": content[_key == "ru"][0].value,
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "tag": tag[_key == "en"][0].value,
+            "content": content[_key == "en"][0].value,
+          },
           date,
-          content,
           image,
           source,
-          is_best,
-      }`,
+          is_best
+      }
+    `,
     {},
     {
       next: {
@@ -139,11 +167,18 @@ export async function getNews(): Promise<TNews[]> {
 
 export async function getSlides(): Promise<TSlide[]> {
   const data = await client.fetch<TSlide[]>(
-    ` *[_type == "slide" ] {
-          heading,
-          description,
-          id,
-      }`,
+    ` *[_type == "slide"] {
+          "ru": {
+            "heading": heading[_key == "ru"][0].value,
+            "description": description[_key == "ru"][0].value
+          },
+          "en": {
+            "heading": heading[_key == "en"][0].value,
+            "description": description[_key == "en"][0].value
+          },
+          id
+      }
+    `,
     {},
     {
       next: {

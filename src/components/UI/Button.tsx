@@ -2,8 +2,10 @@ import CrossIcon from '$/cross.svg'
 import CrossDarkIcon from '$/cross-dark.svg'
 
 import {cn} from '@/lib/utils'
+import {useTranslations} from 'next-intl'
+
 import Image from 'next/image'
-import Link from 'next/link'
+import {Link} from '@/i18n/routing'
 
 type Props = {
   variant?: 'outline' | 'solid'
@@ -11,7 +13,7 @@ type Props = {
   icon?: boolean
   to?: string
   target?: '_blank' | '_self'
-  text: string
+  text?: string
   className?: string
   onClick?: () => void
 }
@@ -42,11 +44,13 @@ export default function Button({variant = 'outline', mode = 'light', icon = true
   )
 }
 
-export function ExpandButton({mode = 'dark', to = '#', text, className}: Props) {
+export function ExpandButton({mode = 'dark', to = '#', className}: Props) {
+  const t = useTranslations('Button')
+
   return (
     <Link href={to} className={cn(buttonVariants.base, 'flex-row-reverse font-bold uppercase', className)}>
       <Image quality={100} className="s-7 group-hover:rotate-[45deg] duration-200 ease-in" src={mode === 'dark' ? CrossIcon : CrossDarkIcon} alt="" />
-      <span className="mt-1 leading-none">{text}</span>
+      <span className="mt-1 leading-none">{t('expand')}</span>
     </Link>
   )
 }
