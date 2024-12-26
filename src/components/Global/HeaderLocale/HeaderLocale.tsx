@@ -15,7 +15,9 @@ export default function HeaderLocale() {
   const newLocale: Locale = currentLocale === 'ru' ? 'en' : 'ru'
 
   const toggleLocale = () => {
-    const newPathname = `/${newLocale}${pathname.replace(/^\/[a-z]{2}/, '')}`
+    const hash = window.location.hash
+    const newPathname = `/${newLocale}${pathname.replace(/^\/[a-z]{2}/, '')}${hash}`
+
     router.push(newPathname)
   }
 
