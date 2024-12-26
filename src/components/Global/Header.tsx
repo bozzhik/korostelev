@@ -10,20 +10,20 @@ import LogoImage from '$/logo.svg'
 import {X} from 'lucide-react'
 
 import Image from 'next/image'
-import {Link} from '@/i18n/routing'
+import {Link, Locale} from '@/i18n/routing'
 import Button from '~/UI/Button'
 import Text from '~/UI/Text'
 import HeaderLocale from '~/Global/HeaderLocale/HeaderLocale'
 
 const headerData = {
-  services: 'Услуги',
-  projects: 'Проекты',
-  team: 'Команда',
-  news: 'Новости',
-  contacts: 'Контакты',
+  services: ['Услуги', 'Services'],
+  projects: ['Проекты', 'Projects'],
+  team: ['Команда', 'Team'],
+  news: ['Новости', 'News'],
+  contacts: ['Контакты', 'Contacts'],
 }
 
-export default function Header() {
+export default function Header({locale}: {locale: Locale}) {
   const container = useRef<HTMLElement | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -82,7 +82,7 @@ export default function Header() {
 
       <nav className="flex items-center justify-around h-full gap-5 xl:gap-3.5 pr-8 sm:hidden bg-red">
         {Object.entries(headerData).map(([key, value]) => (
-          <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-11 pr-5 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value} key={key} />
+          <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-11 pr-5 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value[locale === 'ru' ? 0 : 1]} key={key} />
         ))}
 
         <HeaderLocale />
@@ -103,7 +103,7 @@ export default function Header() {
           <div className="flex flex-col gap-3.5">
             {Object.entries(headerData).map(([key, value]) => (
               <Link href={`/#${key}`} className="text-3xl font-light uppercase menu-item w-fit" onClick={toggleMenu} key={key}>
-                {value}
+                {value[locale === 'ru' ? 0 : 1]}
               </Link>
             ))}
           </div>

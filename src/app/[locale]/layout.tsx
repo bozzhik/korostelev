@@ -73,7 +73,7 @@ export default async function RootLayout({children, params: {locale}}: Readonly<
         {process.env.NODE_ENV === 'production' && <Loader />}
         <Notification />
 
-        <Header />
+        <Header locale={locale} />
         {children}
       </body>
       {process.env.NODE_ENV === 'production' && <YandexMetrika />}
