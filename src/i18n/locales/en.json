@@ -25,7 +25,7 @@
       "name": "Your Name",
       "tel": "Phone Number",
       "email": "Email",
-      "message": "How can I help you?",
+      "message": "How can we help you?",
       "policy": ["I agree with the", "data processing policy"],
       "button": ["Submit form", "Form submitted"]
     }

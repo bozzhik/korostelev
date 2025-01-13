@@ -4,15 +4,11 @@ import {Link} from '@/i18n/routing'
 export default function PrivacyPolicyPage() {
   return (
     <main className="py-32 xl:py-28 sm:py-24">
-      <section className={cn('max-w-[80ch] sm:mx-4 mx-auto prose text-background', 'prose-a:text-red prose-a:hover:no-underline', 'prose-h1:text-red prose-h2:text-red')}>
+      <section className={cn('max-w-[80ch] sm:mx-4 mx-auto prose text-background', 'prose-a:text-red hover:prose-a:no-underline', 'prose-h1:text-red prose-h2:text-red')}>
         <h1 className="xl:text-[34px] sm:text-2xl">Политика конфиденциальности и обработки персональных данных</h1>
 
         <p>
-          Данная Политика конфиденциальности и обработки персональных данных определяет порядок сбора, хранения, применения, раскрытия и передачи информации, которую{' '}
-          <Link href="https://korostelev.legal" target="_blank">
-            Korostelev & Partners
-          </Link>{' '}
-          (далее Компания) получает от пользователей и клиентов ресурса (далее Пользователь){' '}
+          Данная Политика конфиденциальности и обработки персональных данных определяет порядок сбора, хранения, применения, раскрытия и передачи информации, которую <Link href="#">ООО &quot;Крэйк Лигал&quot;, ОГРН 1237700887423</Link> (далее Компания) получает от пользователей и клиентов ресурса (далее Пользователь){' '}
           <Link href="https://korostelev.legal" target="_blank">
             korostelev.legal
           </Link>{' '}
