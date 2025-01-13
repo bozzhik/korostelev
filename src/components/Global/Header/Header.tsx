@@ -15,7 +15,10 @@ const headerData = {
 }
 
 export default function Header({locale}: {locale: Locale}) {
+  const t = useTranslations('Header.menu')
   const t2 = useTranslations('Contacts')
+
+  const mobileButtons = [t('open'), t('close')]
 
   return (
     <header className="fixed z-50 flex items-center justify-between w-screen sm:p-3 sm:bg-foreground bg-red">
@@ -23,7 +26,7 @@ export default function Header({locale}: {locale: Locale}) {
         <Image quality={100} src={LogoImage} className="xl:w-[170px] sm:w-[110px] object-contain" alt="" />
       </Link>
 
-      <HeaderModule locale={locale} links={headerData} address={`${t2.raw('address')}`} />
+      <HeaderModule locale={locale} links={headerData} address={`${t2.raw('address')}`} menuLabels={mobileButtons} />
     </header>
   )
 }

@@ -1,4 +1,10 @@
 {
+  "Header": {
+    "menu": {
+      "open": "Menu",
+      "close": "Close"
+    }
+  },
   "Hero": {
     "heading": "Maxim Korostelev",
     "button": "Request a consultation"

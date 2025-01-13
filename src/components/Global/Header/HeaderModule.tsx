@@ -13,7 +13,14 @@ import Button from '~/UI/Button'
 import Text from '~/UI/Text'
 import HeaderLocale from '~/Global/Header/HeaderLocale'
 
-export default function HeaderModule({locale, links, address}: {locale: Locale; links: {[key: string]: string[]}; address: string}) {
+type Props = {
+  locale: Locale
+  links: {[key: string]: string[]}
+  address: string
+  menuLabels: string[]
+}
+
+export default function HeaderModule({locale, links, address, menuLabels}: Props) {
   const container = useRef<HTMLElement | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -71,17 +78,21 @@ export default function HeaderModule({locale, links, address}: {locale: Locale; 
           <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-11 pr-5 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value[locale === 'ru' ? 0 : 1]} key={key} />
         ))}
 
-        <HeaderLocale />
+        <HeaderLocale view="desktop" />
       </nav>
 
-      <div className="hidden sm:block z-[99] pr-2 justify-self-end text-xl uppercase text-background" onClick={toggleMenu}>
-        {isMenuOpen ? (
-          <div className="flex items-center gap-2">
-            Закрыть <X />
-          </div>
-        ) : (
-          'Меню'
-        )}
+      <div className={`hidden sm:flex items-center ${!isMenuOpen ? 'gap-4' : 'gap-3'} z-[99] justify-self-end text-xl uppercase text-background`}>
+        <div onClick={toggleMenu}>
+          {isMenuOpen ? (
+            <div className="flex items-center gap-1">
+              {menuLabels[1]} <X />
+            </div>
+          ) : (
+            menuLabels[0]
+          )}
+        </div>
+
+        <HeaderLocale view="mobile" />
       </div>
 
       <section ref={container} className={`absolute inset-0 z-20 w-screen h-screen ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
