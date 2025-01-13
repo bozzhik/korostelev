@@ -29,5 +29,48 @@
       "policy": ["I agree with the", "data processing policy"],
       "button": ["Submit form", "Form submitted"]
     }
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy and Personal Data Processing",
+    "intro": "This Privacy Policy and Personal Data Processing outlines the procedure for collecting, storing, using, disclosing, and transferring information that <span>LLC 'Craig Legal', OGRN 1237700887423</span> (hereinafter referred to as the Company) receives from users and clients of the resource <a>korostelev.legal</a> (hereinafter referred to as the Site).",
+    "general": {
+      "title": "General Provisions",
+      "text": "Using the Site means the User agrees to this Privacy Policy and the terms of processing the User's personal data. If the User disagrees with the terms of the Privacy Policy, they must stop using the Site. This Privacy Policy applies only to this Site and the information voluntarily provided by Users. It does not extend to third-party resources, including those that mention the Site or contain direct links to the Site. The Company does not verify the accuracy of personal data provided by the User."
+    },
+    "data": {
+      "title": "Personal Information Processed by the Company",
+      "text": "When visiting the Site, the User's IP address, domain name, and IP registration country are automatically determined. The Company also records facts of navigation on the Site, and other information voluntarily provided by the User's browser. This data helps significantly simplify the use of the Site, making the search for relevant or interesting materials much faster and more convenient.",
+      "text2": "The Site implements a standard technology for personalizing the display styles of pages and their content to the User's monitor settings — Cookies. Cookies are data saved on the hard drive about visited websites, user settings, and personal viewing preferences. The cookie technology implemented on the Site provides information about which external resource the User accessed the Site from, the domain name of the provider, the visitor's country, and data on materials downloaded from the Site. This technology is also used by browser counters of companies such as Yandex, Rambler, and Google.",
+      "text3": "Cookies do not collect personal or confidential information about the User. This technology can be blocked during personal use of the Site through the User's browser settings or set up mandatory notifications for cookies. The Site implements standard technology for counting visitors, page views, evaluating the technical capabilities of host servers, ratings, and visits to third-party organizations. This information allows the Company to account for visitor activity, the relevance of presented content, its demand, and to characterize the audience. Such data collection also helps the Company arrange pages and material most conveniently for users, ensure effective interaction, and ensure flawless performance with visitors' browsers.",
+      "text4": "The Company records information about movements across the Site and viewed pages in general, not on a personal basis. No personal or individual data will be used or shared with third parties by the Company without the Users' permission. Any personal information, including identification, is provided voluntarily by the Site's users. All data the User enters on the Site during registration, order placement, or form completion (full name, email address, contact phone number, position, company) is kept confidential and not disclosed. Each Site visitor has the right to refuse to provide any personal information and visit the resource anonymously, except where such actions may hinder proper use of certain features or functionalities of the Site."
+    },
+    "processing": {
+      "title": "Purposes of Processing Users' Personal Information",
+      "text": "The information collected by the Company about Site visitors' personal data may be used for the following purposes: communication with the User, including sending notifications, requests, and information related to the use of the Site, the Company's activities, fulfillment of agreements and contracts of the Company, as well as processing requests and applications from the User; improving the quality of service for clients and users. The provided data helps respond more effectively to visitors' and clients' requests and inquiries; personalizing the user experience. The information is used to create a 'profile' of the user, determine the content of interest, and identify the services and services relevant to the User provided on the Site."
+    },
+    "cookies": {
+      "title": "Cookies and Tracking",
+      "text": "The Site implements a standard technology for personalizing the display styles of pages and their content to the User's monitor settings — Cookies. Cookies are data saved on the hard drive about visited websites, user settings, and personal viewing preferences. The cookie technology implemented on the Site provides information about which external resource the User accessed the Site from, the domain name of the provider, the visitor's country, and data on materials downloaded from the Site. This technology is also used by browser counters of companies such as Yandex, Rambler, and Google. Cookies do not collect personal or confidential information about the User. This technology can be blocked during personal use of the Site through the User's browser settings or set up mandatory notifications for cookies."
+    },
+    "protection": {
+      "title": "Measures to Protect Users' Personal Information",
+      "text": "The Company takes the necessary and sufficient organizational and technical measures to protect the User's personal information from unlawful or accidental access, destruction, modification, blocking, copying, distribution, and other unlawful actions by third parties."
+    },
+    "purposes": {
+      "title": "Purposes of Processing Users' Personal Information",
+      "text": "The information collected by the Company about Site visitors' personal data may be used for the following purposes: communication with the User, including sending notifications, requests, and information related to the use of the Site, the Company's activities, fulfillment of agreements and contracts of the Company, as well as processing requests and applications from the User; improving the quality of service for clients and users. The provided data helps respond more effectively to visitors' and clients' requests and inquiries; personalizing the user experience. The information is used to create a 'profile' of the user, determine the content of interest, and identify the services and services relevant to the User provided on the Site."
+    },
+    "changes": {
+      "title": "Changes to the Privacy Policy",
+      "text": "The Company reserves the right to amend or adjust the rules and terms of the Privacy Policy. If any changes or innovations are introduced to this Policy, the date of the last update is indicated. By using this Site, the User agrees to the above rules and terms and assumes responsibility for periodically reviewing updates and changes to the Privacy Policy."
+    },
+    "law": {
+      "title": "Applicable Law",
+      "text": "This Policy and the relationship between the User and the Company arising in connection with the application of the Privacy Policy are governed by the laws of the Russian Federation."
+    },
+    "feedback": {
+      "title": "Feedback",
+      "text": "All suggestions or questions regarding the Company's Site Privacy Policy can be directed to the following contact: <a>maxim.korostelev@korostelev.legal</a>."
+    }
   }
 }
