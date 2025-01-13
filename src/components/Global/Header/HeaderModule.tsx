@@ -73,9 +73,9 @@ export default function HeaderModule({locale, links, address, menuLabels}: Props
 
   return (
     <>
-      <nav className="flex items-center justify-around h-full gap-5 xl:gap-3.5 pr-8 sm:hidden bg-red">
+      <nav className="flex items-center justify-around h-full gap-3.5 xl:gap-2.5 pl-4 pr-8 xl:pl-3 xl:pr-6 sm:hidden bg-red">
         {Object.entries(links).map(([key, value]) => (
-          <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-11 pr-5 xl:pl-8 xl:pr-5 xl:w-full xl:gap-2 text-background xl:text-base" text={value[locale === 'ru' ? 0 : 1]} key={key} />
+          <Button to={`/#${key}`} className="flex-row-reverse py-2 xl:py-1.5 pl-5 pr-4 w-full gap-2.5 xl:gap-1.5 text-background xl:text-sm" text={value[locale === 'ru' ? 0 : 1]} key={key} />
         ))}
 
         <HeaderLocale view="desktop" />

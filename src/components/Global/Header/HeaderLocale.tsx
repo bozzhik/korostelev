@@ -23,7 +23,7 @@ export default function HeaderLocale({view}: {view: 'desktop' | 'mobile'}) {
 
   if (view === 'desktop') {
     return (
-      <button onClick={toggleLocale} className={cn(buttonVariants.base, 'px-3.5 xl:px-5 py-2 xl:py-1.5 xl:text-base', 'group/button relative overflow-hidden text-background bg-red border-2 border-background/70 hover:border-background hover:text-red active:scale-90 transition-all duration-150')}>
+      <button onClick={toggleLocale} className={cn(buttonVariants.base, 'px-6 xl:px-4 py-2 xl:py-1.5 xl:text-sm', 'group/button relative overflow-hidden text-background bg-red border-2 border-background/70 hover:border-background hover:text-red active:scale-90 transition-all duration-150')}>
         <span className="absolute bottom-0 left-0 z-0 w-full h-0 transition-all duration-500 bg-gradient-to-t from-background to-background group-hover/button:h-full" />
         <span className="relative z-10 transition-all duration-500 group-hover/button:text-red uppercase">{newLocale}</span>
       </button>

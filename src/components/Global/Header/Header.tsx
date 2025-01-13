@@ -21,9 +21,9 @@ export default function Header({locale}: {locale: Locale}) {
   const mobileButtons = [t('open'), t('close')]
 
   return (
-    <header className="fixed z-50 flex items-center justify-between w-screen sm:p-3 sm:bg-foreground bg-red">
-      <Link href="/" className="z-[99] px-4 py-3 sm:p-1.5 bg-red w-fit">
-        <Image quality={100} src={LogoImage} className="xl:w-[170px] sm:w-[110px] object-contain" alt="" />
+    <header className="fixed z-50 grid grid-cols-2 items-center justify-between w-screen sm:p-3 sm:bg-foreground">
+      <Link href="/" className="z-[99] px-4 py-3 xl:px-3 xl:py-2.5 sm:p-1.5 bg-red w-fit">
+        <Image quality={100} src={LogoImage} className="xl:w-[140px] sm:w-[110px] object-contain" alt="" />
       </Link>
 
       <HeaderModule locale={locale} links={headerData} address={`${t2.raw('address')}`} menuLabels={mobileButtons} />
