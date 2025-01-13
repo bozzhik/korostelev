@@ -26,7 +26,7 @@ export default function TeamModule({data, locale}: {data: TMember[]; locale: Loc
         return (
           <div
             key={index} // Unique key
-            className="relative overflow-hidden"
+            className="relative overflow-hidden [&>button]:w-full"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -62,7 +62,7 @@ export default function TeamModule({data, locale}: {data: TMember[]; locale: Loc
                 >
                   <div className="space-y-1.5 sm:space-y-0">
                     <Text type="h5" text={localizedData.position} />
-                    <Text type="h4" className="leading-none uppercase" text={`${localizedData.name} ${localizedData.surname}`} />
+                    <Text type="h4" className="leading-none uppercase xl:max-w-[10ch] sm:max-w-none" text={`${localizedData.name} ${localizedData.surname}`} />
                   </div>
 
                   <Text
