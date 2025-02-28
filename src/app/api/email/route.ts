@@ -10,8 +10,8 @@ export type TEmailFields = TFormFields & {
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const emailsList = {
-  from: 'notifications@korostelev.legal',
-  to: 'maxim.korostelev@korostelev.legal',
+  from: 'korostelev@resend.dev',
+  to: 'maxim.a.korostelev@gmail.com',
 }
 
 export async function POST(req: NextRequest) {
