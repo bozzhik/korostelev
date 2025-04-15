@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   keywords: 'сопровождение, сделки, бизнеса, право, компании, компаний, споры, практика, защита, вопросам, коростелев, korostelev',
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 86400
+
 import {Locale, routing} from '@/i18n/routing'
 import {notFound} from 'next/navigation'
 
